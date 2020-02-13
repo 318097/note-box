@@ -1,0 +1,19 @@
+.checkboxContainer {
+  height: 24px;
+  width: 24px;
+  top: 5px;
+  margin-left: 3px;
+  display: inline-block;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  background: #ccc;
+  position: relative;
+}
+
+.checkbox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
