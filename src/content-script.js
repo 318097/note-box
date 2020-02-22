@@ -1,28 +1,39 @@
+const config = {
+  dbName: "note-box"
+};
+
 window.onload = () => {
-  const localDB = localStorage.getItem("note-box");
+  const localDB = localStorage.getItem(config.dbName);
   const database = JSON.parse(localDB || "{}");
 
-  const mdFiles = document.querySelectorAll(".Box .Box-body");
-  console.log(`markdown body - ${mdFiles.length} matches :`, mdFiles);
+  // const mdFiles = document.querySelectorAll(".Box .Box-body");
+  // console.log(`markdown body - ${mdFiles.length} matches :`, mdFiles);
+
   const initialize = () => {
-    const links = document.querySelectorAll(".Box .Box-body li a");
-    links.forEach(link => {
-      const spanElement = document.createElement("span");
-      spanElement.setAttribute("class", "checkboxContainer");
+    const listElements = document.querySelectorAll(".Box .Box-body li");
+    listElements.forEach(listElement => {
+      const link = listElement.querySelector("a");
+      if (link) {
+        const spanElement = document.createElement("span");
+        spanElement.setAttribute("class", "checkboxContainer");
 
-      const linkUrl = link.href;
-      const isChecked = database[linkUrl];
+        const linkUrl = link.href;
+        const isChecked = database[linkUrl];
 
-      const checkbox = document.createElement("input");
-      checkbox.checked = isChecked;
-      checkbox.setAttribute("type", "checkbox");
-      checkbox.setAttribute("class", "checkbox");
-      checkbox.setAttribute("data-url", linkUrl);
+        if (isChecked) {
+          link.setAttribute("class", "finished");
+        }
 
-      spanElement.appendChild(checkbox);
+        const checkbox = document.createElement("input");
+        checkbox.checked = isChecked;
+        checkbox.setAttribute("type", "checkbox");
+        checkbox.setAttribute("class", "checkbox");
+        checkbox.setAttribute("data-url", linkUrl);
 
-      const listElement = link.closest("li");
-      listElement.insertBefore(spanElement, listElement.childNodes[0]);
+        spanElement.appendChild(checkbox);
+
+        listElement.insertBefore(spanElement, listElement.childNodes[0]);
+      }
     });
   };
 
@@ -34,8 +45,7 @@ window.onload = () => {
       const key = event.target.getAttribute("data-url");
       const checkedValue = event.target.checked;
       database[key] = checkedValue;
-      localStorage.setItem("note-box", JSON.stringify(database));
-      console.log("foundd....");
+      localStorage.setItem(config.dbName, JSON.stringify(database));
     }
   };
   document.addEventListener("click", handleClick);
