@@ -1,17 +1,11 @@
 window.onload = () => {
   const localDB = localStorage.getItem("note-box");
   const database = JSON.parse(localDB || "{}");
-  // document.body.style.backgroundColor = "#f3f3f3";
-  console.log("Hi, from chrome link..");
 
   const mdFiles = document.querySelectorAll(".Box .Box-body");
   console.log(`markdown body - ${mdFiles.length} matches :`, mdFiles);
   const initialize = () => {
-    // const listCollection = mdFiles[0].querySelectorAll("ol");
-
-    // listCollection.forEach(list => {
-    // const links = list.querySelectorAll("li a");
-    const links = mdFiles[0].querySelectorAll("li a");
+    const links = document.querySelectorAll(".Box .Box-body li a");
     links.forEach(link => {
       const spanElement = document.createElement("span");
       spanElement.setAttribute("class", "checkboxContainer");
@@ -27,13 +21,9 @@ window.onload = () => {
 
       spanElement.appendChild(checkbox);
 
-      const listElement =
-        link.parentNode.nodeName === "LI"
-          ? link.parentNode
-          : link.parentNode.parentNode;
-      listElement.append(spanElement);
+      const listElement = link.closest("li");
+      listElement.insertBefore(spanElement, listElement.childNodes[0]);
     });
-    // });
   };
 
   const handleClick = event => {
