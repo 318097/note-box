@@ -27,7 +27,7 @@ window.onload = () => {
         const isChecked = database[linkUrl];
 
         if (isChecked) {
-          link.setAttribute("class", "finished");
+          listElement.setAttribute("class", "finished");
         }
 
         const checkbox = document.createElement("input");
