@@ -2,6 +2,12 @@ const config = {
   dbName: "note-box"
 };
 
+const getDomain = () => {
+  const url = window.location.href;
+  const arr = url.split("/");
+  return arr[0] + "//" + arr[2];
+};
+
 window.onload = () => {
   const localDB = localStorage.getItem(config.dbName);
   const database = JSON.parse(localDB || "{}");
@@ -50,5 +56,7 @@ window.onload = () => {
   };
   document.addEventListener("click", handleClick);
 
-  initialize();
+  /* ======================= */
+  const url = getDomain();
+  if (url.includes("github")) initialize();
 };
