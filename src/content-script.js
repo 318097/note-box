@@ -59,4 +59,15 @@ window.onload = () => {
   /* ======================= */
   const url = getDomain();
   if (url.includes("github")) initialize();
+
+  chrome.runtime.onMessage.addListener((request, sender, senderResponse) => {
+    switch (request.action) {
+      case "getURL":
+        senderResponse(url);
+        break;
+      default:
+        senderResponse("");
+        break;
+    }
+  });
 };

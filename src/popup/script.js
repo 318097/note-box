@@ -5,12 +5,6 @@ const noteListContainer = document.querySelector(".noteList");
 const textbox = document.querySelector(".inputbox");
 const addNoteButton = document.querySelector(".addNote");
 
-const getDomain = () => {
-  const url = window.location.href;
-  const arr = url.split("/");
-  return arr[0] + "//" + arr[2];
-};
-
 const renderNotes = () => {
   const output = notes.map(note => {
     const element = document.createElement("div");
@@ -33,12 +27,22 @@ const handleClick = () => {
 };
 
 const initialize = () => {
-  const url = getDomain();
-  header.innerHTML = url;
   addNoteButton.addEventListener("click", handleClick);
   renderNotes();
 };
 initialize();
+console.log("**POPUP**");
+
+const messenger = (action, cb) => {
+  chrome.tabs.query({ active: true, currentWindow: true }, tabs => {
+    chrome.tabs.sendMessage(tabs[0].id, { action }, cb);
+  });
+};
+
+messenger("getURL", url => {
+  header.innerHTML = url;
+});
+
 // chrome.storage.sync.get("color", function(data) {
 //   changeColor.style.backgroundColor = data.color;
 //   changeColor.setAttribute("value", data.color);
