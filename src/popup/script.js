@@ -24,7 +24,11 @@ window.onload = () => {
     const content = textbox.value;
     if (!content) return;
 
-    notes.push({ id: Math.round(Math.random() * 100), content });
+    notes.push({
+      id: Math.round(Math.random() * 100),
+      content,
+      createdAt: new Date().toISOString()
+    });
     textbox.value = "";
     renderNotes();
     saveNotes();

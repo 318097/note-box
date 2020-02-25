@@ -1,9 +1,13 @@
+@font-face {
+  src: url("../../assets/fonts/RobotoCondensed-Regular.ttf");
+  font-family: font1;
+}
 * {
   box-sizing: border-box;
-  font-family: monospace;
   outline: none;
 }
 body {
+  font-family: font1;
   border-radius: 20px;
   height: 450px;
   width: 325px;
