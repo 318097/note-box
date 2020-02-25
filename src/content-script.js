@@ -5,7 +5,8 @@ const config = {
 const getDomain = () => {
   const url = window.location.href;
   const arr = url.split("/");
-  return arr[0] + "//" + arr[2];
+  // return arr[0] + "//" + arr[2];
+  return arr[2];
 };
 
 window.onload = () => {
@@ -59,15 +60,17 @@ window.onload = () => {
   /* ======================= */
   const url = getDomain();
   if (url.includes("github")) initialize();
-
-  chrome.runtime.onMessage.addListener((request, sender, senderResponse) => {
-    switch (request.action) {
-      case "getURL":
-        senderResponse(url);
-        break;
-      default:
-        senderResponse("");
-        break;
-    }
-  });
 };
+
+chrome.runtime.onMessage.addListener((request, sender, senderResponse) => {
+  // console.log("Contents Script:", request);
+  switch (request.action) {
+    case "getURL":
+      return senderResponse(getDomain());
+
+    case "logData":
+      chrome.storage.sync.get("notes", data => console.log("NoteBox:", data));
+      break;
+  }
+  senderResponse("");
+});

@@ -5,8 +5,8 @@
 }
 body {
   border-radius: 20px;
-  height: 500px;
-  width: 350px;
+  height: 450px;
+  width: 325px;
 }
 .container {
   display: flex;
@@ -21,6 +21,7 @@ body {
 .header {
   font-weight: bold;
   padding: 8px;
+  border-radius: 5px;
   background: lightgreen;
 }
 .noteList {
@@ -32,7 +33,7 @@ body {
   padding: 8px;
   background: white;
   border-radius: 5px;
-  margin: 4px;
+  margin: 4px 0;
 }
 .controls {
   display: flex;
