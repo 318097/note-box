@@ -7,7 +7,7 @@ window.onload = () => {
   const textbox = document.querySelector(".inputbox");
   const addNoteButton = document.querySelector(".addNote");
 
-  setTimeout(initialize, 500);
+  initialize();
 
   function renderNotes() {
     noteListContainer.textContent = "";
@@ -41,7 +41,7 @@ window.onload = () => {
       header.innerHTML = `Notes: ${url || "Others"}`;
       domainUrl = url;
 
-      getNotes(data => {
+      getDate("notes", data => {
         const domainNotes = (data.notes && data.notes[url]) || [];
         notes.push(...domainNotes);
         renderNotes();
@@ -61,7 +61,7 @@ window.onload = () => {
   }
 
   function saveNotes() {
-    getNotes(data => {
+    getDate("notes", data => {
       const prevdata = data.notes || {};
       const updatedNotes = { ...prevdata, [domainUrl]: notes };
       chrome.storage.sync.set({ notes: updatedNotes }, result =>
@@ -70,7 +70,7 @@ window.onload = () => {
     });
   }
 
-  function getNotes(cb) {
-    chrome.storage.sync.get("notes", cb);
+  function getDate(key, cb) {
+    chrome.storage.sync.get(key, cb);
   }
 };

@@ -60,17 +60,15 @@ window.onload = () => {
   /* ======================= */
   const url = getDomain();
   if (url.includes("github")) initialize();
+
+  chrome.runtime.onMessage.addListener((request, sender, senderResponse) => {
+    // console.log("Contents Script:", request);
+    switch (request.action) {
+      case "getURL":
+        senderResponse(getDomain());
+        break;
+      case "logData":
+        chrome.storage.sync.get("notes", data => console.log("NoteBox:", data));
+    }
+  });
 };
-
-chrome.runtime.onMessage.addListener((request, sender, senderResponse) => {
-  // console.log("Contents Script:", request);
-  switch (request.action) {
-    case "getURL":
-      return senderResponse(getDomain());
-
-    case "logData":
-      chrome.storage.sync.get("notes", data => console.log("NoteBox:", data));
-      break;
-  }
-  senderResponse("");
-});
