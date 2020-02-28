@@ -1,3 +1,8 @@
+import $ from "jquery";
+import "./styles.css";
+
+console.log($);
+
 window.onload = () => {
   const notes = [];
   let domainUrl = "Others";
