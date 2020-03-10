@@ -2,12 +2,12 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/popup/script.js",
+  entry: "./app/popup/script.js",
   watch: true,
   mode: "development",
   devtool: "cheap-module-source-map",
   output: {
-    path: path.resolve(__dirname, "src/build/popup"),
+    path: path.resolve(__dirname, "app/build/popup"),
     filename: "script.js"
   },
   module: {
@@ -22,5 +22,5 @@ module.exports = {
       }
     ]
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./src/popup/index.html" })]
+  plugins: [new HtmlWebpackPlugin({ template: "./app/popup/index.html" })]
 };

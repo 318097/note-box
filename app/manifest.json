@@ -3,18 +3,18 @@
   "version": "1.0",
   "description": "A Notebook for every domain",
   "background": {
-    "scripts": ["src/background.js"],
+    "scripts": ["background.js"],
     "persistent": false
   },
   "permissions": ["activeTab", "declarativeContent", "storage"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["src/contentScript.js"]
+      "js": ["contentScript.js"]
     }
   ],
   "page_action": {
-    "default_popup": "src/build/popup/index.html"
+    "default_popup": "build/popup/index.html"
   },
   "manifest_version": 2
 }
