@@ -2,7 +2,7 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./app/popup/script.js",
+  entry: "./app/popup/index.js",
   watch: true,
   mode: "development",
   devtool: "cheap-module-source-map",
@@ -12,6 +12,15 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: ["babel-loader"]
+      },
+      {
+        test: /\.scss$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      },
       {
         test: /\.css$/,
         use: ["style-loader", "css-loader"]
