@@ -28,6 +28,11 @@ module.exports = {
       {
         test: /\.(ttf|otf)$/,
         use: ["file-loader"]
+      },
+      {
+        test: /\.svg$/,
+        exclude: /node_modules/,
+        use: ["@svgr/webpack"]
       }
     ]
   },

@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from "react";
+import { v4 as uuid } from "uuid";
+
+import EditIcon from "./assets/edit.svg";
+import DeleteIcon from "./assets/delete.svg";
 import "./styles.css";
 
 function messenger(action, cb) {
@@ -11,9 +15,9 @@ function getData(key, cb) {
   chrome.storage.sync.get(key, cb);
 }
 
-function clearNotes() {
-  chrome.storage.sync.clear(() => console.log("Cleared..."));
-}
+// function clearNotes() {
+//   chrome.storage.sync.clear(() => console.log("Cleared..."));
+// }
 
 const App = () => {
   const [notes, setNotes] = useState([]);
@@ -49,7 +53,7 @@ const App = () => {
     setNotes(prev => [
       ...prev,
       {
-        id: Math.round(Math.random() * 100),
+        id: uuid(),
         content,
         createdAt: new Date().toISOString()
       }
@@ -63,7 +67,15 @@ const App = () => {
       <div className="noteList">
         {notes.map(({ content, id }) => (
           <div key={id} className="item">
-            {content}
+            <div className="note">{content}</div>
+            <div className="actions">
+              <span className="icon edit-icon">
+                <EditIcon />
+              </span>
+              <span className="icon delete-icon">
+                <DeleteIcon />
+              </span>
+            </div>
           </div>
         ))}
       </div>
