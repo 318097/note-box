@@ -271,6 +271,14 @@ var App = function App() {
     setContent("");
   };
 
+  var deleteNote = function deleteNote(id) {
+    setNotes(function (prev) {
+      return _toConsumableArray(prev.filter(function (item) {
+        return item.id !== id;
+      }));
+    });
+  };
+
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -290,6 +298,9 @@ var App = function App() {
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "icon edit-icon"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_edit_svg__WEBPACK_IMPORTED_MODULE_2__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      onClick: function onClick() {
+        return deleteNote(id);
+      },
       className: "icon delete-icon"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_delete_svg__WEBPACK_IMPORTED_MODULE_3__["default"], null))));
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {

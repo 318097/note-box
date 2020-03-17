@@ -61,6 +61,10 @@ const App = () => {
     setContent("");
   };
 
+  const deleteNote = id => {
+    setNotes(prev => [...prev.filter(item => item.id !== id)]);
+  };
+
   return (
     <div className="container">
       <div className="header">{`Notes: ${domainUrl}`}</div>
@@ -72,7 +76,7 @@ const App = () => {
               <span className="icon edit-icon">
                 <EditIcon />
               </span>
-              <span className="icon delete-icon">
+              <span onClick={() => deleteNote(id)} className="icon delete-icon">
                 <DeleteIcon />
               </span>
             </div>
