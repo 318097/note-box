@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { v4 as uuid } from "uuid";
 
 import EditIcon from "./assets/edit.svg";
@@ -23,6 +23,7 @@ const App = () => {
   const [notes, setNotes] = useState([]);
   const [domainUrl, setDomainUrl] = useState("");
   const [content, setContent] = useState("");
+  const [editNote, setEditNote] = useState(null);
 
   useEffect(() => {
     messenger("getURL", (url = "Others") => {
@@ -61,6 +62,36 @@ const App = () => {
     setContent("");
   };
 
+  const setNoteToEdit = id => {
+    setEditNote({
+      id,
+      mode: "EDIT"
+    });
+    const matchedNote = notes.find(item => item.id === id);
+    setContent(matchedNote.content);
+  };
+
+  const updateNote = () => {
+    const { id } = editNote;
+    setNotes(prev => [
+      ...prev.map(item => {
+        if (item.id === id) {
+          return {
+            ...item,
+            content
+          };
+        }
+        return item;
+      })
+    ]);
+    clearNote();
+  };
+
+  const clearNote = () => {
+    setContent("");
+    setEditNote(null);
+  };
+
   const deleteNote = id => {
     setNotes(prev => [...prev.filter(item => item.id !== id)]);
   };
@@ -70,15 +101,32 @@ const App = () => {
       <div className="header">{`Notes: ${domainUrl}`}</div>
       <div className="noteList">
         {notes.map(({ content, id }) => (
-          <div key={id} className="item">
+          <div
+            key={id}
+            className={`item ${editNote && editNote.id === id && "highlight"}`}
+          >
             <div className="note">{content}</div>
             <div className="actions">
-              <span className="icon edit-icon">
-                <EditIcon />
-              </span>
-              <span onClick={() => deleteNote(id)} className="icon delete-icon">
-                <DeleteIcon />
-              </span>
+              {editNote && editNote.id === id ? (
+                <button className="btn" onClick={clearNote}>
+                  Cancel
+                </button>
+              ) : (
+                <Fragment>
+                  <span
+                    onClick={() => setNoteToEdit(id)}
+                    className="icon edit-icon"
+                  >
+                    <EditIcon />
+                  </span>
+                  <span
+                    onClick={() => deleteNote(id)}
+                    className="icon delete-icon"
+                  >
+                    <DeleteIcon />
+                  </span>
+                </Fragment>
+              )}
             </div>
           </div>
         ))}
@@ -89,9 +137,15 @@ const App = () => {
           onChange={({ target: { value } }) => setContent(value)}
           className="inputbox"
         />
-        <button onClick={addNote} className="addNote">
-          Add
-        </button>
+        {editNote && editNote.mode === "EDIT" ? (
+          <button onClick={updateNote} className="btn">
+            Update
+          </button>
+        ) : (
+          <button onClick={addNote} className="btn">
+            Add
+          </button>
+        )}
       </div>
     </div>
   );

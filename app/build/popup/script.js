@@ -232,6 +232,11 @@ var App = function App() {
       content = _useState6[0],
       setContent = _useState6[1];
 
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(null),
+      _useState8 = _slicedToArray(_useState7, 2),
+      editNote = _useState8[0],
+      setEditNote = _useState8[1];
+
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     messenger("getURL", function () {
       var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "Others";
@@ -271,6 +276,38 @@ var App = function App() {
     setContent("");
   };
 
+  var setNoteToEdit = function setNoteToEdit(id) {
+    setEditNote({
+      id: id,
+      mode: "EDIT"
+    });
+    var matchedNote = notes.find(function (item) {
+      return item.id === id;
+    });
+    setContent(matchedNote.content);
+  };
+
+  var updateNote = function updateNote() {
+    var id = editNote.id;
+    setNotes(function (prev) {
+      return _toConsumableArray(prev.map(function (item) {
+        if (item.id === id) {
+          return _objectSpread({}, item, {
+            content: content
+          });
+        }
+
+        return item;
+      }));
+    });
+    clearNote();
+  };
+
+  var clearNote = function clearNote() {
+    setContent("");
+    setEditNote(null);
+  };
+
   var deleteNote = function deleteNote(id) {
     setNotes(function (prev) {
       return _toConsumableArray(prev.filter(function (item) {
@@ -290,19 +327,25 @@ var App = function App() {
         id = _ref.id;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: id,
-      className: "item"
+      className: "item ".concat(editNote && editNote.id === id && "highlight")
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "note"
     }, content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "actions"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }, editNote && editNote.id === id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      className: "btn",
+      onClick: clearNote
+    }, "Cancel") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      onClick: function onClick() {
+        return setNoteToEdit(id);
+      },
       className: "icon edit-icon"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_edit_svg__WEBPACK_IMPORTED_MODULE_2__["default"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       onClick: function onClick() {
         return deleteNote(id);
       },
       className: "icon delete-icon"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_delete_svg__WEBPACK_IMPORTED_MODULE_3__["default"], null))));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_delete_svg__WEBPACK_IMPORTED_MODULE_3__["default"], null)))));
   })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "controls"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
@@ -312,9 +355,12 @@ var App = function App() {
       return setContent(value);
     },
     className: "inputbox"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+  }), editNote && editNote.mode === "EDIT" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: updateNote,
+    className: "btn"
+  }, "Update") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: addNote,
-    className: "addNote"
+    className: "btn"
   }, "Add")));
 };
 
@@ -449,7 +495,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".container {\n  display: flex;\n  border-radius: 5px;\n  flex-direction: column;\n  height: 100%;\n  width: 100%;\n  padding: 8px;\n  margin: 0;\n  background: #eee;\n}\n\n.header {\n  font-weight: bold;\n  padding: 8px;\n  border-radius: 5px;\n  background: orange;\n}\n\n.noteList {\n  flex: 1 1 auto;\n  overflow-y: auto;\n  margin-bottom: 8px;\n}\n\n.item {\n  padding: 8px;\n  background: white;\n  border-radius: 5px;\n  margin: 4px 0;\n  display: flex;\n  align-items: center;\n}\n\n.note {\n  flex: 1;\n}\n\n.actions {\n  display: flex;\n  align-items: center;\n}\n\n.icon {\n  display: flex;\n  cursor: pointer;\n  align-items: center;\n  justify-content: center;\n  height: max-height;\n  background: grey;\n  margin: 0 1px;\n  /* padding: 4px; */\n  border-radius: 50%;\n  transition: 0.3s;\n}\n.icon:hover {\n  background: rgb(75, 75, 75);\n}\n\nsvg {\n  padding: 4px;\n  height: 1.2rem;\n  width: 1.2rem;\n  fill: white;\n}\n\n.controls {\n  display: flex;\n  height: 30px;\n  align-items: stretch;\n  justify-content: center;\n}\n\n.inputbox {\n  flex: 1 1 auto;\n  padding: 4px;\n  border-radius: 5px;\n  border: 1px solid #ccc;\n}\n\n.addNote {\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  margin-left: 4px;\n  background: white;\n  padding: 4px 8px;\n  transition: 0.4s;\n}\n\n.addNote:hover {\n  background: #eee;\n}\n", ""]);
+exports.push([module.i, ".container {\n  display: flex;\n  border-radius: 5px;\n  flex-direction: column;\n  height: 100%;\n  width: 100%;\n  padding: 8px;\n  margin: 0;\n  background: #eee;\n}\n\n.header {\n  font-weight: bold;\n  padding: 8px;\n  border-radius: 5px;\n  background: orange;\n}\n\n.noteList {\n  flex: 1 1 auto;\n  overflow-y: auto;\n  margin-bottom: 8px;\n}\n\n.item {\n  padding: 4px 8px;\n  background: white;\n  border-radius: 5px;\n  margin-top: 6px;\n  display: flex;\n  align-items: center;\n  border: 1px solid transparent;\n}\n\n.item.highlight {\n  border: 1px solid grey;\n  background: lightgrey;\n}\n\n.note {\n  flex: 1;\n}\n\n.actions {\n  display: flex;\n  align-items: center;\n}\n\n.icon {\n  display: flex;\n  cursor: pointer;\n  align-items: center;\n  justify-content: center;\n  height: max-height;\n  background: grey;\n  margin: 0 1px;\n  border-radius: 50%;\n  transition: 0.3s;\n}\n\n.icon:hover {\n  background: rgb(75, 75, 75);\n}\n\nsvg {\n  padding: 4px;\n  height: 1.2rem;\n  width: 1.2rem;\n  fill: white;\n}\n\n.controls {\n  display: flex;\n  height: 30px;\n  align-items: stretch;\n  justify-content: center;\n}\n\n.inputbox {\n  flex: 1 1 auto;\n  padding: 4px;\n  border-radius: 5px;\n  border: 1px solid #ccc;\n}\n\n.btn {\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  margin-left: 4px;\n  background: white;\n  padding: 4px 8px;\n  transition: 0.4s;\n  cursor: pointer;\n}\n\n.btn:hover {\n  background: #eee;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
