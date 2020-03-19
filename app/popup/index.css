@@ -8,16 +8,24 @@
   outline: none;
 }
 
+html,
+body,
+#root {
+  font-size: 10px;
+}
 body,
 #root {
   font-family: font1;
   border-radius: 20px;
   height: 450px;
   width: 325px;
-  font-size: 10px;
 }
 
 .flex {
   display: flex;
   align-items: center;
+}
+
+.pointer {
+  cursor: pointer;
 }

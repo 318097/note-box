@@ -13,6 +13,7 @@ section {
   height: 100%;
   display: flex;
   flex-direction: column;
+  font-size: 1.4rem;
 }
 
 .header {
@@ -28,9 +29,6 @@ section {
 }
 
 .item {
-  padding: 4px 8px;
-  min-height: 32px;
-  cursor: pointer;
   background: white;
   border-radius: 5px;
   margin-top: 6px;
@@ -41,6 +39,17 @@ section {
     border: 1px solid grey;
     background: lightgrey;
   }
+}
+
+.content {
+  flex: 1;
+  padding: 4px 8px;
+}
+
+.actions {
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
 }
 
 .icon {
@@ -58,8 +67,8 @@ section {
   }
   svg {
     padding: 4px;
-    height: 1.4rem;
-    width: 1.4rem;
+    height: 2rem;
+    width: 2rem;
     fill: white;
   }
 }

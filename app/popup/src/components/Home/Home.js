@@ -26,9 +26,9 @@ const Home = ({ domainInfo, setDomainUrl, setDomainInfoVisibility }) => {
           <div
             onClick={() => openDomainNotes(domain)}
             key={index}
-            className="item"
+            className="item pointer"
           >
-            <div className="note">{domain}</div>
+            <div className="content">{domain}</div>
             <div className="actions">
               <span>{count}</span>
             </div>

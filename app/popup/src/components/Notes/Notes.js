@@ -62,7 +62,7 @@ const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
           <span onClick={showDomainInfo} className="icon home-icon">
             <HomeIcon />
           </span>
-          <span>Notes: {domainUrl || "Others"}</span>
+          <span>Notes: {domainUrl || "others"}</span>
         </span>
         <span>Total: {notes.length}</span>
       </div>
@@ -72,7 +72,7 @@ const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
             key={id}
             className={`item ${editNote && editNote.id === id && "highlight"}`}
           >
-            <div className="note">{content}</div>
+            <div className="content">{content}</div>
             <div className="actions">
               {editNote && editNote.id === id ? (
                 <button className="btn" onClick={clearNote}>

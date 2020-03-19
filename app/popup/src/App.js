@@ -12,7 +12,7 @@ const App = () => {
   const [domainUrl, setDomainUrl] = useState("");
 
   useEffect(() => {
-    messenger("getURL", (url = "Others") => setDomainUrl(url));
+    messenger("getURL", (url = "others") => setDomainUrl(url));
   }, []);
 
   useEffect(() => {

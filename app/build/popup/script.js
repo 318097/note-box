@@ -221,7 +221,7 @@ var App = function App() {
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     Object(_utils__WEBPACK_IMPORTED_MODULE_4__["messenger"])("getURL", function () {
-      var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "Others";
+      var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "others";
       return setDomainUrl(url);
     });
   }, []);
@@ -516,9 +516,9 @@ var Home = function Home(_ref) {
         return openDomainNotes(domain);
       },
       key: index,
-      className: "item"
+      className: "item pointer"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "note"
+      className: "content"
     }, domain), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "actions"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, count)));
@@ -692,7 +692,7 @@ var Notes = function Notes(_ref) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     onClick: showDomainInfo,
     className: "icon home-icon"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_icons__WEBPACK_IMPORTED_MODULE_2__["HomeIcon"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Notes: ", domainUrl || "Others")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Total: ", notes.length)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_icons__WEBPACK_IMPORTED_MODULE_2__["HomeIcon"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Notes: ", domainUrl || "others")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Total: ", notes.length)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "noteList"
   }, notes.map(function (_ref2) {
     var content = _ref2.content,
@@ -701,7 +701,7 @@ var Notes = function Notes(_ref) {
       key: id,
       className: "item ".concat(editNote && editNote.id === id && "highlight")
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-      className: "note"
+      className: "content"
     }, content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "actions"
     }, editNote && editNote.id === id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -843,7 +843,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../assets/fonts/Robo
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, "@font-face {\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-family: font1;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\nbody,\n#root {\n  font-family: font1;\n  border-radius: 20px;\n  height: 450px;\n  width: 325px;\n  font-size: 10px;\n}\n\n.flex {\n  display: flex;\n  align-items: center;\n}\n", ""]);
+exports.push([module.i, "@font-face {\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-family: font1;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\nhtml,\nbody,\n#root {\n  font-size: 10px;\n}\nbody,\n#root {\n  font-family: font1;\n  border-radius: 20px;\n  height: 450px;\n  width: 325px;\n}\n\n.flex {\n  display: flex;\n  align-items: center;\n}\n\n.pointer {\n  cursor: pointer;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -861,7 +861,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".container {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  width: 100%;\n  padding: 8px;\n  margin: 0;\n  background: #eee;\n  border-radius: 5px; }\n\nsection {\n  height: 100%;\n  display: flex;\n  flex-direction: column; }\n\n.header {\n  font-weight: bold;\n  padding: 4px 8px;\n  border-radius: 5px;\n  background: #2f2f2f;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  min-height: 32px; }\n\n.item {\n  padding: 4px 8px;\n  min-height: 32px;\n  cursor: pointer;\n  background: white;\n  border-radius: 5px;\n  margin-top: 6px;\n  display: flex;\n  align-items: center;\n  border: 1px solid transparent; }\n  .item.highlight {\n    border: 1px solid grey;\n    background: lightgrey; }\n\n.icon {\n  display: flex;\n  cursor: pointer;\n  align-items: center;\n  justify-content: center;\n  height: max-height;\n  margin: 0 1px;\n  transition: 0.3s;\n  background: grey;\n  border-radius: 50%; }\n  .icon:hover {\n    background: #4b4b4b; }\n  .icon svg {\n    padding: 4px;\n    height: 1.4rem;\n    width: 1.4rem;\n    fill: white; }\n\n.btn {\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  margin-left: 4px;\n  background: white;\n  padding: 4px 8px;\n  transition: 0.4s;\n  cursor: pointer; }\n  .btn:hover {\n    background: #eee; }\n", ""]);
+exports.push([module.i, ".container {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  width: 100%;\n  padding: 8px;\n  margin: 0;\n  background: #eee;\n  border-radius: 5px; }\n\nsection {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  font-size: 1.4rem; }\n\n.header {\n  font-weight: bold;\n  padding: 4px 8px;\n  border-radius: 5px;\n  background: #2f2f2f;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  min-height: 32px; }\n\n.item {\n  background: white;\n  border-radius: 5px;\n  margin-top: 6px;\n  display: flex;\n  align-items: center;\n  border: 1px solid transparent; }\n  .item.highlight {\n    border: 1px solid grey;\n    background: lightgrey; }\n\n.content {\n  flex: 1;\n  padding: 4px 8px; }\n\n.actions {\n  margin-right: 8px;\n  display: flex;\n  align-items: center; }\n\n.icon {\n  display: flex;\n  cursor: pointer;\n  align-items: center;\n  justify-content: center;\n  height: max-height;\n  margin: 0 1px;\n  transition: 0.3s;\n  background: grey;\n  border-radius: 50%; }\n  .icon:hover {\n    background: #4b4b4b; }\n  .icon svg {\n    padding: 4px;\n    height: 2rem;\n    width: 2rem;\n    fill: white; }\n\n.btn {\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  margin-left: 4px;\n  background: white;\n  padding: 4px 8px;\n  transition: 0.4s;\n  cursor: pointer; }\n  .btn:hover {\n    background: #eee; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -897,7 +897,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".home-icon {\n  margin-right: 4px; }\n\n.noteList {\n  flex: 1 1 auto;\n  overflow-y: auto;\n  margin-bottom: 8px; }\n\n.note {\n  flex: 1; }\n\n.actions {\n  display: flex;\n  align-items: center; }\n\n.controls {\n  display: flex;\n  height: 30px;\n  align-items: stretch;\n  justify-content: center; }\n  .controls .inputbox {\n    flex: 1 1 auto;\n    padding: 4px;\n    border-radius: 5px;\n    border: 1px solid #ccc; }\n", ""]);
+exports.push([module.i, ".home-icon {\n  margin-right: 4px; }\n\n.noteList {\n  flex: 1 1 auto;\n  overflow-y: auto;\n  margin-bottom: 8px; }\n\n.controls {\n  display: flex;\n  height: 30px;\n  align-items: stretch;\n  justify-content: center; }\n  .controls .inputbox {\n    flex: 1 1 auto;\n    padding: 4px;\n    border-radius: 5px;\n    border: 1px solid #ccc; }\n", ""]);
 // Exports
 module.exports = exports;
 
