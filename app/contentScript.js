@@ -9,7 +9,11 @@ chrome.runtime.onMessage.addListener((request, sender, senderResponse) => {
     case "getURL":
       senderResponse(getDomain());
       break;
-    case "logData":
+    case "log":
       chrome.storage.sync.get("notes", data => console.log("NoteBox:", data));
+      break;
+    case "clear":
+      chrome.storage.sync.clear();
+      break;
   }
 });
