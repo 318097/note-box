@@ -1,6 +1,16 @@
 @font-face {
-  src: url("../assets/fonts/RobotoCondensed-Regular.ttf");
-  font-family: font1;
+  src: url("./src/assets/fonts/Roboto/Roboto-Regular.ttf");
+  font-family: Roboto-Regular;
+}
+
+@font-face {
+  src: url("./src/assets/fonts/Roboto/Roboto-Bold.ttf");
+  font-family: Roboto-Bold;
+}
+
+@font-face {
+  src: url("./src/assets/fonts/Roboto/Roboto-Light.ttf");
+  font-family: Roboto-Light;
 }
 
 * {
@@ -15,7 +25,6 @@ body,
 }
 body,
 #root {
-  font-family: font1;
   border-radius: 20px;
   height: 450px;
   width: 325px;

@@ -17,7 +17,7 @@ section {
 }
 
 .header {
-  font-weight: bold;
+  font-family: Roboto-Bold;
   padding: 4px 8px;
   border-radius: 2px;
   background: rgb(47, 47, 47);
@@ -36,6 +36,7 @@ section {
 }
 
 .item {
+  font-family: Roboto-Light, sans-serif;
   word-break: break-all;
   background: white;
   border-radius: 2px;
@@ -87,6 +88,7 @@ section {
 }
 
 .btn {
+  font-family: Roboto-light;
   border: 1px solid #ccc;
   border-radius: 2px;
   margin-left: 4px;

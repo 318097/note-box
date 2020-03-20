@@ -86,19 +86,6 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./app/assets/fonts/RobotoCondensed-Regular.ttf":
-/*!******************************************************!*\
-  !*** ./app/assets/fonts/RobotoCondensed-Regular.ttf ***!
-  \******************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "52ee8b598488b1ffbaa93e50cbd6a2f4.ttf");
-
-/***/ }),
-
 /***/ "./app/popup/index.css":
 /*!*****************************!*\
   !*** ./app/popup/index.css ***!
@@ -309,6 +296,45 @@ var exported = content.locals ? content.locals : {};
 
 
 module.exports = exported;
+
+/***/ }),
+
+/***/ "./app/popup/src/assets/fonts/Roboto/Roboto-Bold.ttf":
+/*!***********************************************************!*\
+  !*** ./app/popup/src/assets/fonts/Roboto/Roboto-Bold.ttf ***!
+  \***********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "e07df86cef2e721115583d61d1fb68a6.ttf");
+
+/***/ }),
+
+/***/ "./app/popup/src/assets/fonts/Roboto/Roboto-Light.ttf":
+/*!************************************************************!*\
+  !*** ./app/popup/src/assets/fonts/Roboto/Roboto-Light.ttf ***!
+  \************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "88823c2015ffd5fa89d567e17297a137.ttf");
+
+/***/ }),
+
+/***/ "./app/popup/src/assets/fonts/Roboto/Roboto-Regular.ttf":
+/*!**************************************************************!*\
+  !*** ./app/popup/src/assets/fonts/Roboto/Roboto-Regular.ttf ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (__webpack_require__.p + "11eabca2251325cfc5589c9c6fb57b46.ttf");
 
 /***/ }),
 
@@ -925,11 +951,15 @@ function getData(key, cb) {
 // Imports
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 var ___CSS_LOADER_GET_URL_IMPORT___ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/getUrl.js */ "./node_modules/css-loader/dist/runtime/getUrl.js");
-var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../assets/fonts/RobotoCondensed-Regular.ttf */ "./app/assets/fonts/RobotoCondensed-Regular.ttf");
+var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ./src/assets/fonts/Roboto/Roboto-Regular.ttf */ "./app/popup/src/assets/fonts/Roboto/Roboto-Regular.ttf");
+var ___CSS_LOADER_URL_IMPORT_1___ = __webpack_require__(/*! ./src/assets/fonts/Roboto/Roboto-Bold.ttf */ "./app/popup/src/assets/fonts/Roboto/Roboto-Bold.ttf");
+var ___CSS_LOADER_URL_IMPORT_2___ = __webpack_require__(/*! ./src/assets/fonts/Roboto/Roboto-Light.ttf */ "./app/popup/src/assets/fonts/Roboto/Roboto-Light.ttf");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
+var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
+var ___CSS_LOADER_URL_REPLACEMENT_2___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_2___);
 // Module
-exports.push([module.i, "@font-face {\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-family: font1;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\nhtml,\nbody,\n#root {\n  font-size: 10px;\n}\nbody,\n#root {\n  font-family: font1;\n  border-radius: 20px;\n  height: 450px;\n  width: 325px;\n\n  margin: 40px auto;\n}\n\n.flex {\n  display: flex;\n  align-items: center;\n}\n\n.pointer {\n  cursor: pointer;\n}\n\n/* width */\n::-webkit-scrollbar {\n  width: 2px;\n  height: 2px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n  background: transparent;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  background: #888;\n  border-radius: 20px;\n}\n\n/* Handle on hover */\n::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n", ""]);
+exports.push([module.i, "@font-face {\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-family: Roboto-Regular;\n}\n\n@font-face {\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-family: Roboto-Bold;\n}\n\n@font-face {\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n  font-family: Roboto-Light;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\nhtml,\nbody,\n#root {\n  font-size: 10px;\n}\nbody,\n#root {\n  border-radius: 20px;\n  height: 450px;\n  width: 325px;\n\n  margin: 40px auto;\n}\n\n.flex {\n  display: flex;\n  align-items: center;\n}\n\n.pointer {\n  cursor: pointer;\n}\n\n/* width */\n::-webkit-scrollbar {\n  width: 2px;\n  height: 2px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n  background: transparent;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  background: #888;\n  border-radius: 20px;\n}\n\n/* Handle on hover */\n::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -947,7 +977,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".container {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  width: 100%;\n  padding: 4px;\n  margin: 0;\n  background: #eee;\n  border-radius: 2px; }\n\nsection {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  font-size: 1.4rem; }\n\n.header {\n  font-weight: bold;\n  padding: 4px 8px;\n  border-radius: 2px;\n  background: #2f2f2f;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  min-height: 32px; }\n\n.listContainer {\n  flex: 1 1 auto;\n  overflow-y: auto;\n  margin: 4px 0;\n  padding: 0 4px; }\n\n.item {\n  word-break: break-all;\n  background: white;\n  border-radius: 2px;\n  display: flex;\n  align-items: center;\n  border: 1px solid transparent;\n  margin-bottom: 6px; }\n  .item:last-child {\n    margin-bottom: 0; }\n  .item:hover {\n    background: whitesmoke; }\n  .item.highlight {\n    border: 1px solid #00bed3; }\n\n.content {\n  flex: 1;\n  padding: 4px 8px; }\n\n.actions {\n  margin-right: 8px;\n  display: flex;\n  align-items: center; }\n\n.icon {\n  display: flex;\n  cursor: pointer;\n  align-items: center;\n  justify-content: center;\n  height: max-height;\n  margin: 0 1px;\n  transition: 0.3s;\n  background: #e4e4e4;\n  border-radius: 50%; }\n  .icon:hover {\n    background: #c7c7c7; }\n  .icon svg {\n    padding: 4px;\n    height: 2rem;\n    width: 2rem;\n    fill: black; }\n\n.btn {\n  border: 1px solid #ccc;\n  border-radius: 2px;\n  margin-left: 4px;\n  background: white;\n  padding: 4px 8px;\n  transition: 0.4s;\n  cursor: pointer; }\n  .btn:hover {\n    background: #eee; }\n", ""]);
+exports.push([module.i, ".container {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  width: 100%;\n  padding: 4px;\n  margin: 0;\n  background: #eee;\n  border-radius: 2px; }\n\nsection {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  font-size: 1.4rem; }\n\n.header {\n  font-family: Roboto-Bold;\n  padding: 4px 8px;\n  border-radius: 2px;\n  background: #2f2f2f;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  min-height: 32px; }\n\n.listContainer {\n  flex: 1 1 auto;\n  overflow-y: auto;\n  margin: 4px 0;\n  padding: 0 4px; }\n\n.item {\n  font-family: Roboto-Light, sans-serif;\n  word-break: break-all;\n  background: white;\n  border-radius: 2px;\n  display: flex;\n  align-items: center;\n  border: 1px solid transparent;\n  margin-bottom: 6px; }\n  .item:last-child {\n    margin-bottom: 0; }\n  .item:hover {\n    background: whitesmoke; }\n  .item.highlight {\n    border: 1px solid #00bed3; }\n\n.content {\n  flex: 1;\n  padding: 4px 8px; }\n\n.actions {\n  margin-right: 8px;\n  display: flex;\n  align-items: center; }\n\n.icon {\n  display: flex;\n  cursor: pointer;\n  align-items: center;\n  justify-content: center;\n  height: max-height;\n  margin: 0 1px;\n  transition: 0.3s;\n  background: #e4e4e4;\n  border-radius: 50%; }\n  .icon:hover {\n    background: #c7c7c7; }\n  .icon svg {\n    padding: 4px;\n    height: 2rem;\n    width: 2rem;\n    fill: black; }\n\n.btn {\n  font-family: Roboto-light;\n  border: 1px solid #ccc;\n  border-radius: 2px;\n  margin-left: 4px;\n  background: white;\n  padding: 4px 8px;\n  transition: 0.4s;\n  cursor: pointer; }\n  .btn:hover {\n    background: #eee; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -983,7 +1013,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".home-icon {\n  margin-right: 4px; }\n\n.controls {\n  display: flex;\n  height: 30px;\n  align-items: stretch;\n  justify-content: center; }\n  .controls .inputbox {\n    flex: 1 1 auto;\n    padding: 4px;\n    border-radius: 5px;\n    border: 1px solid #ccc; }\n\ntextarea {\n  resize: none; }\n", ""]);
+exports.push([module.i, ".home-icon {\n  margin-right: 4px; }\n\n.controls {\n  display: flex;\n  height: 30px;\n  align-items: stretch;\n  justify-content: center; }\n  .controls .inputbox {\n    flex: 1 1 auto;\n    padding: 4px;\n    border-radius: 5px;\n    border: 1px solid #ccc; }\n\ntextarea {\n  resize: none;\n  font-family: Roboto-Light; }\n", ""]);
 // Exports
 module.exports = exports;
 
