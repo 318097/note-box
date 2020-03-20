@@ -1,6 +1,7 @@
 import React, { useState, Fragment } from "react";
 import { v4 as uuid } from "uuid";
 
+import { ConfirmBox } from "../../UIComponents";
 import { HomeIcon, EditIcon, DeleteIcon } from "../../assets/icons";
 import "./Notes.scss";
 
@@ -78,11 +79,7 @@ const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
               <div className="content">{content}</div>
               <div className="actions">
                 {editNote && editNote.id === id ? (
-                  <button
-                    className="btn"
-                    style={{ margin: "2px 0" }}
-                    onClick={clearNote}
-                  >
+                  <button className="btn" onClick={clearNote}>
                     Cancel
                   </button>
                 ) : (
@@ -93,12 +90,11 @@ const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
                     >
                       <EditIcon />
                     </span>
-                    <span
-                      onClick={() => deleteNote(id)}
-                      className="icon delete-icon"
-                    >
-                      <DeleteIcon />
-                    </span>
+                    <ConfirmBox onConfirm={() => deleteNote(id)}>
+                      <span className="icon delete-icon">
+                        <DeleteIcon />
+                      </span>
+                    </ConfirmBox>
                   </Fragment>
                 )}
               </div>

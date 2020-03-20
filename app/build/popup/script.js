@@ -241,8 +241,9 @@ var App = function App() {
           notes: updatedNotes
         });
       });
-    }; // saveNotes();
+    };
 
+    saveNotes();
   }, [notes]);
 
   var showDomainInfo = function showDomainInfo() {
@@ -296,6 +297,142 @@ var exported = content.locals ? content.locals : {};
 
 
 module.exports = exported;
+
+/***/ }),
+
+/***/ "./app/popup/src/UIComponents/ConfirmBox/ConfirmBox.js":
+/*!*************************************************************!*\
+  !*** ./app/popup/src/UIComponents/ConfirmBox/ConfirmBox.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _ConfirmBox_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ConfirmBox.scss */ "./app/popup/src/UIComponents/ConfirmBox/ConfirmBox.scss");
+/* harmony import */ var _ConfirmBox_scss__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_ConfirmBox_scss__WEBPACK_IMPORTED_MODULE_1__);
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance"); }
+
+function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+
+var ConfirmBox = function ConfirmBox(_ref) {
+  var children = _ref.children,
+      _ref$title = _ref.title,
+      title = _ref$title === void 0 ? "Delete?" : _ref$title,
+      onConfirm = _ref.onConfirm,
+      onCancel = _ref.onCancel;
+
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      showConfirmBox = _useState2[0],
+      setShowConfirmBox = _useState2[1];
+
+  var handleOk = function handleOk() {
+    setShowConfirmBox(false);
+    onConfirm();
+  };
+
+  var handleCancel = function handleCancel() {
+    setShowConfirmBox(false);
+    if (onCancel) onCancel();
+  };
+
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    style: {
+      position: "relative"
+    }
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    onClick: function onClick() {
+      return setShowConfirmBox(true);
+    }
+  }, children), showConfirmBox && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "confirm-box-container"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "confirm-box-title"
+  }, title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "confirm-box-actions"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: handleOk,
+    className: "btn"
+  }, "Yes"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+    onClick: handleCancel,
+    className: "btn"
+  }, "No")))));
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (ConfirmBox);
+
+/***/ }),
+
+/***/ "./app/popup/src/UIComponents/ConfirmBox/ConfirmBox.scss":
+/*!***************************************************************!*\
+  !*** ./app/popup/src/UIComponents/ConfirmBox/ConfirmBox.scss ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+var api = __webpack_require__(/*! ../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+            var content = __webpack_require__(/*! !../../../../../node_modules/css-loader/dist/cjs.js!../../../../../node_modules/sass-loader/dist/cjs.js!./ConfirmBox.scss */ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./app/popup/src/UIComponents/ConfirmBox/ConfirmBox.scss");
+
+            content = content.__esModule ? content.default : content;
+
+            if (typeof content === 'string') {
+              content = [[module.i, content, '']];
+            }
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = api(content, options);
+
+var exported = content.locals ? content.locals : {};
+
+
+
+module.exports = exported;
+
+/***/ }),
+
+/***/ "./app/popup/src/UIComponents/ConfirmBox/index.js":
+/*!********************************************************!*\
+  !*** ./app/popup/src/UIComponents/ConfirmBox/index.js ***!
+  \********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ConfirmBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ConfirmBox */ "./app/popup/src/UIComponents/ConfirmBox/ConfirmBox.js");
+
+/* harmony default export */ __webpack_exports__["default"] = (_ConfirmBox__WEBPACK_IMPORTED_MODULE_0__["default"]);
+
+/***/ }),
+
+/***/ "./app/popup/src/UIComponents/index.js":
+/*!*********************************************!*\
+  !*** ./app/popup/src/UIComponents/index.js ***!
+  \*********************************************/
+/*! exports provided: ConfirmBox */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ConfirmBox__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ConfirmBox */ "./app/popup/src/UIComponents/ConfirmBox/index.js");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "ConfirmBox", function() { return _ConfirmBox__WEBPACK_IMPORTED_MODULE_0__["default"]; });
+
+
+
 
 /***/ }),
 
@@ -616,9 +753,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var uuid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! uuid */ "./node_modules/uuid/dist/esm-browser/index.js");
-/* harmony import */ var _assets_icons__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../assets/icons */ "./app/popup/src/assets/icons/index.js");
-/* harmony import */ var _Notes_scss__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Notes.scss */ "./app/popup/src/components/Notes/Notes.scss");
-/* harmony import */ var _Notes_scss__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_Notes_scss__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _UIComponents__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../UIComponents */ "./app/popup/src/UIComponents/index.js");
+/* harmony import */ var _assets_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../assets/icons */ "./app/popup/src/assets/icons/index.js");
+/* harmony import */ var _Notes_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Notes.scss */ "./app/popup/src/components/Notes/Notes.scss");
+/* harmony import */ var _Notes_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_Notes_scss__WEBPACK_IMPORTED_MODULE_4__);
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
@@ -640,6 +778,7 @@ function _nonIterableRest() { throw new TypeError("Invalid attempt to destructur
 function _iterableToArrayLimit(arr, i) { if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) { return; } var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
 
 
 
@@ -721,7 +860,7 @@ var Notes = function Notes(_ref) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     onClick: showDomainInfo,
     className: "icon home-icon"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_icons__WEBPACK_IMPORTED_MODULE_2__["HomeIcon"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Notes: ", domainUrl || "others")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Total: ", notes.length)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_icons__WEBPACK_IMPORTED_MODULE_3__["HomeIcon"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Notes: ", domainUrl || "others")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Total: ", notes.length)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "listContainer"
   }, notes.length ? notes.map(function (_ref2) {
     var content = _ref2.content,
@@ -735,21 +874,19 @@ var Notes = function Notes(_ref) {
       className: "actions"
     }, editNote && editNote.id === id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "btn",
-      style: {
-        margin: "2px 0"
-      },
       onClick: clearNote
     }, "Cancel") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       onClick: function onClick() {
         return setNoteToEdit(id);
       },
       className: "icon edit-icon"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_icons__WEBPACK_IMPORTED_MODULE_2__["EditIcon"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
-      onClick: function onClick() {
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_icons__WEBPACK_IMPORTED_MODULE_3__["EditIcon"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UIComponents__WEBPACK_IMPORTED_MODULE_2__["ConfirmBox"], {
+      onConfirm: function onConfirm() {
         return deleteNote(id);
-      },
+      }
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "icon delete-icon"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_icons__WEBPACK_IMPORTED_MODULE_2__["DeleteIcon"], null)))));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_icons__WEBPACK_IMPORTED_MODULE_3__["DeleteIcon"], null))))));
   }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "empty-message"
   }, "Empty")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -833,100 +970,42 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "messenger", function() { return messenger; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getData", function() { return getData; });
 function messenger(action, cb) {
-  // chrome.tabs.query({ active: true, currentWindow: true }, tabs =>
-  //   chrome.tabs.sendMessage(tabs[0].id, { action }, cb)
-  // );
-  cb();
+  chrome.tabs.query({
+    active: true,
+    currentWindow: true
+  }, function (tabs) {
+    return chrome.tabs.sendMessage(tabs[0].id, {
+      action: action
+    }, cb);
+  }); // cb();
 }
 
 function getData(key, cb) {
-  // chrome.storage.sync.get(key, cb);
-  cb({
-    notes: {
-      "linked.com": [{
-        id: 1,
-        content: "linkedin notes",
-        createdAt: new Date()
-      }, {
-        id: 2,
-        content: "linkedin notes 2",
-        createdAt: new Date()
-      }, {
-        id: 3,
-        content: "linkedin notes 3",
-        createdAt: new Date()
-      }, {
-        id: 4,
-        content: "linkedin notes 4",
-        createdAt: new Date()
-      }, {
-        id: 5,
-        content: "linkedin notes 5",
-        createdAt: new Date()
-      }, {
-        id: 6,
-        content: "linkedin notes 6",
-        createdAt: new Date()
-      }, {
-        id: 7,
-        content: "linkedin notes 7",
-        createdAt: new Date()
-      }, {
-        id: 8,
-        content: "linkedin notes 8",
-        createdAt: new Date()
-      }, {
-        id: 9,
-        content: "linkedin notes 9",
-        createdAt: new Date()
-      }, {
-        id: 10,
-        content: "linkedin notes 10",
-        createdAt: new Date()
-      }],
-      others: [{
-        id: 1,
-        content: "Other notes",
-        createdAt: new Date()
-      }, {
-        id: 2,
-        content: "Other notes 2",
-        createdAt: new Date()
-      }, {
-        id: 3,
-        content: "Other notes 3",
-        createdAt: new Date()
-      }, {
-        id: 4,
-        content: "Other notes 4",
-        createdAt: new Date()
-      }, {
-        id: 5,
-        content: "Other notes 5",
-        createdAt: new Date()
-      }, {
-        id: 6,
-        content: "Other notes 6",
-        createdAt: new Date()
-      }, {
-        id: 7,
-        content: "Other notes 7",
-        createdAt: new Date()
-      }, {
-        id: 8,
-        content: "Other notes 8",
-        createdAt: new Date()
-      }, {
-        id: 9,
-        content: "Other notes 9",
-        createdAt: new Date()
-      }, {
-        id: 10,
-        content: "Other notes 10",
-        createdAt: new Date()
-      }]
-    }
-  });
+  chrome.storage.sync.get(key, cb); // cb({
+  //   notes: {
+  //     "linked.com": [
+  //       { id: 1, content: "linkedin notes", createdAt: new Date() },
+  //       { id: 2, content: "linkedin notes 2", createdAt: new Date() },
+  //     ],
+  //     others: [
+  //       { id: 1, content: "Other notes", createdAt: new Date() },
+  //       {
+  //         id: 2,
+  //         content:
+  //           "Other notes lsdkf ljkdf klsdj jlksd ljkadjsf lksdfj lkdsklf j lksdfjlkjdklf klsjdlkf slkdjf klsdjf  2",
+  //         createdAt: new Date()
+  //       },
+  //       { id: 3, content: "Other notes 3", createdAt: new Date() },
+  //       { id: 4, content: "Other notes 4", createdAt: new Date() },
+  //       { id: 5, content: "Other notes 5", createdAt: new Date() },
+  //       { id: 6, content: "Other notes 6", createdAt: new Date() },
+  //       { id: 7, content: "Other notes 7", createdAt: new Date() },
+  //       { id: 8, content: "Other notes 8", createdAt: new Date() },
+  //       { id: 9, content: "Other notes 9", createdAt: new Date() },
+  //       { id: 10, content: "Other notes 10", createdAt: new Date() }
+  //     ]
+  //   }
+  // });
 }
 
 
@@ -969,7 +1048,25 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".container {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  width: 100%;\n  padding: 4px;\n  margin: 0;\n  background: whitesmoke;\n  border-radius: 4px; }\n\nsection {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  font-size: 1.4rem; }\n\n.header {\n  font-size: 1.2rem;\n  font-family: Roboto-Bold;\n  padding: 4px 8px;\n  background: #353535;\n  color: #ffffff;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  min-height: 32px;\n  border-radius: 4px;\n  text-transform: uppercase; }\n\n.listContainer {\n  flex: 1 1 auto;\n  overflow-y: auto;\n  margin: 4px 0;\n  padding: 0 4px; }\n\n.item {\n  font-family: Roboto-Light, sans-serif;\n  word-break: break-all;\n  background: #ffffff;\n  display: flex;\n  align-items: center;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  margin-bottom: 6px; }\n  .item:last-child {\n    margin-bottom: 0; }\n  .item:hover {\n    border: 1px solid #ffb400; }\n  .item.highlight {\n    border: 1px solid #2dadba; }\n\n.empty-message {\n  text-align: center;\n  opacity: 0.4;\n  font-size: 2.4rem;\n  font-family: Roboto-Bold;\n  text-transform: uppercase;\n  margin-top: 12px; }\n\n.content {\n  flex: 1;\n  padding: 4px 8px; }\n\n.actions {\n  margin-right: 8px;\n  display: flex;\n  align-items: center; }\n\n.icon {\n  display: flex;\n  cursor: pointer;\n  align-items: center;\n  justify-content: center;\n  height: max-height;\n  margin: 0 1px;\n  transition: 0.3s;\n  background: #ebebeb;\n  border-radius: 50%;\n  transition: 0.3s; }\n  .icon:hover {\n    background: #d3d3d3; }\n  .icon svg {\n    height: 1.2rem;\n    width: 1.2rem;\n    fill: #282828;\n    margin: 4px; }\n  .icon.edit-icon {\n    background: #ffb400; }\n    .icon.edit-icon svg {\n      fill: #ffffff; }\n  .icon.delete-icon {\n    background: #f75961; }\n    .icon.delete-icon svg {\n      fill: #ffffff; }\n\n.btn {\n  font-family: Roboto-light;\n  border: none;\n  border-radius: 4px;\n  margin-left: 4px;\n  background: #ebebeb;\n  padding: 4px 8px;\n  transition: 0.4s;\n  cursor: pointer; }\n  .btn:hover {\n    background: #6464dc;\n    color: #ffffff; }\n", ""]);
+exports.push([module.i, ".container {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  width: 100%;\n  padding: 4px;\n  margin: 0;\n  background: whitesmoke;\n  border-radius: 4px; }\n\nsection {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  font-size: 1.4rem; }\n\n.header {\n  font-size: 1.2rem;\n  font-family: Roboto-Bold;\n  padding: 4px 8px;\n  background: #353535;\n  color: #ffffff;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  min-height: 32px;\n  border-radius: 4px;\n  text-transform: uppercase; }\n\n.listContainer {\n  flex: 1 1 auto;\n  overflow-y: auto;\n  margin: 4px 0;\n  padding: 0 4px; }\n\n.item {\n  font-family: Roboto-Light, sans-serif;\n  word-break: break-all;\n  background: #ffffff;\n  display: flex;\n  align-items: center;\n  border: 1px solid transparent;\n  position: relative;\n  border-radius: 4px;\n  margin-bottom: 6px; }\n  .item:last-child {\n    margin-bottom: 0; }\n  .item:hover {\n    border: 1px solid #ffb400; }\n  .item.highlight {\n    border: 1px solid #2dadba; }\n\n.empty-message {\n  text-align: center;\n  opacity: 0.4;\n  font-size: 2.4rem;\n  font-family: Roboto-Bold;\n  text-transform: uppercase;\n  margin-top: 12px; }\n\n.content {\n  flex: 1;\n  padding: 8px; }\n\n.actions {\n  position: absolute;\n  right: 2px;\n  transform: translateY(-50%);\n  top: 50%;\n  margin-right: 8px;\n  display: flex;\n  align-items: center; }\n\n.icon {\n  display: flex;\n  cursor: pointer;\n  align-items: center;\n  justify-content: center;\n  height: max-height;\n  margin: 0 1px;\n  transition: 0.3s;\n  background: #ebebeb;\n  border-radius: 50%;\n  transition: 0.3s; }\n  .icon:hover {\n    background: #d3d3d3; }\n  .icon svg {\n    height: 1.2rem;\n    width: 1.2rem;\n    fill: #282828;\n    margin: 4px; }\n  .icon.edit-icon {\n    background: #ffb400; }\n    .icon.edit-icon svg {\n      fill: #ffffff; }\n  .icon.delete-icon {\n    background: #f75961; }\n    .icon.delete-icon svg {\n      fill: #ffffff; }\n\n.btn {\n  font-family: Roboto-light;\n  border: none;\n  border-radius: 4px;\n  margin-left: 4px;\n  background: #ebebeb;\n  padding: 4px 8px;\n  transition: 0.4s;\n  cursor: pointer; }\n  .btn:hover {\n    background: #6464dc;\n    color: #ffffff; }\n", ""]);
+// Exports
+module.exports = exports;
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./app/popup/src/UIComponents/ConfirmBox/ConfirmBox.scss":
+/*!********************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/sass-loader/dist/cjs.js!./app/popup/src/UIComponents/ConfirmBox/ConfirmBox.scss ***!
+  \********************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// Imports
+var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+exports = ___CSS_LOADER_API_IMPORT___(false);
+// Module
+exports.push([module.i, ".confirm-box-container {\n  background: whitesmoke;\n  padding: 4px 6px;\n  position: absolute;\n  top: -4px;\n  right: 0px;\n  display: flex;\n  border-radius: 4px;\n  width: max-content;\n  font-size: 1rem;\n  align-items: center;\n  font-family: inherit; }\n  .confirm-box-container .confirm-box-title {\n    margin-right: 4px; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -987,7 +1084,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".count {\n  padding: 4px;\n  border-radius: 50%;\n  color: #ffffff;\n  background: #ffb400;\n  margin: 2px 0; }\n", ""]);
+exports.push([module.i, ".count {\n  padding: 4px;\n  border-radius: 50%;\n  color: #ffffff;\n  background: #ffb400; }\n", ""]);
 // Exports
 module.exports = exports;
 

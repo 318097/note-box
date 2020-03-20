@@ -39,7 +39,7 @@ const App = () => {
         chrome.storage.sync.set({ notes: updatedNotes });
       });
     };
-    // saveNotes();
+    saveNotes();
   }, [notes]);
 
   const showDomainInfo = () => {
