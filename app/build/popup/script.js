@@ -893,44 +893,32 @@ function getData(key, cb) {
         content: "Other notes 3",
         createdAt: new Date()
       }, {
-        id: 1,
-        content: "linkedin notes",
-        createdAt: new Date()
-      }, {
-        id: 2,
-        content: "linkedin notes 2",
-        createdAt: new Date()
-      }, {
-        id: 3,
-        content: "linkedin notes 3",
-        createdAt: new Date()
-      }, {
         id: 4,
-        content: "linkedin notes 4",
+        content: "Other notes 4",
         createdAt: new Date()
       }, {
         id: 5,
-        content: "linkedin notes 5",
+        content: "Other notes 5",
         createdAt: new Date()
       }, {
         id: 6,
-        content: "linkedin notes 6",
+        content: "Other notes 6",
         createdAt: new Date()
       }, {
         id: 7,
-        content: "linkedin notes 7",
+        content: "Other notes 7",
         createdAt: new Date()
       }, {
         id: 8,
-        content: "linkedin notes 8",
+        content: "Other notes 8",
         createdAt: new Date()
       }, {
         id: 9,
-        content: "linkedin notes 9",
+        content: "Other notes 9",
         createdAt: new Date()
       }, {
         id: 10,
-        content: "linkedin notes 10",
+        content: "Other notes 10",
         createdAt: new Date()
       }]
     }
@@ -977,7 +965,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".container {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  width: 100%;\n  padding: 4px;\n  margin: 0;\n  background: #eee;\n  border-radius: 2px; }\n\nsection {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  font-size: 1.4rem; }\n\n.header {\n  font-family: Roboto-Bold;\n  padding: 4px 8px;\n  border-radius: 2px;\n  background: #2f2f2f;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  min-height: 32px; }\n\n.listContainer {\n  flex: 1 1 auto;\n  overflow-y: auto;\n  margin: 4px 0;\n  padding: 0 4px; }\n\n.item {\n  font-family: Roboto-Light, sans-serif;\n  word-break: break-all;\n  background: white;\n  border-radius: 2px;\n  display: flex;\n  align-items: center;\n  border: 1px solid transparent;\n  margin-bottom: 6px; }\n  .item:last-child {\n    margin-bottom: 0; }\n  .item:hover {\n    background: whitesmoke; }\n  .item.highlight {\n    border: 1px solid #00bed3; }\n\n.content {\n  flex: 1;\n  padding: 4px 8px; }\n\n.actions {\n  margin-right: 8px;\n  display: flex;\n  align-items: center; }\n\n.icon {\n  display: flex;\n  cursor: pointer;\n  align-items: center;\n  justify-content: center;\n  height: max-height;\n  margin: 0 1px;\n  transition: 0.3s;\n  background: #e4e4e4;\n  border-radius: 50%; }\n  .icon:hover {\n    background: #c7c7c7; }\n  .icon svg {\n    padding: 4px;\n    height: 2rem;\n    width: 2rem;\n    fill: black; }\n\n.btn {\n  font-family: Roboto-light;\n  border: 1px solid #ccc;\n  border-radius: 2px;\n  margin-left: 4px;\n  background: white;\n  padding: 4px 8px;\n  transition: 0.4s;\n  cursor: pointer; }\n  .btn:hover {\n    background: #eee; }\n", ""]);
+exports.push([module.i, ".container {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  width: 100%;\n  padding: 4px;\n  margin: 0;\n  background: whitesmoke;\n  border-radius: 4px; }\n\nsection {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  font-size: 1.4rem; }\n\n.header {\n  font-family: Roboto-Bold;\n  padding: 4px 8px;\n  background: #353535;\n  color: #ffffff;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  min-height: 32px;\n  border-radius: 4px; }\n\n.listContainer {\n  flex: 1 1 auto;\n  overflow-y: auto;\n  margin: 4px 0;\n  padding: 0 4px; }\n\n.item {\n  font-family: Roboto-Light, sans-serif;\n  word-break: break-all;\n  background: #ffffff;\n  display: flex;\n  align-items: center;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  margin-bottom: 6px; }\n  .item:last-child {\n    margin-bottom: 0; }\n  .item:hover {\n    border: 1px solid #ffb400; }\n  .item.highlight {\n    border: 1px solid #2dadba; }\n\n.content {\n  flex: 1;\n  padding: 4px 8px; }\n\n.actions {\n  margin-right: 8px;\n  display: flex;\n  align-items: center; }\n\n.icon {\n  display: flex;\n  cursor: pointer;\n  align-items: center;\n  justify-content: center;\n  height: max-height;\n  margin: 0 1px;\n  transition: 0.3s;\n  background: #ebebeb;\n  border-radius: 50%;\n  transition: 0.3s; }\n  .icon:hover {\n    background: #d3d3d3; }\n  .icon svg {\n    padding: 4px;\n    height: 2rem;\n    width: 2rem;\n    fill: black; }\n\n.btn {\n  font-family: Roboto-light;\n  border: none;\n  border-radius: 4px;\n  margin-left: 4px;\n  background: #ebebeb;\n  padding: 4px 8px;\n  transition: 0.4s;\n  cursor: pointer; }\n  .btn:hover {\n    background: #6464dc;\n    color: #ffffff; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -1013,7 +1001,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".home-icon {\n  margin-right: 4px; }\n\n.controls {\n  display: flex;\n  height: 30px;\n  align-items: stretch;\n  justify-content: center; }\n  .controls .inputbox {\n    flex: 1 1 auto;\n    padding: 4px;\n    border-radius: 5px;\n    border: 1px solid #ccc; }\n\ntextarea {\n  resize: none;\n  font-family: Roboto-Light; }\n", ""]);
+exports.push([module.i, ".home-icon {\n  margin-right: 4px; }\n\n.controls {\n  display: flex;\n  height: 30px;\n  align-items: stretch;\n  justify-content: center; }\n  .controls .inputbox {\n    flex: 1 1 auto;\n    padding: 4px;\n    border-radius: 5px;\n    border: 1px solid #bcbcbc; }\n\ntextarea {\n  resize: none;\n  font-family: Roboto-Light; }\n", ""]);
 // Exports
 module.exports = exports;
 

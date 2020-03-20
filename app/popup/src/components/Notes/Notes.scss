@@ -1,3 +1,5 @@
+@import "../../theme.scss";
+
 .home-icon {
   margin-right: 4px;
 }
@@ -12,7 +14,7 @@
     flex: 1 1 auto;
     padding: 4px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: 1px solid $chrome;
   }
 }
 

@@ -1,3 +1,5 @@
+@import "./theme.scss";
+
 .container {
   display: flex;
   flex-direction: column;
@@ -5,8 +7,8 @@
   width: 100%;
   padding: 4px;
   margin: 0;
-  background: #eee;
-  border-radius: 2px;
+  background: $bg;
+  border-radius: 4px;
 }
 
 section {
@@ -19,13 +21,13 @@ section {
 .header {
   font-family: Roboto-Bold;
   padding: 4px 8px;
-  border-radius: 2px;
-  background: rgb(47, 47, 47);
-  color: white;
+  background: $black2;
+  color: $white;
   display: flex;
   align-items: center;
   justify-content: space-between;
   min-height: 32px;
+  border-radius: 4px;
 }
 
 .listContainer {
@@ -38,20 +40,21 @@ section {
 .item {
   font-family: Roboto-Light, sans-serif;
   word-break: break-all;
-  background: white;
-  border-radius: 2px;
+  background: $white;
   display: flex;
   align-items: center;
   border: 1px solid transparent;
+  border-radius: 4px;
   margin-bottom: 6px;
   &:last-child {
     margin-bottom: 0;
   }
   &:hover {
-    background: whitesmoke;
+    // background: $strokeOne;
+    border: 1px solid $yellow;
   }
   &.highlight {
-    border: 1px solid rgb(0, 190, 211);
+    border: 1px solid $blue;
   }
 }
 
@@ -74,10 +77,11 @@ section {
   height: max-height;
   margin: 0 1px;
   transition: 0.3s;
-  background: rgb(228, 228, 228);
+  background: $strokeOne;
   border-radius: 50%;
+  transition: 0.3s;
   &:hover {
-    background: rgb(199, 199, 199);
+    background: $strokeTwo;
   }
   svg {
     padding: 4px;
@@ -89,14 +93,16 @@ section {
 
 .btn {
   font-family: Roboto-light;
-  border: 1px solid #ccc;
-  border-radius: 2px;
+  // border: 1px solid $strokeOne;
+  border: none;
+  border-radius: 4px;
   margin-left: 4px;
-  background: white;
+  background: $strokeOne;
   padding: 4px 8px;
   transition: 0.4s;
   cursor: pointer;
   &:hover {
-    background: #eee;
+    background: $orchid;
+    color: $white;
   }
 }

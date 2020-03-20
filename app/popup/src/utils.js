@@ -25,16 +25,13 @@ function getData(key, cb) {
         { id: 1, content: "Other notes", createdAt: new Date() },
         { id: 2, content: "Other notes 2", createdAt: new Date() },
         { id: 3, content: "Other notes 3", createdAt: new Date() },
-        { id: 1, content: "linkedin notes", createdAt: new Date() },
-        { id: 2, content: "linkedin notes 2", createdAt: new Date() },
-        { id: 3, content: "linkedin notes 3", createdAt: new Date() },
-        { id: 4, content: "linkedin notes 4", createdAt: new Date() },
-        { id: 5, content: "linkedin notes 5", createdAt: new Date() },
-        { id: 6, content: "linkedin notes 6", createdAt: new Date() },
-        { id: 7, content: "linkedin notes 7", createdAt: new Date() },
-        { id: 8, content: "linkedin notes 8", createdAt: new Date() },
-        { id: 9, content: "linkedin notes 9", createdAt: new Date() },
-        { id: 10, content: "linkedin notes 10", createdAt: new Date() }
+        { id: 4, content: "Other notes 4", createdAt: new Date() },
+        { id: 5, content: "Other notes 5", createdAt: new Date() },
+        { id: 6, content: "Other notes 6", createdAt: new Date() },
+        { id: 7, content: "Other notes 7", createdAt: new Date() },
+        { id: 8, content: "Other notes 8", createdAt: new Date() },
+        { id: 9, content: "Other notes 9", createdAt: new Date() },
+        { id: 10, content: "Other notes 10", createdAt: new Date() }
       ]
     }
   });
