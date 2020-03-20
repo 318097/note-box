@@ -19,6 +19,7 @@ section {
 }
 
 .header {
+  font-size: 1.2rem;
   font-family: Roboto-Bold;
   padding: 4px 8px;
   background: $black2;
@@ -28,6 +29,7 @@ section {
   justify-content: space-between;
   min-height: 32px;
   border-radius: 4px;
+  text-transform: uppercase;
 }
 
 .listContainer {
@@ -58,6 +60,15 @@ section {
   }
 }
 
+.empty-message {
+  text-align: center;
+  opacity: 0.4;
+  font-size: 2.4rem;
+  font-family: Roboto-Bold;
+  text-transform: uppercase;
+  margin-top: 12px;
+}
+
 .content {
   flex: 1;
   padding: 4px 8px;
@@ -84,10 +95,22 @@ section {
     background: $strokeTwo;
   }
   svg {
-    padding: 4px;
-    height: 2rem;
-    width: 2rem;
-    fill: black;
+    height: 1.2rem;
+    width: 1.2rem;
+    fill: $black;
+    margin: 4px;
+  }
+  &.edit-icon {
+    background: $yellow;
+    svg {
+      fill: $white;
+    }
+  }
+  &.delete-icon {
+    background: $red;
+    svg {
+      fill: $white;
+    }
   }
 }
 

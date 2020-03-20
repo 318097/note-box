@@ -67,42 +67,46 @@ const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
         <span>Total: {notes.length}</span>
       </div>
       <div className="listContainer">
-        {notes.map(({ content, id }) => (
-          <div
-            key={id}
-            className={`item${
-              editNote && editNote.id === id ? " highlight" : ""
-            }`}
-          >
-            <div className="content">{content}</div>
-            <div className="actions">
-              {editNote && editNote.id === id ? (
-                <button
-                  className="btn"
-                  style={{ margin: "2px 0" }}
-                  onClick={clearNote}
-                >
-                  Cancel
-                </button>
-              ) : (
-                <Fragment>
-                  <span
-                    onClick={() => setNoteToEdit(id)}
-                    className="icon edit-icon"
+        {notes.length ? (
+          notes.map(({ content, id }) => (
+            <div
+              key={id}
+              className={`item${
+                editNote && editNote.id === id ? " highlight" : ""
+              }`}
+            >
+              <div className="content">{content}</div>
+              <div className="actions">
+                {editNote && editNote.id === id ? (
+                  <button
+                    className="btn"
+                    style={{ margin: "2px 0" }}
+                    onClick={clearNote}
                   >
-                    <EditIcon />
-                  </span>
-                  <span
-                    onClick={() => deleteNote(id)}
-                    className="icon delete-icon"
-                  >
-                    <DeleteIcon />
-                  </span>
-                </Fragment>
-              )}
+                    Cancel
+                  </button>
+                ) : (
+                  <Fragment>
+                    <span
+                      onClick={() => setNoteToEdit(id)}
+                      className="icon edit-icon"
+                    >
+                      <EditIcon />
+                    </span>
+                    <span
+                      onClick={() => deleteNote(id)}
+                      className="icon delete-icon"
+                    >
+                      <DeleteIcon />
+                    </span>
+                  </Fragment>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <div className="empty-message">Empty</div>
+        )}
       </div>
 
       <div className="controls">

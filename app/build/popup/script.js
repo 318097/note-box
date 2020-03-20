@@ -548,7 +548,9 @@ var Home = function Home(_ref) {
       className: "content"
     }, domain), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "actions"
-    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, count)));
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "count"
+    }, count)));
   })));
 };
 
@@ -721,7 +723,7 @@ var Notes = function Notes(_ref) {
     className: "icon home-icon"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_icons__WEBPACK_IMPORTED_MODULE_2__["HomeIcon"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Notes: ", domainUrl || "others")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Total: ", notes.length)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "listContainer"
-  }, notes.map(function (_ref2) {
+  }, notes.length ? notes.map(function (_ref2) {
     var content = _ref2.content,
         id = _ref2.id;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -748,7 +750,9 @@ var Notes = function Notes(_ref) {
       },
       className: "icon delete-icon"
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_icons__WEBPACK_IMPORTED_MODULE_2__["DeleteIcon"], null)))));
-  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "empty-message"
+  }, "Empty")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "controls"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("textarea", {
     value: content,
@@ -965,7 +969,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".container {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  width: 100%;\n  padding: 4px;\n  margin: 0;\n  background: whitesmoke;\n  border-radius: 4px; }\n\nsection {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  font-size: 1.4rem; }\n\n.header {\n  font-family: Roboto-Bold;\n  padding: 4px 8px;\n  background: #353535;\n  color: #ffffff;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  min-height: 32px;\n  border-radius: 4px; }\n\n.listContainer {\n  flex: 1 1 auto;\n  overflow-y: auto;\n  margin: 4px 0;\n  padding: 0 4px; }\n\n.item {\n  font-family: Roboto-Light, sans-serif;\n  word-break: break-all;\n  background: #ffffff;\n  display: flex;\n  align-items: center;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  margin-bottom: 6px; }\n  .item:last-child {\n    margin-bottom: 0; }\n  .item:hover {\n    border: 1px solid #ffb400; }\n  .item.highlight {\n    border: 1px solid #2dadba; }\n\n.content {\n  flex: 1;\n  padding: 4px 8px; }\n\n.actions {\n  margin-right: 8px;\n  display: flex;\n  align-items: center; }\n\n.icon {\n  display: flex;\n  cursor: pointer;\n  align-items: center;\n  justify-content: center;\n  height: max-height;\n  margin: 0 1px;\n  transition: 0.3s;\n  background: #ebebeb;\n  border-radius: 50%;\n  transition: 0.3s; }\n  .icon:hover {\n    background: #d3d3d3; }\n  .icon svg {\n    padding: 4px;\n    height: 2rem;\n    width: 2rem;\n    fill: black; }\n\n.btn {\n  font-family: Roboto-light;\n  border: none;\n  border-radius: 4px;\n  margin-left: 4px;\n  background: #ebebeb;\n  padding: 4px 8px;\n  transition: 0.4s;\n  cursor: pointer; }\n  .btn:hover {\n    background: #6464dc;\n    color: #ffffff; }\n", ""]);
+exports.push([module.i, ".container {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  width: 100%;\n  padding: 4px;\n  margin: 0;\n  background: whitesmoke;\n  border-radius: 4px; }\n\nsection {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  font-size: 1.4rem; }\n\n.header {\n  font-size: 1.2rem;\n  font-family: Roboto-Bold;\n  padding: 4px 8px;\n  background: #353535;\n  color: #ffffff;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  min-height: 32px;\n  border-radius: 4px;\n  text-transform: uppercase; }\n\n.listContainer {\n  flex: 1 1 auto;\n  overflow-y: auto;\n  margin: 4px 0;\n  padding: 0 4px; }\n\n.item {\n  font-family: Roboto-Light, sans-serif;\n  word-break: break-all;\n  background: #ffffff;\n  display: flex;\n  align-items: center;\n  border: 1px solid transparent;\n  border-radius: 4px;\n  margin-bottom: 6px; }\n  .item:last-child {\n    margin-bottom: 0; }\n  .item:hover {\n    border: 1px solid #ffb400; }\n  .item.highlight {\n    border: 1px solid #2dadba; }\n\n.empty-message {\n  text-align: center;\n  opacity: 0.4;\n  font-size: 2.4rem;\n  font-family: Roboto-Bold;\n  text-transform: uppercase;\n  margin-top: 12px; }\n\n.content {\n  flex: 1;\n  padding: 4px 8px; }\n\n.actions {\n  margin-right: 8px;\n  display: flex;\n  align-items: center; }\n\n.icon {\n  display: flex;\n  cursor: pointer;\n  align-items: center;\n  justify-content: center;\n  height: max-height;\n  margin: 0 1px;\n  transition: 0.3s;\n  background: #ebebeb;\n  border-radius: 50%;\n  transition: 0.3s; }\n  .icon:hover {\n    background: #d3d3d3; }\n  .icon svg {\n    height: 1.2rem;\n    width: 1.2rem;\n    fill: #282828;\n    margin: 4px; }\n  .icon.edit-icon {\n    background: #ffb400; }\n    .icon.edit-icon svg {\n      fill: #ffffff; }\n  .icon.delete-icon {\n    background: #f75961; }\n    .icon.delete-icon svg {\n      fill: #ffffff; }\n\n.btn {\n  font-family: Roboto-light;\n  border: none;\n  border-radius: 4px;\n  margin-left: 4px;\n  background: #ebebeb;\n  padding: 4px 8px;\n  transition: 0.4s;\n  cursor: pointer; }\n  .btn:hover {\n    background: #6464dc;\n    color: #ffffff; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -983,7 +987,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".count {\n  padding: 4px;\n  border-radius: 50%;\n  color: #ffffff;\n  background: #ffb400;\n  margin: 2px 0; }\n", ""]);
 // Exports
 module.exports = exports;
 

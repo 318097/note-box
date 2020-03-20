@@ -30,7 +30,7 @@ const Home = ({ domainInfo, setDomainUrl, setDomainInfoVisibility }) => {
           >
             <div className="content">{domain}</div>
             <div className="actions">
-              <span>{count}</span>
+              <span className="count">{count}</span>
             </div>
           </div>
         ))}
