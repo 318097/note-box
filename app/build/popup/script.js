@@ -1030,7 +1030,7 @@ var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_
 var ___CSS_LOADER_URL_REPLACEMENT_1___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_1___);
 var ___CSS_LOADER_URL_REPLACEMENT_2___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_2___);
 // Module
-exports.push([module.i, "@font-face {\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-family: Roboto-Regular;\n}\n\n@font-face {\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-family: Roboto-Bold;\n}\n\n@font-face {\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n  font-family: Roboto-Light;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\nhtml,\nbody,\n#root {\n  font-size: 10px;\n}\nbody,\n#root {\n  border-radius: 20px;\n  height: 450px;\n  width: 325px;\n\n  margin: 40px auto;\n}\n\n.flex {\n  display: flex;\n  align-items: center;\n}\n\n.pointer {\n  cursor: pointer;\n}\n\n/* width */\n::-webkit-scrollbar {\n  width: 2px;\n  height: 2px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n  background: transparent;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  background: #888;\n  border-radius: 20px;\n}\n\n/* Handle on hover */\n::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n", ""]);
+exports.push([module.i, "@font-face {\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-family: Roboto-Regular;\n}\n\n@font-face {\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_1___ + ");\n  font-family: Roboto-Bold;\n}\n\n@font-face {\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_2___ + ");\n  font-family: Roboto-Light;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\nhtml,\nbody,\n#root {\n  font-size: 10px;\n}\nbody,\n#root {\n  border-radius: 20px;\n  height: 450px;\n  width: 325px;\n  /* margin: 40px auto; */\n}\n\n.flex {\n  display: flex;\n  align-items: center;\n}\n\n.pointer {\n  cursor: pointer;\n}\n\n/* width */\n::-webkit-scrollbar {\n  width: 2px;\n  height: 2px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n  background: transparent;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  background: #888;\n  border-radius: 20px;\n}\n\n/* Handle on hover */\n::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -1084,7 +1084,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".count {\n  padding: 4px;\n  border-radius: 50%;\n  color: #ffffff;\n  background: #ffb400; }\n", ""]);
+exports.push([module.i, ".count {\n  padding: 4px;\n  border-radius: 50%;\n  text-align: center;\n  height: 24px;\n  width: 24px;\n  color: #ffffff;\n  background: #ffb400; }\n", ""]);
 // Exports
 module.exports = exports;
 
