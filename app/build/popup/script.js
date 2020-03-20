@@ -1005,7 +1005,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".home-icon {\n  margin-right: 4px; }\n\n.controls {\n  display: flex;\n  height: 30px;\n  align-items: stretch;\n  justify-content: center; }\n  .controls .inputbox {\n    flex: 1 1 auto;\n    padding: 4px;\n    border-radius: 5px;\n    border: 1px solid #bcbcbc; }\n\ntextarea {\n  resize: none;\n  font-family: Roboto-Light; }\n", ""]);
+exports.push([module.i, ".home-icon {\n  margin-right: 6px; }\n\n.controls {\n  display: flex;\n  height: 30px;\n  align-items: stretch;\n  justify-content: center; }\n  .controls .inputbox {\n    flex: 1 1 auto;\n    padding: 4px;\n    border-radius: 5px;\n    border: 1px solid #bcbcbc;\n    resize: none;\n    font-family: Roboto-Light; }\n    .controls .inputbox:focus {\n      border: 1px solid #2dadba; }\n", ""]);
 // Exports
 module.exports = exports;
 

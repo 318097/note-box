@@ -1,7 +1,7 @@
 @import "../../theme.scss";
 
 .home-icon {
-  margin-right: 4px;
+  margin-right: 6px;
 }
 
 .controls {
@@ -15,10 +15,10 @@
     padding: 4px;
     border-radius: 5px;
     border: 1px solid $chrome;
+    resize: none;
+    font-family: Roboto-Light;
+    &:focus {
+      border: 1px solid $blue;
+    }
   }
-}
-
-textarea {
-  resize: none;
-  font-family: Roboto-Light;
 }
