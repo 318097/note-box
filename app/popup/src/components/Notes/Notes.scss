@@ -2,12 +2,6 @@
   margin-right: 4px;
 }
 
-.noteList {
-  flex: 1 1 auto;
-  overflow-y: auto;
-  margin-bottom: 8px;
-}
-
 .controls {
   display: flex;
   height: 30px;
@@ -20,4 +14,8 @@
     border-radius: 5px;
     border: 1px solid #ccc;
   }
+}
+
+textarea {
+  resize: none;
 }

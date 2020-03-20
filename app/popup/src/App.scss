@@ -3,10 +3,10 @@
   flex-direction: column;
   height: 100%;
   width: 100%;
-  padding: 8px;
+  padding: 4px;
   margin: 0;
   background: #eee;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 
 section {
@@ -19,7 +19,7 @@ section {
 .header {
   font-weight: bold;
   padding: 4px 8px;
-  border-radius: 5px;
+  border-radius: 2px;
   background: rgb(47, 47, 47);
   color: white;
   display: flex;
@@ -28,17 +28,29 @@ section {
   min-height: 32px;
 }
 
+.listContainer {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  margin: 4px 0;
+  padding: 0 4px;
+}
+
 .item {
   word-break: break-all;
   background: white;
-  border-radius: 5px;
-  margin-top: 6px;
+  border-radius: 2px;
   display: flex;
   align-items: center;
   border: 1px solid transparent;
+  margin-bottom: 6px;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &:hover {
+    background: whitesmoke;
+  }
   &.highlight {
-    border: 1px solid grey;
-    background: lightgrey;
+    border: 1px solid rgb(0, 190, 211);
   }
 }
 
@@ -61,22 +73,22 @@ section {
   height: max-height;
   margin: 0 1px;
   transition: 0.3s;
-  background: grey;
+  background: rgb(228, 228, 228);
   border-radius: 50%;
   &:hover {
-    background: rgb(75, 75, 75);
+    background: rgb(199, 199, 199);
   }
   svg {
     padding: 4px;
     height: 2rem;
     width: 2rem;
-    fill: white;
+    fill: black;
   }
 }
 
 .btn {
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 2px;
   margin-left: 4px;
   background: white;
   padding: 4px 8px;

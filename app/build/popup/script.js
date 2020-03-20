@@ -254,9 +254,8 @@ var App = function App() {
           notes: updatedNotes
         });
       });
-    };
+    }; // saveNotes();
 
-    saveNotes();
   }, [notes]);
 
   var showDomainInfo = function showDomainInfo() {
@@ -508,7 +507,9 @@ var Home = function Home(_ref) {
     onClick: function onClick() {
       return Object(_utils__WEBPACK_IMPORTED_MODULE_2__["messenger"])("clear");
     }
-  }, "Clear"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, domainInfo.map(function (_ref2, index) {
+  }, "Clear"))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "listContainer"
+  }, domainInfo.map(function (_ref2, index) {
     var domain = _ref2.domain,
         count = _ref2.count;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -693,19 +694,22 @@ var Notes = function Notes(_ref) {
     onClick: showDomainInfo,
     className: "icon home-icon"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_icons__WEBPACK_IMPORTED_MODULE_2__["HomeIcon"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Notes: ", domainUrl || "others")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Total: ", notes.length)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "noteList"
+    className: "listContainer"
   }, notes.map(function (_ref2) {
     var content = _ref2.content,
         id = _ref2.id;
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       key: id,
-      className: "item ".concat(editNote && editNote.id === id && "highlight")
+      className: "item".concat(editNote && editNote.id === id ? " highlight" : "")
     }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "content"
     }, content), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
       className: "actions"
     }, editNote && editNote.id === id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "btn",
+      style: {
+        margin: "2px 0"
+      },
       onClick: clearNote
     }, "Cancel") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       onClick: function onClick() {
@@ -726,7 +730,8 @@ var Notes = function Notes(_ref) {
       var value = _ref3.target.value;
       return setContent(value);
     },
-    className: "inputbox"
+    className: "inputbox",
+    placeholder: "Enter Note.."
   }), editNote && editNote.mode === "EDIT" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     onClick: updateNote,
     className: "btn"
@@ -798,31 +803,112 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "messenger", function() { return messenger; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getData", function() { return getData; });
 function messenger(action, cb) {
-  chrome.tabs.query({
-    active: true,
-    currentWindow: true
-  }, function (tabs) {
-    return chrome.tabs.sendMessage(tabs[0].id, {
-      action: action
-    }, cb);
-  });
+  // chrome.tabs.query({ active: true, currentWindow: true }, tabs =>
+  //   chrome.tabs.sendMessage(tabs[0].id, { action }, cb)
+  // );
+  cb();
 }
 
 function getData(key, cb) {
-  chrome.storage.sync.get(key, cb); // cb({
-  //   notes: {
-  //     "linked.com": [
-  //       { id: 1, content: "linkedin notes", createdAt: new Date() },
-  //       { id: 2, content: "linkedin notes 2", createdAt: new Date() },
-  //       { id: 3, content: "linkedin notes 3", createdAt: new Date() }
-  //     ],
-  //     others: [
-  //       { id: 1, content: "Other notes", createdAt: new Date() },
-  //       { id: 2, content: "Other notes 2", createdAt: new Date() },
-  //       { id: 3, content: "Other notes 3", createdAt: new Date() }
-  //     ]
-  //   }
-  // });
+  // chrome.storage.sync.get(key, cb);
+  cb({
+    notes: {
+      "linked.com": [{
+        id: 1,
+        content: "linkedin notes",
+        createdAt: new Date()
+      }, {
+        id: 2,
+        content: "linkedin notes 2",
+        createdAt: new Date()
+      }, {
+        id: 3,
+        content: "linkedin notes 3",
+        createdAt: new Date()
+      }, {
+        id: 4,
+        content: "linkedin notes 4",
+        createdAt: new Date()
+      }, {
+        id: 5,
+        content: "linkedin notes 5",
+        createdAt: new Date()
+      }, {
+        id: 6,
+        content: "linkedin notes 6",
+        createdAt: new Date()
+      }, {
+        id: 7,
+        content: "linkedin notes 7",
+        createdAt: new Date()
+      }, {
+        id: 8,
+        content: "linkedin notes 8",
+        createdAt: new Date()
+      }, {
+        id: 9,
+        content: "linkedin notes 9",
+        createdAt: new Date()
+      }, {
+        id: 10,
+        content: "linkedin notes 10",
+        createdAt: new Date()
+      }],
+      others: [{
+        id: 1,
+        content: "Other notes",
+        createdAt: new Date()
+      }, {
+        id: 2,
+        content: "Other notes 2",
+        createdAt: new Date()
+      }, {
+        id: 3,
+        content: "Other notes 3",
+        createdAt: new Date()
+      }, {
+        id: 1,
+        content: "linkedin notes",
+        createdAt: new Date()
+      }, {
+        id: 2,
+        content: "linkedin notes 2",
+        createdAt: new Date()
+      }, {
+        id: 3,
+        content: "linkedin notes 3",
+        createdAt: new Date()
+      }, {
+        id: 4,
+        content: "linkedin notes 4",
+        createdAt: new Date()
+      }, {
+        id: 5,
+        content: "linkedin notes 5",
+        createdAt: new Date()
+      }, {
+        id: 6,
+        content: "linkedin notes 6",
+        createdAt: new Date()
+      }, {
+        id: 7,
+        content: "linkedin notes 7",
+        createdAt: new Date()
+      }, {
+        id: 8,
+        content: "linkedin notes 8",
+        createdAt: new Date()
+      }, {
+        id: 9,
+        content: "linkedin notes 9",
+        createdAt: new Date()
+      }, {
+        id: 10,
+        content: "linkedin notes 10",
+        createdAt: new Date()
+      }]
+    }
+  });
 }
 
 
@@ -843,7 +929,7 @@ var ___CSS_LOADER_URL_IMPORT_0___ = __webpack_require__(/*! ../assets/fonts/Robo
 exports = ___CSS_LOADER_API_IMPORT___(false);
 var ___CSS_LOADER_URL_REPLACEMENT_0___ = ___CSS_LOADER_GET_URL_IMPORT___(___CSS_LOADER_URL_IMPORT_0___);
 // Module
-exports.push([module.i, "@font-face {\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-family: font1;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\nhtml,\nbody,\n#root {\n  font-size: 10px;\n}\nbody,\n#root {\n  font-family: font1;\n  border-radius: 20px;\n  height: 450px;\n  width: 325px;\n}\n\n.flex {\n  display: flex;\n  align-items: center;\n}\n\n.pointer {\n  cursor: pointer;\n}\n\n/* width */\n::-webkit-scrollbar {\n  width: 2px;\n  height: 2px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n  background: transparent;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  background: #888;\n  border-radius: 20px;\n}\n\n/* Handle on hover */\n::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n", ""]);
+exports.push([module.i, "@font-face {\n  src: url(" + ___CSS_LOADER_URL_REPLACEMENT_0___ + ");\n  font-family: font1;\n}\n\n* {\n  box-sizing: border-box;\n  outline: none;\n}\n\nhtml,\nbody,\n#root {\n  font-size: 10px;\n}\nbody,\n#root {\n  font-family: font1;\n  border-radius: 20px;\n  height: 450px;\n  width: 325px;\n\n  margin: 40px auto;\n}\n\n.flex {\n  display: flex;\n  align-items: center;\n}\n\n.pointer {\n  cursor: pointer;\n}\n\n/* width */\n::-webkit-scrollbar {\n  width: 2px;\n  height: 2px;\n}\n\n/* Track */\n::-webkit-scrollbar-track {\n  background: transparent;\n}\n\n/* Handle */\n::-webkit-scrollbar-thumb {\n  background: #888;\n  border-radius: 20px;\n}\n\n/* Handle on hover */\n::-webkit-scrollbar-thumb:hover {\n  background: #555;\n}\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -861,7 +947,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".container {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  width: 100%;\n  padding: 8px;\n  margin: 0;\n  background: #eee;\n  border-radius: 5px; }\n\nsection {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  font-size: 1.4rem; }\n\n.header {\n  font-weight: bold;\n  padding: 4px 8px;\n  border-radius: 5px;\n  background: #2f2f2f;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  min-height: 32px; }\n\n.item {\n  word-break: break-all;\n  background: white;\n  border-radius: 5px;\n  margin-top: 6px;\n  display: flex;\n  align-items: center;\n  border: 1px solid transparent; }\n  .item.highlight {\n    border: 1px solid grey;\n    background: lightgrey; }\n\n.content {\n  flex: 1;\n  padding: 4px 8px; }\n\n.actions {\n  margin-right: 8px;\n  display: flex;\n  align-items: center; }\n\n.icon {\n  display: flex;\n  cursor: pointer;\n  align-items: center;\n  justify-content: center;\n  height: max-height;\n  margin: 0 1px;\n  transition: 0.3s;\n  background: grey;\n  border-radius: 50%; }\n  .icon:hover {\n    background: #4b4b4b; }\n  .icon svg {\n    padding: 4px;\n    height: 2rem;\n    width: 2rem;\n    fill: white; }\n\n.btn {\n  border: 1px solid #ccc;\n  border-radius: 5px;\n  margin-left: 4px;\n  background: white;\n  padding: 4px 8px;\n  transition: 0.4s;\n  cursor: pointer; }\n  .btn:hover {\n    background: #eee; }\n", ""]);
+exports.push([module.i, ".container {\n  display: flex;\n  flex-direction: column;\n  height: 100%;\n  width: 100%;\n  padding: 4px;\n  margin: 0;\n  background: #eee;\n  border-radius: 2px; }\n\nsection {\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  font-size: 1.4rem; }\n\n.header {\n  font-weight: bold;\n  padding: 4px 8px;\n  border-radius: 2px;\n  background: #2f2f2f;\n  color: white;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  min-height: 32px; }\n\n.listContainer {\n  flex: 1 1 auto;\n  overflow-y: auto;\n  margin: 4px 0;\n  padding: 0 4px; }\n\n.item {\n  word-break: break-all;\n  background: white;\n  border-radius: 2px;\n  display: flex;\n  align-items: center;\n  border: 1px solid transparent;\n  margin-bottom: 6px; }\n  .item:last-child {\n    margin-bottom: 0; }\n  .item:hover {\n    background: whitesmoke; }\n  .item.highlight {\n    border: 1px solid #00bed3; }\n\n.content {\n  flex: 1;\n  padding: 4px 8px; }\n\n.actions {\n  margin-right: 8px;\n  display: flex;\n  align-items: center; }\n\n.icon {\n  display: flex;\n  cursor: pointer;\n  align-items: center;\n  justify-content: center;\n  height: max-height;\n  margin: 0 1px;\n  transition: 0.3s;\n  background: #e4e4e4;\n  border-radius: 50%; }\n  .icon:hover {\n    background: #c7c7c7; }\n  .icon svg {\n    padding: 4px;\n    height: 2rem;\n    width: 2rem;\n    fill: black; }\n\n.btn {\n  border: 1px solid #ccc;\n  border-radius: 2px;\n  margin-left: 4px;\n  background: white;\n  padding: 4px 8px;\n  transition: 0.4s;\n  cursor: pointer; }\n  .btn:hover {\n    background: #eee; }\n", ""]);
 // Exports
 module.exports = exports;
 
@@ -897,7 +983,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".home-icon {\n  margin-right: 4px; }\n\n.noteList {\n  flex: 1 1 auto;\n  overflow-y: auto;\n  margin-bottom: 8px; }\n\n.controls {\n  display: flex;\n  height: 30px;\n  align-items: stretch;\n  justify-content: center; }\n  .controls .inputbox {\n    flex: 1 1 auto;\n    padding: 4px;\n    border-radius: 5px;\n    border: 1px solid #ccc; }\n", ""]);
+exports.push([module.i, ".home-icon {\n  margin-right: 4px; }\n\n.controls {\n  display: flex;\n  height: 30px;\n  align-items: stretch;\n  justify-content: center; }\n  .controls .inputbox {\n    flex: 1 1 auto;\n    padding: 4px;\n    border-radius: 5px;\n    border: 1px solid #ccc; }\n\ntextarea {\n  resize: none; }\n", ""]);
 // Exports
 module.exports = exports;
 

@@ -66,16 +66,22 @@ const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
         </span>
         <span>Total: {notes.length}</span>
       </div>
-      <div className="noteList">
+      <div className="listContainer">
         {notes.map(({ content, id }) => (
           <div
             key={id}
-            className={`item ${editNote && editNote.id === id && "highlight"}`}
+            className={`item${
+              editNote && editNote.id === id ? " highlight" : ""
+            }`}
           >
             <div className="content">{content}</div>
             <div className="actions">
               {editNote && editNote.id === id ? (
-                <button className="btn" onClick={clearNote}>
+                <button
+                  className="btn"
+                  style={{ margin: "2px 0" }}
+                  onClick={clearNote}
+                >
                   Cancel
                 </button>
               ) : (
@@ -104,6 +110,7 @@ const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
           value={content}
           onChange={({ target: { value } }) => setContent(value)}
           className="inputbox"
+          placeholder="Enter Note.."
         />
         {editNote && editNote.mode === "EDIT" ? (
           <button onClick={updateNote} className="btn">

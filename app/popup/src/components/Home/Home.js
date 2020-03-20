@@ -21,7 +21,7 @@ const Home = ({ domainInfo, setDomainUrl, setDomainInfoVisibility }) => {
           </button>
         </span>
       </div>
-      <div>
+      <div className="listContainer">
         {domainInfo.map(({ domain, count }, index) => (
           <div
             onClick={() => openDomainNotes(domain)}
