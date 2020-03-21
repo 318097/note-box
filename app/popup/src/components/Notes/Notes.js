@@ -83,7 +83,7 @@ const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
                     Cancel
                   </button>
                 ) : (
-                  <Fragment>
+                  <span className="actionButtons">
                     <span
                       onClick={() => setNoteToEdit(id)}
                       className="icon edit-icon"
@@ -95,7 +95,7 @@ const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
                         <DeleteIcon />
                       </span>
                     </ConfirmBox>
-                  </Fragment>
+                  </span>
                 )}
               </div>
             </div>

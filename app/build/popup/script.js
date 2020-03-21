@@ -207,9 +207,8 @@ var App = function App() {
       setDomainUrl = _useState8[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
-    Object(_utils__WEBPACK_IMPORTED_MODULE_4__["messenger"])("getURL", function () {
-      var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "others";
-      return setDomainUrl(url);
+    Object(_utils__WEBPACK_IMPORTED_MODULE_4__["messenger"])("getURL", function (url) {
+      return setDomainUrl(url || "others");
     });
   }, []);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
@@ -875,7 +874,9 @@ var Notes = function Notes(_ref) {
     }, editNote && editNote.id === id ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
       className: "btn",
       onClick: clearNote
-    }, "Cancel") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    }, "Cancel") : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+      className: "actionButtons"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       onClick: function onClick() {
         return setNoteToEdit(id);
       },
@@ -1102,7 +1103,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".home-icon {\n  margin-right: 6px; }\n\n.controls {\n  display: flex;\n  height: 30px;\n  align-items: stretch;\n  justify-content: center; }\n  .controls .inputbox {\n    flex: 1 1 auto;\n    padding: 4px;\n    border-radius: 5px;\n    border: 1px solid #bcbcbc;\n    resize: none;\n    font-family: Roboto-Light; }\n    .controls .inputbox:focus {\n      border: 1px solid #2dadba; }\n", ""]);
+exports.push([module.i, ".home-icon {\n  margin-right: 6px; }\n\n.controls {\n  display: flex;\n  height: 30px;\n  align-items: stretch;\n  justify-content: center; }\n  .controls .inputbox {\n    flex: 1 1 auto;\n    padding: 4px;\n    border-radius: 5px;\n    border: 1px solid #bcbcbc;\n    resize: none;\n    font-family: Roboto-Light; }\n    .controls .inputbox:focus {\n      border: 1px solid #2dadba; }\n\n.actionButtons {\n  transition: 0.3s;\n  display: flex;\n  align-items: center;\n  opacity: 0; }\n\n.item:hover .actionButtons {\n  opacity: 1; }\n", ""]);
 // Exports
 module.exports = exports;
 

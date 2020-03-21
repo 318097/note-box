@@ -22,3 +22,14 @@
     }
   }
 }
+
+.actionButtons {
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+}
+
+.item:hover .actionButtons {
+  opacity: 1;
+}
