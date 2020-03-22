@@ -186,25 +186,25 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 var App = function App() {
-  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
+  var _useState = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
       _useState2 = _slicedToArray(_useState, 2),
-      notes = _useState2[0],
-      setNotes = _useState2[1];
+      domainInfoVisibility = _useState2[0],
+      setDomainInfoVisibility = _useState2[1];
 
-  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(false),
+  var _useState3 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])("others"),
       _useState4 = _slicedToArray(_useState3, 2),
-      domainInfoVisibility = _useState4[0],
-      setDomainInfoVisibility = _useState4[1];
+      domainUrl = _useState4[0],
+      setDomainUrl = _useState4[1];
 
   var _useState5 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState6 = _slicedToArray(_useState5, 2),
-      domainInfo = _useState6[0],
-      setDomainInfo = _useState6[1];
+      notes = _useState6[0],
+      setNotes = _useState6[1];
 
-  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])(""),
+  var _useState7 = Object(react__WEBPACK_IMPORTED_MODULE_0__["useState"])([]),
       _useState8 = _slicedToArray(_useState7, 2),
-      domainUrl = _useState8[0],
-      setDomainUrl = _useState8[1];
+      domainInfo = _useState8[0],
+      setDomainInfo = _useState8[1];
 
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
     Object(_utils__WEBPACK_IMPORTED_MODULE_4__["messenger"])("getURL", function (url) {
@@ -212,6 +212,7 @@ var App = function App() {
     });
   }, []);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    if (!domainUrl) return;
     Object(_utils__WEBPACK_IMPORTED_MODULE_4__["getData"])("notes", function (_ref) {
       var _ref$notes = _ref.notes,
           notes = _ref$notes === void 0 ? {} : _ref$notes;
@@ -234,8 +235,9 @@ var App = function App() {
       Object(_utils__WEBPACK_IMPORTED_MODULE_4__["getData"])("notes", function (db) {
         var prevdata = db.notes || {};
 
-        var updatedNotes = _objectSpread({}, prevdata, _defineProperty({}, domainUrl || "others", _toConsumableArray(notes)));
+        var updatedNotes = _objectSpread({}, prevdata, _defineProperty({}, domainUrl, _toConsumableArray(notes)));
 
+        console.log("Updated Notes:", updatedNotes);
         chrome.storage.sync.set({
           notes: updatedNotes
         });
@@ -859,7 +861,7 @@ var Notes = function Notes(_ref) {
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
     onClick: showDomainInfo,
     className: "icon home-icon"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_icons__WEBPACK_IMPORTED_MODULE_3__["HomeIcon"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Notes: ", domainUrl || "others")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Total: ", notes.length)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_assets_icons__WEBPACK_IMPORTED_MODULE_3__["HomeIcon"], null)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Notes: ", domainUrl)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Total: ", notes.length)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "listContainer"
   }, notes.length ? notes.map(function (_ref2) {
     var content = _ref2.content,
@@ -986,7 +988,7 @@ function getData(key, cb) {
   //   notes: {
   //     "linked.com": [
   //       { id: 1, content: "linkedin notes", createdAt: new Date() },
-  //       { id: 2, content: "linkedin notes 2", createdAt: new Date() },
+  //       { id: 2, content: "linkedin notes 2", createdAt: new Date() }
   //     ],
   //     others: [
   //       { id: 1, content: "Other notes", createdAt: new Date() },
@@ -1103,7 +1105,7 @@ module.exports = exports;
 var ___CSS_LOADER_API_IMPORT___ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
 exports = ___CSS_LOADER_API_IMPORT___(false);
 // Module
-exports.push([module.i, ".home-icon {\n  margin-right: 6px; }\n\n.controls {\n  display: flex;\n  height: 30px;\n  align-items: stretch;\n  justify-content: center; }\n  .controls .inputbox {\n    flex: 1 1 auto;\n    padding: 4px;\n    border-radius: 5px;\n    border: 1px solid #bcbcbc;\n    resize: none;\n    font-family: Roboto-Light; }\n    .controls .inputbox:focus {\n      border: 1px solid #2dadba; }\n\n.actionButtons {\n  transition: 0.3s;\n  display: flex;\n  align-items: center;\n  opacity: 0; }\n\n.item:hover .actionButtons {\n  opacity: 1; }\n", ""]);
+exports.push([module.i, ".home-icon {\n  margin-right: 6px; }\n\n.controls {\n  display: flex;\n  height: 30px;\n  align-items: stretch;\n  justify-content: center; }\n  .controls .inputbox {\n    flex: 1 1 auto;\n    padding: 4px;\n    border-radius: 5px;\n    border: 1px solid #bcbcbc;\n    resize: none;\n    font-family: Roboto-Light; }\n    .controls .inputbox:focus {\n      border: 1px solid #2dadba; }\n\n.actionButtons {\n  transition: 0.3s;\n  align-items: center;\n  opacity: 0;\n  display: none; }\n\n.item:hover .actionButtons {\n  opacity: 1;\n  display: flex; }\n", ""]);
 // Exports
 module.exports = exports;
 

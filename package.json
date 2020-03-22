@@ -6,7 +6,8 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "dev": "webpack"
+    "dev": "webpack",
+    "build": "rm -rf './app/build' && webpack"
   },
   "dependencies": {
     "react": "^16.13.0",

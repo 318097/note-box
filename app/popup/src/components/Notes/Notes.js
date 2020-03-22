@@ -63,7 +63,7 @@ const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
           <span onClick={showDomainInfo} className="icon home-icon">
             <HomeIcon />
           </span>
-          <span>Notes: {domainUrl || "others"}</span>
+          <span>Notes: {domainUrl}</span>
         </span>
         <span>Total: {notes.length}</span>
       </div>

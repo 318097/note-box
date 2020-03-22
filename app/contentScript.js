@@ -14,6 +14,7 @@ chrome.runtime.onMessage.addListener((request, sender, senderResponse) => {
       break;
     case "clear":
       chrome.storage.sync.clear();
+      console.log("Cleared..");
       break;
   }
 });

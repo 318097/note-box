@@ -6,16 +6,18 @@ import Notes from "./components/Notes";
 import { messenger, getData } from "./utils";
 
 const App = () => {
-  const [notes, setNotes] = useState([]);
   const [domainInfoVisibility, setDomainInfoVisibility] = useState(false);
+  const [domainUrl, setDomainUrl] = useState("others");
+  const [notes, setNotes] = useState([]);
   const [domainInfo, setDomainInfo] = useState([]);
-  const [domainUrl, setDomainUrl] = useState("");
 
   useEffect(() => {
     messenger("getURL", url => setDomainUrl(url || "others"));
   }, []);
 
   useEffect(() => {
+    if (!domainUrl) return;
+
     getData("notes", ({ notes = {} }) => {
       const domainNotes = notes[domainUrl] || [];
       setNotes(domainNotes);
@@ -34,8 +36,9 @@ const App = () => {
         const prevdata = db.notes || {};
         const updatedNotes = {
           ...prevdata,
-          [domainUrl || "others"]: [...notes]
+          [domainUrl]: [...notes]
         };
+        console.log("Updated Notes:", updatedNotes);
         chrome.storage.sync.set({ notes: updatedNotes });
       });
     };
