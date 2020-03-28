@@ -15,6 +15,7 @@ const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
     setNotes(prev => [
       ...prev,
       {
+        url: domainUrl,
         id: uuid(),
         content,
         createdAt: new Date().toISOString()

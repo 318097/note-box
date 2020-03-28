@@ -13,27 +13,32 @@ const Home = ({ domainInfo, setDomainUrl, setDomainInfoVisibility }) => {
       <div className="header">
         <span>Domains</span>
         <span>
-          <button className="btn" onClick={() => messenger("log")}>
+          <button className="btn" onClick={() => messenger({ action: "log" })}>
             Log
           </button>
-          <button className="btn" onClick={() => messenger("clear")}>
+          <button
+            className="btn"
+            onClick={() => messenger({ action: "clear" })}
+          >
             Clear
           </button>
         </span>
       </div>
       <div className="listContainer">
-        {domainInfo.map(({ domain, count }, index) => (
-          <div
-            onClick={() => openDomainNotes(domain)}
-            key={index}
-            className="item pointer"
-          >
-            <div className="content">{domain}</div>
-            <div className="actions">
-              <span className="count">{count}</span>
+        {Object.keys(domainInfo)
+          .filter(domain => !!domainInfo[domain])
+          .map(domain => (
+            <div
+              onClick={() => openDomainNotes(domain)}
+              key={domain}
+              className="item pointer"
+            >
+              <div className="content">{domain}</div>
+              <div className="actions">
+                <span className="count">{domainInfo[domain]}</span>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
       </div>
     </section>
   );

@@ -4,17 +4,23 @@ const getDomain = () => {
   return arr[2];
 };
 
-chrome.runtime.onMessage.addListener((request, sender, senderResponse) => {
-  switch (request.action) {
-    case "getURL":
-      senderResponse(getDomain());
-      break;
-    case "log":
-      chrome.storage.sync.get("notes", data => console.log("NoteBox:", data));
-      break;
-    case "clear":
-      chrome.storage.sync.clear();
-      console.log("Cleared..");
-      break;
+chrome.runtime.onMessage.addListener(
+  ({ action, data }, sender, senderResponse) => {
+    switch (action) {
+      case "getURL":
+        senderResponse(getDomain());
+        break;
+      case "log":
+        if (data) console.log("LOG", data);
+        else
+          chrome.storage.sync.get("notes", data =>
+            console.log("NoteBox:", data)
+          );
+        break;
+      case "clear":
+        chrome.storage.sync.clear();
+        console.log("Cleared..");
+        break;
+    }
   }
-});
+);
