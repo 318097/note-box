@@ -215,6 +215,7 @@ var App = function App() {
     });
   }, []);
   Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(function () {
+    if (!notes.length) return;
     var metaInfo = {};
     notes.forEach(function (_ref) {
       var url = _ref.url;

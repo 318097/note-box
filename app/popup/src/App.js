@@ -19,6 +19,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
+    if (!notes.length) return;
     const metaInfo = {};
     notes.forEach(({ url }) => {
       metaInfo[url] = metaInfo[url] ? metaInfo[url] + 1 : 1;
