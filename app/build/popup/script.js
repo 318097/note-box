@@ -221,7 +221,7 @@ var App = function App() {
       metaInfo[url] = metaInfo[url] ? metaInfo[url] + 1 : 1;
     });
     setDomainInfo(metaInfo);
-    if (notes.length) Object(_utils__WEBPACK_IMPORTED_MODULE_4__["setData"])("notes", _toConsumableArray(notes));
+    Object(_utils__WEBPACK_IMPORTED_MODULE_4__["setData"])("notes", _toConsumableArray(notes));
   }, [notes]);
 
   var showDomainInfo = function showDomainInfo() {
@@ -229,12 +229,17 @@ var App = function App() {
     setDomainUrl(null);
   };
 
+  var clearNotes = function clearNotes() {
+    return setNotes([]);
+  };
+
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "container"
   }, domainInfoVisibility ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Home__WEBPACK_IMPORTED_MODULE_2__["default"], {
     domainInfo: domainInfo,
     setDomainUrl: setDomainUrl,
-    setDomainInfoVisibility: setDomainInfoVisibility
+    setDomainInfoVisibility: setDomainInfoVisibility,
+    clearNotes: clearNotes
   }) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_components_Notes__WEBPACK_IMPORTED_MODULE_3__["default"], {
     notes: notes.filter(function (note) {
       return note.url === domainUrl;
@@ -635,6 +640,7 @@ __webpack_require__.r(__webpack_exports__);
 var Home = function Home(_ref) {
   var domainInfo = _ref.domainInfo,
       setDomainUrl = _ref.setDomainUrl,
+      clearNotes = _ref.clearNotes,
       setDomainInfoVisibility = _ref.setDomainInfoVisibility;
 
   var openDomainNotes = function openDomainNotes(domain) {
@@ -642,6 +648,7 @@ var Home = function Home(_ref) {
     setDomainInfoVisibility(false);
   };
 
+  var domainList = Object.keys(domainInfo);
   return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("section", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "header"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, "Domains"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
@@ -653,14 +660,10 @@ var Home = function Home(_ref) {
     }
   }, "Log"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
     className: "btn",
-    onClick: function onClick() {
-      return Object(_utils__WEBPACK_IMPORTED_MODULE_2__["messenger"])({
-        action: "clear"
-      });
-    }
+    onClick: clearNotes
   }, "Clear"))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "listContainer"
-  }, Object.keys(domainInfo).filter(function (domain) {
+  }, domainList.length ? /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_0__["Fragment"], null, domainList.filter(function (domain) {
     return !!domainInfo[domain];
   }).map(function (domain) {
     return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -676,7 +679,9 @@ var Home = function Home(_ref) {
     }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
       className: "count"
     }, domainInfo[domain])));
-  })));
+  })) : /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "empty-message"
+  }, "Empty")));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (Home);

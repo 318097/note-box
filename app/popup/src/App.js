@@ -24,13 +24,15 @@ const App = () => {
       metaInfo[url] = metaInfo[url] ? metaInfo[url] + 1 : 1;
     });
     setDomainInfo(metaInfo);
-    if (notes.length) setData("notes", [...notes]);
+    setData("notes", [...notes]);
   }, [notes]);
 
   const showDomainInfo = () => {
     setDomainInfoVisibility(true);
     setDomainUrl(null);
   };
+
+  const clearNotes = () => setNotes([]);
 
   return (
     <div className="container">
@@ -39,6 +41,7 @@ const App = () => {
           domainInfo={domainInfo}
           setDomainUrl={setDomainUrl}
           setDomainInfoVisibility={setDomainInfoVisibility}
+          clearNotes={clearNotes}
         />
       ) : (
         <Notes
