@@ -24,13 +24,14 @@
 }
 
 .actionButtons {
-  transition: 0.3s;
+  transition: all 0.6s;
   align-items: center;
   opacity: 0;
-  display: none;
+  visibility: none;
+  display: flex;
 }
 
 .item:hover .actionButtons {
   opacity: 1;
-  display: flex;
+  visibility: visible;
 }
