@@ -6,7 +6,7 @@ import Notes from "./components/Notes";
 import { messenger, getData, setData } from "./utils";
 
 const App = () => {
-  const [domainInfoVisibility, setDomainInfoVisibility] = useState(false);
+  const [showDomainPage, setShowDomainPage] = useState(false);
   const [domainUrl, setDomainUrl] = useState("others");
   const [notes, setNotes] = useState([]);
   const [domainInfo, setDomainInfo] = useState({});
@@ -28,8 +28,8 @@ const App = () => {
     setData("notes", [...notes]);
   }, [notes]);
 
-  const showDomainInfo = () => {
-    setDomainInfoVisibility(true);
+  const showHomePage = () => {
+    setShowDomainPage(false);
     setDomainUrl(null);
   };
 
@@ -37,19 +37,19 @@ const App = () => {
 
   return (
     <div className="container" id="react-ui">
-      {domainInfoVisibility ? (
-        <Home
-          domainInfo={domainInfo}
-          setDomainUrl={setDomainUrl}
-          setDomainInfoVisibility={setDomainInfoVisibility}
-          clearNotes={clearNotes}
-        />
-      ) : (
+      {showDomainPage ? (
         <Notes
           notes={notes.filter((note) => note.url === domainUrl)}
           setNotes={setNotes}
           domainUrl={domainUrl}
-          showDomainInfo={showDomainInfo}
+          showHomePage={showHomePage}
+        />
+      ) : (
+        <Home
+          domainInfo={domainInfo}
+          setDomainUrl={setDomainUrl}
+          setShowDomainPage={setShowDomainPage}
+          clearNotes={clearNotes}
         />
       )}
     </div>

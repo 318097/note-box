@@ -3,15 +3,10 @@ import "./Home.scss";
 import { messenger } from "../../utils";
 import { Button } from "@codedrops/react-ui";
 
-const Home = ({
-  domainInfo,
-  setDomainUrl,
-  clearNotes,
-  setDomainInfoVisibility,
-}) => {
+const Home = ({ domainInfo, setDomainUrl, clearNotes, setShowDomainPage }) => {
   const openDomainNotes = (domain) => {
     setDomainUrl(domain);
-    setDomainInfoVisibility(false);
+    setShowDomainPage(true);
   };
 
   const domainList = Object.keys(domainInfo);

@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 import { ConfirmBox, Button, Icon, Input } from "@codedrops/react-ui";
 import "./Notes.scss";
 
-const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
+const Notes = ({ notes, setNotes, domainUrl, showHomePage }) => {
   const [content, setContent] = useState("");
   const [editNote, setEditNote] = useState(null);
 
@@ -60,8 +60,8 @@ const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
       <div className="header">
         <span className="flex center">
           <Icon
-            onClick={showDomainInfo}
-            className="icon home-icon"
+            onClick={showHomePage}
+            className="icon home-icon mr"
             type="home"
           />
           <span>Notes: {domainUrl}</span>
