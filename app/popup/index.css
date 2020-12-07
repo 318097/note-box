@@ -12,17 +12,18 @@
   src: url("./src/assets/fonts/Roboto/Roboto-Light.ttf");
   font-family: Roboto-Light;
 } */
-/* 
+
 * {
   box-sizing: border-box;
   outline: none;
 }
-*/
+
 html,
 body,
 #root {
   font-size: 10px;
 }
+
 body,
 #root {
   height: 450px;
