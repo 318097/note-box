@@ -1,14 +1,12 @@
-@import "./theme.scss";
+@import "@codedrops/react-ui/dist/styles/custom-styles.scss";
+@import "@codedrops/react-ui/dist/styles/colors.scss";
 
 .container {
   display: flex;
   flex-direction: column;
   height: 100%;
   width: 100%;
-  padding: 4px;
   margin: 0;
-  background: $bg;
-  border-radius: 4px;
 }
 
 section {
@@ -20,7 +18,7 @@ section {
 
 .header {
   font-size: 1.2rem;
-  font-family: Roboto-Bold;
+  font-family: monospace;
   padding: 4px 8px;
   background: $black2;
   color: $white;
@@ -28,33 +26,32 @@ section {
   align-items: center;
   justify-content: space-between;
   min-height: 32px;
-  border-radius: 4px;
+  border-radius: 2px;
   text-transform: uppercase;
 }
 
-.listContainer {
+.list-container {
   flex: 1 1 auto;
   overflow-y: auto;
-  margin: 4px 0;
-  padding: 0 4px;
+  margin: 8px 0;
 }
 
 .item {
-  font-family: Roboto-Light, sans-serif;
+  font-family: monospace;
   word-break: break-all;
-  background: $white;
+  background: $bg;
   display: flex;
   align-items: center;
+  font-size: 12px;
   border: 1px solid transparent;
   position: relative;
-  border-radius: 4px;
-  margin-bottom: 6px;
-  transition: all 0.6s;
+  border-radius: 2px;
+  margin-bottom: 8px;
+  transition: all 0.3s;
   &:last-child {
     margin-bottom: 0;
   }
   &:hover {
-    // background: $strokeOne;
     border: 1px solid $yellow;
   }
   &.highlight {
@@ -66,7 +63,8 @@ section {
   text-align: center;
   opacity: 0.4;
   font-size: 2.4rem;
-  font-family: Roboto-Bold;
+  font-family: monospace;
+  font-weight: bold;
   text-transform: uppercase;
   margin-top: 12px;
 }
@@ -87,51 +85,19 @@ section {
 }
 
 .icon {
-  display: flex;
-  cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  height: max-height;
   margin: 0 1px;
   transition: 0.3s;
   background: $strokeOne;
-  border-radius: 50%;
-  transition: 0.3s;
-  &:hover {
-    background: $strokeTwo;
-  }
-  svg {
-    height: 1.2rem;
-    width: 1.2rem;
-    fill: $black;
-    margin: 4px;
-  }
-  &.edit-icon {
-    background: $yellow;
-    svg {
-      fill: $white;
-    }
-  }
-  &.delete-icon {
-    background: $red;
-    svg {
-      fill: $white;
-    }
-  }
+  // &.edit-icon {
+  //   background: $yellow;
+  // }
+  // &.delete-icon {
+  //   background: $red;
+  // }
 }
 
 .btn {
-  font-family: Roboto-light;
-  // border: 1px solid $orchid;
-  border: none;
-  border-radius: 4px;
+  font-family: monospace;
   margin-left: 4px;
-  background: $strokeOne;
-  padding: 4px 8px;
-  transition: all 0.6s;
-  cursor: pointer;
-  &:hover {
-    background: $orchid;
-    color: $white;
-  }
+  border-radius: 2px;
 }

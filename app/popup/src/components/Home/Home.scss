@@ -1,11 +1,12 @@
-@import "../../theme.scss";
+@import "@codedrops/react-ui/dist/styles/colors.scss";
 
 .count {
-  padding: 4px;
   border-radius: 50%;
-  text-align: center;
   height: 24px;
   width: 24px;
   color: $white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: $yellow;
 }

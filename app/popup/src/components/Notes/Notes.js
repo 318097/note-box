@@ -1,8 +1,6 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
-
-import { ConfirmBox } from "../../UIComponents";
-import { HomeIcon, EditIcon, DeleteIcon } from "../../assets/icons";
+import { ConfirmBox, Button, Icon, Input } from "@codedrops/react-ui";
 import "./Notes.scss";
 
 const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
@@ -12,39 +10,39 @@ const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
   const addNote = () => {
     if (!content) return;
 
-    setNotes(prev => [
+    setNotes((prev) => [
       ...prev,
       {
         url: domainUrl,
         id: uuid(),
         content,
-        createdAt: new Date().toISOString()
-      }
+        createdAt: new Date().toISOString(),
+      },
     ]);
     setContent("");
   };
 
-  const setNoteToEdit = id => {
+  const setNoteToEdit = (id) => {
     setEditNote({
       id,
-      mode: "EDIT"
+      mode: "EDIT",
     });
-    const matchedNote = notes.find(item => item.id === id);
+    const matchedNote = notes.find((item) => item.id === id);
     setContent(matchedNote.content);
   };
 
   const updateNote = () => {
     const { id } = editNote;
-    setNotes(prev => [
-      ...prev.map(item => {
+    setNotes((prev) => [
+      ...prev.map((item) => {
         if (item.id === id) {
           return {
             ...item,
-            content
+            content,
           };
         }
         return item;
-      })
+      }),
     ]);
     clearNote();
   };
@@ -54,47 +52,46 @@ const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
     setEditNote(null);
   };
 
-  const deleteNote = id =>
-    setNotes(prev => [...prev.filter(item => item.id !== id)]);
+  const deleteNote = (id) =>
+    setNotes((prev) => [...prev.filter((item) => item.id !== id)]);
 
   return (
     <section>
       <div className="header">
-        <span className="flex">
-          <span onClick={showDomainInfo} className="icon home-icon">
-            <HomeIcon />
-          </span>
+        <span className="flex center">
+          <Icon
+            onClick={showDomainInfo}
+            className="icon home-icon"
+            type="home"
+          />
           <span>Notes: {domainUrl}</span>
         </span>
         <span>Total: {notes.length}</span>
       </div>
-      <div className="listContainer">
+      <div className="list-container">
         {notes.length ? (
-          notes.map(({ content, id }) => (
+          notes.map(({ content, id }, index) => (
             <div
               key={id}
               className={`item${
                 editNote && editNote.id === id ? " highlight" : ""
               }`}
             >
-              <div className="content">{content}</div>
+              <div className="content">{`${index + 1}. ${content}`}</div>
               <div className="actions">
                 {editNote && editNote.id === id ? (
-                  <button className="btn" onClick={clearNote}>
+                  <Button size="sm" className="btn" onClick={clearNote}>
                     Cancel
-                  </button>
+                  </Button>
                 ) : (
                   <span className="actionButtons">
-                    <span
+                    <Icon
                       onClick={() => setNoteToEdit(id)}
                       className="icon edit-icon"
-                    >
-                      <EditIcon />
-                    </span>
+                      type="edit"
+                    />
                     <ConfirmBox onConfirm={() => deleteNote(id)}>
-                      <span className="icon delete-icon">
-                        <DeleteIcon />
-                      </span>
+                      <Icon className="icon delete-icon" type="delete" />
                     </ConfirmBox>
                   </span>
                 )}
@@ -107,20 +104,20 @@ const Notes = ({ notes, setNotes, domainUrl, showDomainInfo }) => {
       </div>
 
       <div className="controls">
-        <textarea
+        <Input
           value={content}
-          onChange={({ target: { value } }) => setContent(value)}
+          onChange={(e, value) => setContent(value)}
           className="inputbox"
           placeholder="Enter Note.."
         />
         {editNote && editNote.mode === "EDIT" ? (
-          <button onClick={updateNote} className="btn">
+          <Button onClick={updateNote} className="btn">
             Update
-          </button>
+          </Button>
         ) : (
-          <button onClick={addNote} className="btn">
+          <Button onClick={addNote} className="btn">
             Add
-          </button>
+          </Button>
         )}
       </div>
     </section>

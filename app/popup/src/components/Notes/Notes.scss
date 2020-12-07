@@ -1,8 +1,4 @@
-@import "../../theme.scss";
-
-.home-icon {
-  margin-right: 6px;
-}
+@import "@codedrops/react-ui/dist/styles/colors.scss";
 
 .controls {
   display: flex;
@@ -13,10 +9,10 @@
   .inputbox {
     flex: 1 1 auto;
     padding: 4px;
-    border-radius: 5px;
+    border-radius: 2px;
     border: 1px solid $chrome;
     resize: none;
-    font-family: Roboto-Light;
+    font-family: monospace;
     &:focus {
       border: 1px solid $blue;
     }

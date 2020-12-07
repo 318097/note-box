@@ -1,14 +1,15 @@
 import React, { Fragment } from "react";
 import "./Home.scss";
 import { messenger } from "../../utils";
+import { Button } from "@codedrops/react-ui";
 
 const Home = ({
   domainInfo,
   setDomainUrl,
   clearNotes,
-  setDomainInfoVisibility
+  setDomainInfoVisibility,
 }) => {
-  const openDomainNotes = domain => {
+  const openDomainNotes = (domain) => {
     setDomainUrl(domain);
     setDomainInfoVisibility(false);
   };
@@ -19,20 +20,24 @@ const Home = ({
       <div className="header">
         <span>Domains</span>
         <span>
-          <button className="btn" onClick={() => messenger({ action: "log" })}>
+          <Button
+            size="sm"
+            className="btn"
+            onClick={() => messenger({ action: "log" })}
+          >
             Log
-          </button>
-          <button className="btn" onClick={clearNotes}>
+          </Button>
+          <Button size="sm" className="btn" onClick={clearNotes}>
             Clear
-          </button>
+          </Button>
         </span>
       </div>
-      <div className="listContainer">
+      <div className="list-container">
         {domainList.length ? (
           <Fragment>
             {domainList
-              .filter(domain => !!domainInfo[domain])
-              .map(domain => (
+              .filter((domain) => !!domainInfo[domain])
+              .map((domain) => (
                 <div
                   onClick={() => openDomainNotes(domain)}
                   key={domain}

@@ -12,9 +12,9 @@ const App = () => {
   const [domainInfo, setDomainInfo] = useState({});
 
   useEffect(() => {
-    messenger({ action: "getURL" }, url => {
+    messenger({ action: "getURL" }, (url) => {
       setDomainUrl(url || "others");
-      getData("notes", data => setNotes([...(data["notes"] || [])]));
+      getData("notes", (data) => setNotes([...(data["notes"] || [])]));
     });
   }, []);
 
@@ -36,7 +36,7 @@ const App = () => {
   const clearNotes = () => setNotes([]);
 
   return (
-    <div className="container">
+    <div className="container" id="react-ui">
       {domainInfoVisibility ? (
         <Home
           domainInfo={domainInfo}
@@ -46,7 +46,7 @@ const App = () => {
         />
       ) : (
         <Notes
-          notes={notes.filter(note => note.url === domainUrl)}
+          notes={notes.filter((note) => note.url === domainUrl)}
           setNotes={setNotes}
           domainUrl={domainUrl}
           showDomainInfo={showDomainInfo}
