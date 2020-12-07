@@ -63,64 +63,102 @@ const Notes = ({ notes, setNotes, activeDomain, showHomePage }) => {
             onClick={showHomePage}
             className="icon home-icon mr"
             type="home"
+            fill={"#fff"}
           />
-          <span>Notes: {activeDomain}</span>
+          <span>{activeDomain}</span>
         </span>
         <span>Total: {notes.length}</span>
       </div>
       <div className="list-container">
         {notes.length ? (
-          notes.map(({ content, id }, index) => (
-            <div
-              key={id}
-              className={`item${
-                editNote && editNote.id === id ? " highlight" : ""
-              }`}
-            >
-              <div className="content">{`${index + 1}. ${content}`}</div>
-              <div className="actions">
-                {editNote && editNote.id === id ? (
-                  <Button size="sm" className="btn" onClick={clearNote}>
-                    Cancel
-                  </Button>
-                ) : (
-                  <span className="actionButtons">
-                    <Icon
-                      onClick={() => setNoteToEdit(id)}
-                      className="icon edit-icon"
-                      type="edit"
-                    />
-                    <ConfirmBox onConfirm={() => deleteNote(id)}>
-                      <Icon className="icon delete-icon" type="delete" />
-                    </ConfirmBox>
-                  </span>
-                )}
-              </div>
-            </div>
+          notes.map((item, index) => (
+            <CardItem
+              key={item.id}
+              item={item}
+              index={index}
+              editNote={editNote}
+              clearNote={clearNote}
+              setNoteToEdit={setNoteToEdit}
+              deleteNote={deleteNote}
+            />
           ))
         ) : (
           <div className="empty-message">Empty</div>
         )}
       </div>
 
-      <div className="controls">
-        <Input
-          value={content}
-          onChange={(e, value) => setContent(value)}
-          className="inputbox"
-          placeholder="Enter Note.."
-        />
-        {editNote && editNote.mode === "EDIT" ? (
-          <Button onClick={updateNote} className="btn">
-            Update
+      <Controls
+        content={content}
+        setContent={setContent}
+        editNote={editNote}
+        addNote={addNote}
+        updateNote={updateNote}
+      />
+    </section>
+  );
+};
+
+const CardItem = ({
+  item: { content, id },
+  index,
+  editNote,
+  clearNote,
+  setNoteToEdit,
+  deleteNote,
+}) => {
+  return (
+    <div
+      key={id}
+      className={`item ${editNote && editNote.id === id ? "highlight" : ""}`}
+    >
+      <div className="content">{`${index + 1}. ${content}`}</div>
+      <div className="actions">
+        {editNote && editNote.id === id ? (
+          <Button
+            style={{ height: "26px" }}
+            size="sm"
+            className="btn"
+            onClick={clearNote}
+          >
+            Cancel
           </Button>
         ) : (
-          <Button onClick={addNote} className="btn">
-            Add
-          </Button>
+          <span className="action-buttons">
+            <Icon
+              size={14}
+              onClick={() => setNoteToEdit(id)}
+              className="icon edit-icon"
+              type="edit"
+            />
+            <ConfirmBox onConfirm={() => deleteNote(id)}>
+              <Icon size={14} className="icon delete-icon" type="delete" />
+            </ConfirmBox>
+          </span>
         )}
       </div>
-    </section>
+    </div>
+  );
+};
+
+const Controls = ({ content, setContent, editNote, addNote, updateNote }) => {
+  return (
+    <div className="controls">
+      <Input
+        value={content}
+        onChange={(e, value) => setContent(value)}
+        className="inputbox"
+        placeholder="Enter Note.."
+      />
+      {editNote && editNote.mode === "EDIT" ? (
+        <Button onClick={updateNote} className="btn">
+          Update
+        </Button>
+      ) : (
+        <Button onClick={addNote} className="btn">
+          Add
+        </Button>
+      )}
+    </div>
   );
 };
 
