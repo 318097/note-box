@@ -3,7 +3,7 @@ import { v4 as uuid } from "uuid";
 import { ConfirmBox, Button, Icon, Input } from "@codedrops/react-ui";
 import "./Notes.scss";
 
-const Notes = ({ notes, setNotes, domainUrl, showHomePage }) => {
+const Notes = ({ notes, setNotes, activeDomain, showHomePage }) => {
   const [content, setContent] = useState("");
   const [editNote, setEditNote] = useState(null);
 
@@ -13,7 +13,7 @@ const Notes = ({ notes, setNotes, domainUrl, showHomePage }) => {
     setNotes((prev) => [
       ...prev,
       {
-        url: domainUrl,
+        url: activeDomain,
         id: uuid(),
         content,
         createdAt: new Date().toISOString(),
@@ -64,7 +64,7 @@ const Notes = ({ notes, setNotes, domainUrl, showHomePage }) => {
             className="icon home-icon mr"
             type="home"
           />
-          <span>Notes: {domainUrl}</span>
+          <span>Notes: {activeDomain}</span>
         </span>
         <span>Total: {notes.length}</span>
       </div>

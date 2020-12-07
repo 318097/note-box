@@ -1,54 +1,61 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
-
 import Home from "./components/Home";
 import Notes from "./components/Notes";
-import { messenger, getData, setData } from "./utils";
+import { messenger, getDataFromStorage, setDataInStorage } from "./utils";
 
 const App = () => {
-  const [showDomainPage, setShowDomainPage] = useState(false);
-  const [domainUrl, setDomainUrl] = useState("others");
+  const [activePage, setActivePage] = useState("DOMAIN");
+  const [activeDomain, setActiveDomain] = useState("others");
   const [notes, setNotes] = useState([]);
-  const [domainInfo, setDomainInfo] = useState({});
+  const [data, setData] = useState({});
 
   useEffect(() => {
     messenger({ action: "getURL" }, (url) => {
-      setDomainUrl(url || "others");
-      getData("notes", (data) => setNotes([...(data["notes"] || [])]));
+      setActiveDomain(url || "others");
+      getDataFromStorage("notes", (data) =>
+        setNotes([...(data["notes"] || [])])
+      );
     });
   }, []);
 
   useEffect(() => {
     if (!notes.length) return;
-    const metaInfo = {};
-    notes.forEach(({ url }) => {
-      metaInfo[url] = metaInfo[url] ? metaInfo[url] + 1 : 1;
+    const _data = {};
+    notes.forEach((note) => {
+      const { url } = note;
+      if (!_data[url]) _data[url] = [];
+      _data[url].push(note);
     });
-    setDomainInfo(metaInfo);
-    setData("notes", [...notes]);
+    setData(_data);
+    setDataInStorage("notes", [...notes]);
   }, [notes]);
 
   const showHomePage = () => {
-    setShowDomainPage(false);
-    setDomainUrl(null);
+    setActivePage("HOME");
+    setActiveDomain(null);
   };
 
-  const clearNotes = () => setNotes([]);
+  const clearNotes = () => {
+    setNotes([]);
+    setData({});
+    setDataInStorage("notes", []);
+  };
 
   return (
     <div className="container" id="react-ui">
-      {showDomainPage ? (
+      {activePage === "DOMAIN" ? (
         <Notes
-          notes={notes.filter((note) => note.url === domainUrl)}
+          notes={data[activeDomain] || []}
           setNotes={setNotes}
-          domainUrl={domainUrl}
+          activeDomain={activeDomain}
           showHomePage={showHomePage}
         />
       ) : (
         <Home
-          domainInfo={domainInfo}
-          setDomainUrl={setDomainUrl}
-          setShowDomainPage={setShowDomainPage}
+          data={data}
+          setActiveDomain={setActiveDomain}
+          setActivePage={setActivePage}
           clearNotes={clearNotes}
         />
       )}

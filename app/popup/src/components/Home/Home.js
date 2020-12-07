@@ -3,13 +3,11 @@ import "./Home.scss";
 import { messenger } from "../../utils";
 import { Button } from "@codedrops/react-ui";
 
-const Home = ({ domainInfo, setDomainUrl, clearNotes, setShowDomainPage }) => {
+const Home = ({ data, setActiveDomain, clearNotes, setActivePage }) => {
   const openDomainNotes = (domain) => {
-    setDomainUrl(domain);
-    setShowDomainPage(true);
+    setActiveDomain(domain);
+    setActivePage("DOMAIN");
   };
-
-  const domainList = Object.keys(domainInfo);
   return (
     <section>
       <div className="header">
@@ -28,26 +26,20 @@ const Home = ({ domainInfo, setDomainUrl, clearNotes, setShowDomainPage }) => {
         </span>
       </div>
       <div className="list-container">
-        {domainList.length ? (
-          <Fragment>
-            {domainList
-              .filter((domain) => !!domainInfo[domain])
-              .map((domain) => (
-                <div
-                  onClick={() => openDomainNotes(domain)}
-                  key={domain}
-                  className="item pointer"
-                >
-                  <div className="content">{domain}</div>
-                  <div className="actions">
-                    <span className="count">{domainInfo[domain]}</span>
-                  </div>
-                </div>
-              ))}
-          </Fragment>
-        ) : (
-          <div className="empty-message">Empty</div>
-        )}
+        {Object.entries(data)
+          .filter(([, notes]) => notes.length)
+          .map(([domain, notes]) => (
+            <div
+              onClick={() => openDomainNotes(domain)}
+              key={domain}
+              className="item pointer"
+            >
+              <div className="content">{domain}</div>
+              <div className="actions">
+                <span className="count">{notes.length}</span>
+              </div>
+            </div>
+          ))}
       </div>
     </section>
   );
