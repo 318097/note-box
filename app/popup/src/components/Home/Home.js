@@ -11,18 +11,18 @@ const Home = ({ data, setActiveDomain, clearNotes, setActivePage }) => {
   return (
     <section>
       <div className="header">
-        <span>Domains</span>
+        <span>NoteBox: Domains</span>
         <span>
-          <Button
+          {/* <Button
             size="sm"
             className="btn"
             onClick={() => messenger({ action: "log" })}
           >
             Log
-          </Button>
-          <Button size="sm" className="btn" onClick={clearNotes}>
+          </Button> */}
+          {/* <Button size="sm" className="btn" onClick={clearNotes}>
             Clear
-          </Button>
+          </Button> */}
         </span>
       </div>
       <div className="list-container">
