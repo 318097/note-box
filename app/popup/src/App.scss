@@ -18,7 +18,7 @@ section {
 
 .header {
   font-size: 1.2rem;
-  font-family: monospace;
+  font-family: Cascadia-Bold;
   padding: 4px 8px;
   background: $primary;
   color: $white;
@@ -37,7 +37,7 @@ section {
 }
 
 .item {
-  font-family: monospace;
+  font-family: Cascadia-Regular;
   word-break: break-all;
   background: $featherDark;
   display: flex;
@@ -62,7 +62,7 @@ section {
   text-align: center;
   opacity: 0.4;
   font-size: 2.4rem;
-  font-family: monospace;
+  font-family: Cascadia-Bold;
   font-weight: bold;
   text-transform: uppercase;
   margin-top: 12px;
@@ -89,7 +89,7 @@ section {
 }
 
 .btn {
-  font-family: monospace;
+  font-family: Cascadia-Regular;
   margin-left: 4px;
   border-radius: 2px !important;
 }
