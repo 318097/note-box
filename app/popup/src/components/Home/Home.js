@@ -34,7 +34,9 @@ const Home = ({ data, setActiveDomain, clearNotes, setActivePage }) => {
               key={domain}
               className="item pointer"
             >
-              <div className="content">{`${index + 1}. ${domain}`}</div>
+              <div className="content active-domain">{`${
+                index + 1
+              }. ${domain}`}</div>
               <div className="actions">
                 <span className="count">{notes.length}</span>
               </div>

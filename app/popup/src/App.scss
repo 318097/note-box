@@ -51,10 +51,10 @@ section {
     margin-bottom: 0;
   }
   &:hover {
-    border-color: $yellow;
+    border-color: $coffee;
   }
   &.highlight {
-    border-color: $blue;
+    border-color: $orchid;
   }
 }
 
@@ -83,15 +83,9 @@ section {
 }
 
 .icon {
-  margin: 0 1px;
+  // margin: 0 1px;
   transition: 0.3s;
-  background: $strokeOne;
-  // &.edit-icon {
-  //   background: $yellow;
-  // }
-  // &.delete-icon {
-  //   background: $red;
-  // }
+  // background: $strokeOne;
 }
 
 .btn {

@@ -7,11 +7,15 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: $yellow;
+  background: $coffee;
   padding: 0 14px;
   margin-right: 2px;
 }
 
 .pointer {
   cursor: pointer;
+}
+
+.content.active-domain {
+  max-width: 80%;
 }

@@ -1,5 +1,24 @@
 @import "@codedrops/react-ui/dist/styles/colors.scss";
 
+.active-domain {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 210px;
+}
+
+.home-icon:hover svg {
+  fill: $yellow;
+}
+
+.edit-icon:hover svg {
+  fill: $green;
+}
+
+.delete-icon:hover svg {
+  fill: $watermelon;
+}
+
 .controls {
   display: flex;
   height: 30px;
@@ -14,7 +33,7 @@
     resize: none;
     font-family: monospace;
     &:focus {
-      border: 1px solid $blue;
+      border: 1px solid $primary;
     }
   }
 }

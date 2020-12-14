@@ -65,7 +65,7 @@ const Notes = ({ notes, setNotes, activeDomain, showHomePage }) => {
             type="home"
             fill={"#fff"}
           />
-          <span>{activeDomain}</span>
+          <span className="active-domain">{activeDomain}</span>
         </span>
         <span>Total: {notes.length}</span>
       </div>
