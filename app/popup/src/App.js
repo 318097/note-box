@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
 import Home from "./components/Home";
+import About from "./components/About";
 import Notes from "./components/Notes";
 import { messenger, getDataFromStorage, setDataInStorage } from "./utils";
 
@@ -44,7 +45,9 @@ const App = () => {
 
   return (
     <div className="container" id="react-ui">
-      {activePage === "DOMAIN" ? (
+      {activePage === "ABOUT" ? (
+        <About setActivePage={setActivePage} />
+      ) : activePage === "DOMAIN" ? (
         <Notes
           notes={data[activeDomain] || []}
           setNotes={setNotes}

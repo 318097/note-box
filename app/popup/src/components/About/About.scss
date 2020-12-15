@@ -1,0 +1,34 @@
+@import "@codedrops/react-ui/dist/styles/colors.scss";
+
+#about {
+  .back-icon:hover svg {
+    fill: $yellow;
+  }
+
+  h3 {
+    color: $bar;
+    font-family: Cascadia-Bold;
+  }
+
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: $steel;
+    height: auto;
+    margin-top: 20px;
+    span {
+      margin-bottom: 4px;
+    }
+    a {
+      color: $bar;
+      transition: 0.4s;
+      text-decoration: none;
+      &:hover {
+        color: $coffee;
+        text-decoration: underline;
+      }
+    }
+  }
+}

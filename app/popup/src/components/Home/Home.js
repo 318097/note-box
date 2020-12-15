@@ -12,7 +12,8 @@ const Home = ({ data, setActiveDomain, clearNotes, setActivePage }) => {
     <section>
       <div className="header">
         <span>NoteBox: Domains</span>
-        <span>
+        <span className="about pointer" onClick={() => setActivePage("ABOUT")}>
+          About
           {/* <Button
             size="sm"
             className="btn"
