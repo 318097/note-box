@@ -1,6 +1,7 @@
 {
   "name": "Note Box",
   "version": "1.0",
+  "default_locale": "en",
   "description": "A Notebook for every domain",
   "background": {
     "scripts": ["background.js"],
@@ -16,5 +17,11 @@
   "page_action": {
     "default_popup": "build/popup/index.html"
   },
-  "manifest_version": 2
+  "manifest_version": 2,
+  "icons": { 
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "homepage_url": "https://www.codedrops.tech/products/note-box"
 }
