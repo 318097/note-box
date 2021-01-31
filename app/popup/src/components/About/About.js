@@ -21,7 +21,10 @@ const About = ({ setActivePage }) => {
         <span>Developer: Mehul Lakhanpal</span>
         <span>Email: mehullakhanpal@gmail.com</span>
         <span>
-          Website: <a href="www.codedrops.tech">www.codedrops.tech</a>
+          Website:{" "}
+          <a href="www.codedrops.tech?utm_source=note-box&utm_content=about">
+            www.codedrops.tech
+          </a>
         </span>
         <a href="https://github.com/318097/note-box" target="_blank">
           Github
