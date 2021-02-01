@@ -5,5 +5,11 @@ Saves notes based on `url`.
 ### Features
 - [x] Save Notes based on domain
 - [x] View notes of all domain
-- [ ] Export notes (JSON)
 - [x] Mark item as **done**
+
+## Upcoming
+- [ ] Export notes (JSON)
+- [ ] Filters 
+  - [ ] Search
+  - [ ] Sort by done, alphabetically, name, created
+- [ ] Show creation date for every item
