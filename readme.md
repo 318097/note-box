@@ -13,3 +13,4 @@ Saves notes based on `url`.
   - [ ] Search
   - [ ] Sort by done, alphabetically, name, created
 - [ ] Show creation date for every item
+- [ ] Categorize notes by domain paths
