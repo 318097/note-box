@@ -47,6 +47,8 @@ section {
   border-radius: 2px;
   margin-bottom: 8px;
   transition: all 0.3s;
+  opacity: 0;
+  animation: animate 0.4s forwards;
   &:last-child {
     margin-bottom: 0;
   }
@@ -55,6 +57,18 @@ section {
   }
   &.highlight {
     border-color: $orchid;
+  }
+  &.done .content {
+    color: $steel;
+    span {
+      text-decoration: line-through;
+    }
+  }
+}
+
+@keyframes animate {
+  to {
+    opacity: 1;
   }
 }
 

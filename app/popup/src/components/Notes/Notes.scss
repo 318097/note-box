@@ -11,6 +11,10 @@
   fill: $yellow;
 }
 
+.tick-icon:hover svg {
+  fill: $orchid;
+}
+
 .edit-icon:hover svg {
   fill: $green;
 }
@@ -43,12 +47,13 @@
   align-items: center;
   opacity: 0;
   visibility: none;
+  padding: 0 2px;
   transition: all 0.4s;
   background: $strokeOne;
   border: 1px solid $strokeTwo;
   border-radius: 2px;
   height: 26px;
-  width: 50px;
+  width: max-content;
   justify-content: space-evenly;
 }
 

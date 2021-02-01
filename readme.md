@@ -5,4 +5,5 @@ Saves notes based on `url`.
 ### Features
 - [x] Save Notes based on domain
 - [x] View notes of all domain
-- [ ] Export notes 
+- [ ] Export notes (JSON)
+- [x] Mark item as **done**

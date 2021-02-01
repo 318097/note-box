@@ -3,6 +3,15 @@ import { v4 as uuid } from "uuid";
 import { ConfirmBox, Button, Icon, Input } from "@codedrops/react-ui";
 import "./Notes.scss";
 
+const createNewNote = ({ activeDomain, content, type = "NOTE" }) => ({
+  url: activeDomain,
+  id: uuid(),
+  content,
+  createdAt: new Date().toISOString(),
+  done: false,
+  type,
+});
+
 const Notes = ({ notes, setNotes, activeDomain, showHomePage }) => {
   const [content, setContent] = useState("");
   const [editNote, setEditNote] = useState(null);
@@ -10,15 +19,7 @@ const Notes = ({ notes, setNotes, activeDomain, showHomePage }) => {
   const addNote = () => {
     if (!content) return;
 
-    setNotes((prev) => [
-      ...prev,
-      {
-        url: activeDomain,
-        id: uuid(),
-        content,
-        createdAt: new Date().toISOString(),
-      },
-    ]);
+    setNotes((prev) => [...prev, createNewNote({ activeDomain, content })]);
     setContent("");
   };
 
@@ -33,19 +34,21 @@ const Notes = ({ notes, setNotes, activeDomain, showHomePage }) => {
 
   const updateNote = () => {
     const { id } = editNote;
-    setNotes((prev) => [
-      ...prev.map((item) => {
-        if (item.id === id) {
-          return {
-            ...item,
-            content,
-          };
-        }
-        return item;
-      }),
-    ]);
+    updateNoteById(id, { content });
     clearNote();
   };
+
+  const updateNoteById = (id, update) =>
+    setNotes((prev) => [
+      ...prev.map((item) => {
+        return item.id === id
+          ? {
+              ...item,
+              ...update,
+            }
+          : item;
+      }),
+    ]);
 
   const clearNote = () => {
     setContent("");
@@ -80,6 +83,7 @@ const Notes = ({ notes, setNotes, activeDomain, showHomePage }) => {
               clearNote={clearNote}
               setNoteToEdit={setNoteToEdit}
               deleteNote={deleteNote}
+              updateNoteById={updateNoteById}
             />
           ))
         ) : (
@@ -99,19 +103,25 @@ const Notes = ({ notes, setNotes, activeDomain, showHomePage }) => {
 };
 
 const CardItem = ({
-  item: { content, id },
+  item: { content, id, done },
   index,
   editNote,
   clearNote,
   setNoteToEdit,
   deleteNote,
+  updateNoteById,
 }) => {
   return (
     <div
       key={id}
-      className={`item ${editNote && editNote.id === id ? "highlight" : ""}`}
+      className={`item ${editNote && editNote.id === id ? "highlight" : ""} ${
+        done ? "done" : ""
+      }`}
     >
-      <div className="content">{`${index + 1}. ${content}`}</div>
+      <div className="content">
+        {`${index + 1}.`}
+        <span>{content}</span>
+      </div>
       <div className="actions">
         {editNote && editNote.id === id ? (
           <Button
@@ -124,14 +134,29 @@ const CardItem = ({
           </Button>
         ) : (
           <span className="action-buttons">
+            {!done && (
+              <Icon
+                title="Mark as done"
+                size={14}
+                onClick={() => updateNoteById(id, { done: true })}
+                className="icon tick-icon"
+                type="check"
+              />
+            )}
             <Icon
+              title="Edit"
               size={14}
               onClick={() => setNoteToEdit(id)}
               className="icon edit-icon"
               type="edit"
             />
             <ConfirmBox onConfirm={() => deleteNote(id)}>
-              <Icon size={14} className="icon delete-icon" type="delete" />
+              <Icon
+                title="Delete"
+                size={14}
+                className="icon delete-icon"
+                type="delete"
+              />
             </ConfirmBox>
           </span>
         )}
