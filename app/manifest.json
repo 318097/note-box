@@ -1,7 +1,6 @@
 {
   "name": "Note Box",
   "version": "1.0",
-  "default_locale": "en",
   "description": "A Notebook for every domain",
   "background": {
     "scripts": ["background.js"],
