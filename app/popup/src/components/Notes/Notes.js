@@ -169,8 +169,13 @@ const Controls = ({ content, setContent, editNote, addNote, updateNote }) => {
   return (
     <div className="controls">
       <Input
+        autoFocus
         value={content}
         onChange={(e, value) => setContent(value)}
+        onKeyPress={(e) => {
+          if (e.which !== 13) return;
+          editNote && editNote.mode === "EDIT" ? updateNote() : addNote();
+        }}
         className="inputbox"
         placeholder="Enter Note.."
       />
