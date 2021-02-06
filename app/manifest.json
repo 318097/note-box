@@ -2,11 +2,7 @@
   "name": "Note Box",
   "version": "1.0",
   "description": "A Notebook for every domain",
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
-  "permissions": ["activeTab", "declarativeContent", "storage"],
+  "permissions": ["activeTab", "storage"],
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
