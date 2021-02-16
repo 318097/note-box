@@ -3,13 +3,12 @@ import { v4 as uuid } from "uuid";
 import { ConfirmBox, Button, Icon, Input } from "@codedrops/react-ui";
 import "./Notes.scss";
 
-const createNewNote = ({ activeDomain, content, type = "NOTE" }) => ({
-  url: activeDomain,
+const createNewNote = ({ activeDomain, content }) => ({
   id: uuid(),
-  content,
   createdAt: new Date().toISOString(),
   done: false,
-  type,
+  url: activeDomain,
+  content,
 });
 
 const Notes = ({ notes, setNotes, activeDomain, showHomePage }) => {

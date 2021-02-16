@@ -10,26 +10,30 @@ const App = () => {
   const [activeDomain, setActiveDomain] = useState("others");
   const [notes, setNotes] = useState([]);
   const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    messenger({ action: "getURL" }, (url) => {
-      setActiveDomain(url || "others");
-      getDataFromStorage("notes", (data) =>
-        setNotes([...(data["notes"] || [])])
-      );
+    messenger({ action: "getURL" }, (url = "others") => {
+      setActiveDomain(url);
+      getDataFromStorage("notes", ({ notes = [] }) => {
+        setNotes(notes);
+        setTimeout(() => setLoading(false), 500);
+      });
     });
   }, []);
 
   useEffect(() => {
-    if (!notes.length) return;
+    if (loading && !notes.length) return;
+
     const _data = {};
     notes.forEach((note) => {
       const { url } = note;
       if (!_data[url]) _data[url] = [];
+
       _data[url].push(note);
     });
     setData(_data);
-    setDataInStorage("notes", [...notes]);
+    setDataInStorage("notes", notes);
   }, [notes]);
 
   const showHomePage = () => {

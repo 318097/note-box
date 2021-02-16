@@ -1,19 +1,13 @@
-const getDomain = () => {
-  const url = window.location.href;
-  const arr = url.split("/");
-  return arr[2];
-};
-
 chrome.runtime.onMessage.addListener(
   ({ action, data }, sender, senderResponse) => {
     switch (action) {
       case "getURL":
-        senderResponse(getDomain());
+        senderResponse(window.location.hostname);
         break;
       case "log":
         if (data) console.log("LOG", data);
         else
-          chrome.storage.sync.get("notes", data =>
+          chrome.storage.sync.get("notes", (data) =>
             console.log("NoteBox:", data)
           );
         break;
