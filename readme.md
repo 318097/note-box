@@ -7,21 +7,21 @@
 
 [Download URL](https://chrome.google.com/webstore/detail/note-box/mbbajjgefpenmkkhcnmmnoodlbcbfnmp) • [Youtube](https://youtu.be/fX3IKhiEz1s) • [Product Page](https://www.codedrops.tech/products/note-box)
 
-A Chrome Extension that provides a "notes container" for every domain. Add unlimed notes, along with an option to mark that item as `DONE`. Notes/Todos gets added based on the URL. Revisit the same note list when back to that URL or access all the notes from the Homepage. <br/> No Login/Signup. <br/>All the notes are stored in the browser memory.
+> A Chrome Extension that provides an environment for every domain/URL. Revisit the notes when back to that URL or access it from `Home`.
+<br/> No Login/Signup. <br/>All the notes are stored in the browser memory.
 
 **Notes are stored in browser memory** 
 
 ![Alt](assets/Banner-600x400.png)
 
 ### Features - v1 (Released)
-- [x] Save Notes based on domain
-- [x] View notes of all domain
+- [x] View/Save notes based on domain
 - [x] Mark item as **done**
 
 ### Upcoming Features - v2
-- [ ] Export notes (JSON)
-- [ ] Filters 
+- [ ] Export notes (JSON, CSV)
+- [ ] Add Filters
   - [ ] Search
-  - [ ] Sort by task status, name, creation date
-- [ ] Show creation date for every item
-- [ ] Categorize notes by domain paths
+  - [ ] Sort (task status, name, creation date)
+- [ ] Update card to show creation date
+- [ ] View/Save notes based on paths
