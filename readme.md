@@ -1,9 +1,9 @@
 <a href="https://www.producthunt.com/posts/note-box?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-note-box" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=285333&theme=light" alt="Note Box - A Chrome extension to store notes for every domain | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
-![Alt](app/icons/icon128.png)
+![Alt](app/icons/icon48.png)
 
 ### Note Box - Chrome Extension
-**A Chrome extension to add notes/todos based on URL**
+**A chrome extension to add notes/todos based on URL**
 
 [Download URL](https://chrome.google.com/webstore/detail/note-box/mbbajjgefpenmkkhcnmmnoodlbcbfnmp) • [Youtube](https://youtu.be/fX3IKhiEz1s) • [Product Page](https://www.codedrops.tech/products/note-box)
 
