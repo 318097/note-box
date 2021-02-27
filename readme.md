@@ -25,3 +25,4 @@
   - [ ] Sort (task status, name, creation date)
 - [ ] Update card to show creation date
 - [ ] View/Save notes based on paths
+- [ ] Show pending tasks badge
