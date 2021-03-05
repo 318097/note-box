@@ -8,33 +8,33 @@ module.exports = {
   devtool: "cheap-module-source-map",
   output: {
     path: path.resolve(__dirname, "app/build/popup"),
-    filename: "script.js"
+    filename: "script.js",
   },
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ["babel-loader"]
+        use: ["babel-loader"],
       },
       {
         test: /\.scss$/,
-        use: ["style-loader", "css-loader", "sass-loader"]
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(ttf|otf)$/,
-        use: ["file-loader"]
+        use: ["file-loader"],
       },
       {
         test: /\.svg$/,
         exclude: /node_modules/,
-        use: ["@svgr/webpack"]
-      }
-    ]
+        use: ["@svgr/webpack"],
+      },
+    ],
   },
-  plugins: [new HtmlWebpackPlugin({ template: "./app/popup/index.html" })]
+  plugins: [new HtmlWebpackPlugin({ template: "./app/popup/index.html" })],
 };
