@@ -3,6 +3,7 @@ import "./App.scss";
 import Home from "./components/Home";
 import About from "./components/About";
 import Notes from "./components/Notes";
+import ErrorBoundary from "./components/ErrorBoundary";
 import { messenger, getDataFromStorage, setDataInStorage } from "./utils";
 
 const App = () => {
@@ -67,26 +68,28 @@ const App = () => {
   };
 
   return (
-    <div className="container" id="react-ui">
-      {activePage === "ABOUT" ? (
-        <About setActivePage={setActivePage} />
-      ) : activePage === "DOMAIN" ? (
-        <Notes
-          notesObj={splitNotes()}
-          setNotes={setNotes}
-          activeDomain={activeDomain}
-          absUrl={absUrl}
-          showHomePage={showHomePage}
-        />
-      ) : (
-        <Home
-          data={data}
-          setActiveDomain={setActiveDomain}
-          setActivePage={setActivePage}
-          clearNotes={clearNotes}
-        />
-      )}
-    </div>
+    <ErrorBoundary>
+      <div className="container" id="react-ui">
+        {activePage === "ABOUT" ? (
+          <About setActivePage={setActivePage} />
+        ) : activePage === "DOMAIN" ? (
+          <Notes
+            notesObj={splitNotes()}
+            setNotes={setNotes}
+            activeDomain={activeDomain}
+            absUrl={absUrl}
+            showHomePage={showHomePage}
+          />
+        ) : (
+          <Home
+            data={data}
+            setActiveDomain={setActiveDomain}
+            setActivePage={setActivePage}
+            clearNotes={clearNotes}
+          />
+        )}
+      </div>
+    </ErrorBoundary>
   );
 };
 
