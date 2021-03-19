@@ -61,3 +61,18 @@
   opacity: 1;
   visibility: visible;
 }
+
+.exact-match-container {
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid $bar;
+  span.exact-match {
+    font-size: 10px;
+    border-radius: 2px;
+    padding: 2px;
+    background: $bar;
+    margin-bottom: 8px;
+    color: white;
+    display: inline-block;
+  }
+}

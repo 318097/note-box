@@ -1,24 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, Fragment, memo } from "react";
 import { v4 as uuid } from "uuid";
 import { ConfirmBox, Button, Icon, Input } from "@codedrops/react-ui";
 import "./Notes.scss";
 
-const createNewNote = ({ activeDomain, content }) => ({
+const createNewNote = ({ activeDomain, content, absUrl }) => ({
   id: uuid(),
   createdAt: new Date().toISOString(),
   done: false,
   url: activeDomain,
   content,
+  absUrl,
 });
 
-const Notes = ({ notes, setNotes, activeDomain, showHomePage }) => {
+const Notes = ({ notesObj, setNotes, activeDomain, showHomePage, absUrl }) => {
+  const { notes, exactNotes, totalCount } = notesObj;
+
   const [content, setContent] = useState("");
   const [editNote, setEditNote] = useState(null);
 
   const addNote = () => {
     if (!content) return;
 
-    setNotes((prev) => [...prev, createNewNote({ activeDomain, content })]);
+    setNotes((prev) => [
+      ...prev,
+      createNewNote({ activeDomain, content, absUrl }),
+    ]);
     setContent("");
   };
 
@@ -69,22 +75,44 @@ const Notes = ({ notes, setNotes, activeDomain, showHomePage }) => {
           />
           <span className="active-domain">{activeDomain}</span>
         </span>
-        <span>Total: {notes.length}</span>
+        <span>Total: {totalCount}</span>
       </div>
       <div className="list-container">
-        {notes.length ? (
-          notes.map((item, index) => (
-            <CardItem
-              key={item.id}
-              item={item}
-              index={index}
-              editNote={editNote}
-              clearNote={clearNote}
-              setNoteToEdit={setNoteToEdit}
-              deleteNote={deleteNote}
-              updateNoteById={updateNoteById}
-            />
-          ))
+        {notes.length || exactNotes.length ? (
+          <Fragment>
+            {!!exactNotes.length && (
+              <div
+                className="exact-match-container"
+                style={notes.length ? {} : { borderBottom: "none" }}
+              >
+                <span className="exact-match">Exact URL match</span>
+                {exactNotes.map((item, index) => (
+                  <CardItem
+                    key={item.id}
+                    item={item}
+                    index={index}
+                    editNote={editNote}
+                    clearNote={clearNote}
+                    setNoteToEdit={setNoteToEdit}
+                    deleteNote={deleteNote}
+                    updateNoteById={updateNoteById}
+                  />
+                ))}
+              </div>
+            )}
+            {notes.map((item, index) => (
+              <CardItem
+                key={item.id}
+                item={item}
+                index={index}
+                editNote={editNote}
+                clearNote={clearNote}
+                setNoteToEdit={setNoteToEdit}
+                deleteNote={deleteNote}
+                updateNoteById={updateNoteById}
+              />
+            ))}
+          </Fragment>
         ) : (
           <div className="empty-message">Empty</div>
         )}
@@ -164,31 +192,33 @@ const CardItem = ({
   );
 };
 
-const Controls = ({ content, setContent, editNote, addNote, updateNote }) => {
-  return (
-    <div className="controls">
-      <Input
-        autoFocus
-        value={content}
-        onChange={(e, value) => setContent(value)}
-        onKeyPress={(e) => {
-          if (e.which !== 13) return;
-          editNote && editNote.mode === "EDIT" ? updateNote() : addNote();
-        }}
-        className="inputbox"
-        placeholder="Enter Note.."
-      />
-      {editNote && editNote.mode === "EDIT" ? (
-        <Button onClick={updateNote} className="btn">
-          Update
-        </Button>
-      ) : (
-        <Button onClick={addNote} className="btn">
-          Add
-        </Button>
-      )}
-    </div>
-  );
-};
+const Controls = memo(
+  ({ content, setContent, editNote, addNote, updateNote }) => {
+    return (
+      <div className="controls">
+        <Input
+          autoFocus
+          value={content}
+          onChange={(e, value) => setContent(value)}
+          onKeyPress={(e) => {
+            if (e.which !== 13) return;
+            editNote && editNote.mode === "EDIT" ? updateNote() : addNote();
+          }}
+          className="inputbox"
+          placeholder="Enter Note.."
+        />
+        {editNote && editNote.mode === "EDIT" ? (
+          <Button onClick={updateNote} className="btn">
+            Update
+          </Button>
+        ) : (
+          <Button onClick={addNote} className="btn">
+            Add
+          </Button>
+        )}
+      </div>
+    );
+  }
+);
 
 export default Notes;
