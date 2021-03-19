@@ -1,9 +1,13 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./Home.scss";
-import { messenger } from "../../utils";
-import { Button } from "@codedrops/react-ui";
 
-const Home = ({ data, setActiveDomain, clearNotes, setActivePage }) => {
+const Home = ({
+  data,
+  setActiveDomain,
+  clearNotes,
+  setActivePage,
+  exportNotes,
+}) => {
   const openDomainNotes = (domain) => {
     setActiveDomain(domain);
     setActivePage("DOMAIN");
@@ -12,19 +16,20 @@ const Home = ({ data, setActiveDomain, clearNotes, setActivePage }) => {
     <section>
       <div className="header">
         <span>NoteBox: Domains</span>
-        <span className="about pointer" onClick={() => setActivePage("ABOUT")}>
-          About
-          {/* <Button
-            size="sm"
-            className="btn"
-            onClick={() => messenger({ action: "log" })}
+        <span className="fcc">
+          <span
+            className="about pointer"
+            onClick={() => setActivePage("ABOUT")}
           >
-            Log
-          </Button> */}
-          {/* <Button size="sm" className="btn" onClick={clearNotes}>
+            About
+          </span>
+          <span className="about pointer ml" onClick={exportNotes}>
+            Export
+          </span>
+        </span>
+        {/* <Button size="sm" className="btn" onClick={clearNotes}>
             Clear
           </Button> */}
-        </span>
       </div>
       <div className="list-container">
         {Object.entries(data)

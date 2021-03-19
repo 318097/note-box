@@ -47,6 +47,29 @@ const App = () => {
     setDataInStorage("notes", []);
   };
 
+  const exportNotes = () => {
+    try {
+      const data = JSON.stringify(notes, undefined, 2);
+      const filename = "notebox.json";
+
+      const element = document.createElement("a");
+      element.setAttribute(
+        "href",
+        "data:text/plain;charset=utf-8," + encodeURIComponent(data)
+      );
+      element.setAttribute("download", filename);
+
+      element.style.display = "none";
+      document.body.appendChild(element);
+
+      element.click();
+
+      document.body.removeChild(element);
+    } catch (err) {
+      console.log("Err:", err);
+    }
+  };
+
   const splitNotes = () => {
     const result = {
       notes: [],
@@ -80,6 +103,7 @@ const App = () => {
           />
         ) : (
           <Home
+            exportNotes={exportNotes}
             data={data}
             setActiveDomain={setActiveDomain}
             setActivePage={setActivePage}
