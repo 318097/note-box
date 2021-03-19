@@ -28,8 +28,8 @@ const Home = ({ data, setActiveDomain, clearNotes, setActivePage }) => {
       </div>
       <div className="list-container">
         {Object.entries(data)
-          .filter(([, notes]) => notes.length)
-          .map(([domain, notes], index) => (
+          .filter(([, count]) => count)
+          .map(([domain, count], index) => (
             <div
               onClick={() => openDomainNotes(domain)}
               key={domain}
@@ -39,7 +39,7 @@ const Home = ({ data, setActiveDomain, clearNotes, setActivePage }) => {
                 index + 1
               }. ${domain}`}</div>
               <div className="actions">
-                <span className="count">{notes.length}</span>
+                <span className="count">{count}</span>
               </div>
             </div>
           ))}

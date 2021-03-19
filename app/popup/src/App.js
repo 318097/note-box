@@ -29,11 +29,8 @@ const App = () => {
     if (loading && !notes.length) return;
 
     const _data = {};
-    notes.forEach((note) => {
-      const { url } = note;
-      if (!_data[url]) _data[url] = [];
-
-      _data[url].push(note);
+    notes.forEach(({ url }) => {
+      _data[url] = _data[url] ? _data[url] + 1 : 1;
     });
     setData(_data);
     setDataInStorage("notes", notes);
@@ -57,10 +54,11 @@ const App = () => {
       totalCount: 0,
     };
 
-    const list = data[activeDomain] || [];
-    list.forEach((item) => {
-      if (item.absUrl && item.absUrl === absUrl) result.exactNotes.push(item);
-      else result.notes.push(item);
+    notes.forEach((note) => {
+      if (note.url === activeDomain) {
+        if (note.absUrl && note.absUrl === absUrl) result.exactNotes.push(note);
+        else result.notes.push(note);
+      }
     });
 
     result.totalCount = result.notes.length + result.exactNotes.length;
