@@ -16,7 +16,12 @@
   cursor: pointer;
 }
 
-.content.active-domain {
+.content.domain-name {
   max-width: 80%;
   font-family: Cascadia-Bold;
+}
+
+.active-domain {
+  background: $bg;
+  border-color: $coffee;
 }

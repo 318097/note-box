@@ -84,7 +84,7 @@ const Notes = ({
             type="home"
             fill={"#fff"}
           />
-          <span className="active-domain">{activeDomain}</span>
+          <span className="domain-name">{activeDomain}</span>
         </span>
         <span>Total: {totalCount}</span>
       </div>

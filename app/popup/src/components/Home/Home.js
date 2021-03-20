@@ -7,11 +7,13 @@ const Home = ({
   clearNotes,
   setActivePage,
   exportNotes,
+  activeDomain,
 }) => {
   const openDomainNotes = (domain) => {
     setActiveDomain(domain);
     setActivePage("DOMAIN");
   };
+
   return (
     <section>
       <div className="header">
@@ -38,9 +40,11 @@ const Home = ({
             <div
               onClick={() => openDomainNotes(domain)}
               key={domain}
-              className="item pointer"
+              className={`item pointer${
+                activeDomain === domain ? " active-domain" : ""
+              }`}
             >
-              <div className="content active-domain">{`${
+              <div className="content domain-name">{`${
                 index + 1
               }. ${domain}`}</div>
               <div className="actions">

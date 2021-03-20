@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { orderBy, toLower, forEach, filter } from "lodash";
 import "./App.scss";
 import Home from "./components/Home";
@@ -9,6 +9,7 @@ import { messenger, getDataFromStorage, setDataInStorage } from "./utils";
 import { INITIAL_FILTER_STATE } from "./constants";
 
 const App = () => {
+  const originalDomain = useRef();
   const [activePage, setActivePage] = useState("DOMAIN");
   const [activeDomain, setActiveDomain] = useState("others");
   const [absUrl, setAbsUrl] = useState(null);
@@ -20,6 +21,7 @@ const App = () => {
   useEffect(() => {
     messenger({ action: "getURL" }, ({ url = "others", absUrl } = {}) => {
       setActiveDomain(url);
+      originalDomain.current = url;
       setAbsUrl(absUrl);
       getDataFromStorage("notes", ({ notes = [] }) => {
         setNotes(notes);
@@ -123,6 +125,7 @@ const App = () => {
           <Home
             exportNotes={exportNotes}
             data={data}
+            activeDomain={originalDomain.current}
             setActiveDomain={setActiveDomain}
             setActivePage={setActivePage}
             clearNotes={clearNotes}
