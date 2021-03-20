@@ -32,8 +32,9 @@ section {
 
 .list-container {
   flex: 1 1 auto;
-  overflow-y: auto;
+  overflow-y: scroll;
   margin: 8px 0;
+  padding-right: 4px;
 }
 
 .item {
@@ -115,18 +116,16 @@ section {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: $strokeOne;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $steel;
-  opacity: 0.3;
-  border-radius: 15px;
+  background: rgba($strokeTwo, 0.6);
+  border-radius: 2px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: $steel;
-  opacity: 0.1;
+  background: $strokeTwo;
 }

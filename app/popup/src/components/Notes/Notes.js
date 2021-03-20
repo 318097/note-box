@@ -1,7 +1,9 @@
 import React, { useState, Fragment, memo } from "react";
 import { v4 as uuid } from "uuid";
-import { ConfirmBox, Button, Icon, Input } from "@codedrops/react-ui";
+import { isEqual } from "lodash";
+import { ConfirmBox, Button, Icon, Input, Select } from "@codedrops/react-ui";
 import "./Notes.scss";
+import { INITIAL_FILTER_STATE, sortOptions } from "../../constants";
 
 const createNewNote = ({ activeDomain, content, absUrl }) => ({
   id: uuid(),
@@ -12,7 +14,15 @@ const createNewNote = ({ activeDomain, content, absUrl }) => ({
   absUrl,
 });
 
-const Notes = ({ notesObj, setNotes, activeDomain, showHomePage, absUrl }) => {
+const Notes = ({
+  notesObj,
+  setNotes,
+  activeDomain,
+  showHomePage,
+  absUrl,
+  filters,
+  setFilters,
+}) => {
   const { notes, exactNotes, totalCount } = notesObj;
 
   const [content, setContent] = useState("");
@@ -63,6 +73,7 @@ const Notes = ({ notesObj, setNotes, activeDomain, showHomePage, absUrl }) => {
   const deleteNote = (id) =>
     setNotes((prev) => [...prev.filter((item) => item.id !== id)]);
 
+  const showClearButton = !isEqual(filters, INITIAL_FILTER_STATE);
   return (
     <section>
       <div className="header">
@@ -76,6 +87,45 @@ const Notes = ({ notesObj, setNotes, activeDomain, showHomePage, absUrl }) => {
           <span className="active-domain">{activeDomain}</span>
         </span>
         <span>Total: {totalCount}</span>
+      </div>
+      <div className="filters">
+        <Input
+          value={filters.search}
+          onChange={(e, value) =>
+            setFilters((prev) => ({ ...prev, search: value }))
+          }
+          className="inputbox mr"
+          placeholder="Search"
+          size="sm"
+        />
+        <Select
+          size="sm"
+          options={sortOptions}
+          className="mr"
+          placeholder="Sort"
+          value={filters.sortField}
+          onChange={(e, value) =>
+            setFilters((prev) => ({ ...prev, sortField: value }))
+          }
+        />
+        <Button
+          size="sm"
+          className="mr"
+          onClick={() =>
+            setFilters((prev) => ({
+              ...prev,
+              sortOrder: filters.sortOrder === "ASC" ? "DESC" : "ASC",
+            }))
+          }
+        >
+          {filters.sortOrder}
+        </Button>
+        {showClearButton && (
+          <Icon
+            onClick={() => setFilters(INITIAL_FILTER_STATE)}
+            type="cancel-2"
+          />
+        )}
       </div>
       <div className="list-container">
         {notes.length || exactNotes.length ? (
@@ -114,7 +164,9 @@ const Notes = ({ notesObj, setNotes, activeDomain, showHomePage, absUrl }) => {
             ))}
           </Fragment>
         ) : (
-          <div className="empty-message">Empty</div>
+          <div className="empty-message">
+            {filters.search ? "No search results." : "Empty"}
+          </div>
         )}
       </div>
 

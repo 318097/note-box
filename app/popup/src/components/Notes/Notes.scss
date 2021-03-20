@@ -42,6 +42,23 @@
   }
 }
 
+.filters {
+  display: flex;
+  margin-top: 8px;
+  align-items: center;
+  .inputbox {
+    // padding: 4px;
+    border-radius: 2px;
+    border: 1px solid $chrome;
+    resize: none;
+    font-family: Cascadia-Regular;
+    width: 140px;
+  }
+  .dropdown .dropdown-item {
+    padding-left: 10px !important;
+  }
+}
+
 .action-buttons {
   display: inline-flex;
   align-items: center;
@@ -65,12 +82,12 @@
 .exact-match-container {
   padding-bottom: 8px;
   margin-bottom: 8px;
-  border-bottom: 1px solid $bar;
+  border-bottom: 1px solid $coffee;
   span.exact-match {
     font-size: 10px;
     border-radius: 2px;
     padding: 2px;
-    background: $bar;
+    background: $coffee;
     margin-bottom: 8px;
     color: white;
     display: inline-block;

@@ -23,9 +23,9 @@
 ### Upcoming Features - v2
 
 - [x] Export notes as JSON
-- [ ] Filters
-  - [ ] Search
-  - [ ] Sort (status, content, creation date)
+- [x] Filters
+  - [x] Search
+  - [x] Sort (status, content, creation date)
 - [ ] Change card design to include creation date
 - [x] View/Save notes based on paths
 - [ ] Show pending tasks badge
