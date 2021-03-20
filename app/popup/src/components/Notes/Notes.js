@@ -24,7 +24,7 @@ const Notes = ({
   filters,
   setFilters,
 }) => {
-  const { notes, exactNotes, totalCount } = notesObj;
+  const { notes, exactNotes, totalCount, totalDone } = notesObj;
 
   const [content, setContent] = useState("");
   const [editNote, setEditNote] = useState(null);
@@ -75,6 +75,7 @@ const Notes = ({
     setNotes((prev) => [...prev.filter((item) => item.id !== id)]);
 
   const showClearButton = !isEqual(filters, INITIAL_FILTER_STATE);
+
   return (
     <section>
       <div className="header">
@@ -87,7 +88,12 @@ const Notes = ({
           />
           <span className="domain-name">{activeDomain}</span>
         </span>
-        <span>Total: {totalCount}</span>
+        <span className="fcc">
+          <span>Total: {totalCount}</span>
+          {!!totalDone && (
+            <span className="total-done">&nbsp;{`(${totalDone} done)`}</span>
+          )}
+        </span>
       </div>
       <div className="filters">
         <Input
@@ -95,14 +101,13 @@ const Notes = ({
           onChange={(e, value) =>
             setFilters((prev) => ({ ...prev, search: value }))
           }
-          className="inputbox mr"
+          className="inputbox"
           placeholder="Search"
           size="sm"
         />
         <Select
           size="sm"
           options={sortOptions}
-          className="mr"
           placeholder="Sort"
           value={filters.sortField}
           onChange={(e, value) =>
@@ -111,7 +116,6 @@ const Notes = ({
         />
         <Button
           size="sm"
-          className="mr"
           onClick={() =>
             setFilters((prev) => ({
               ...prev,

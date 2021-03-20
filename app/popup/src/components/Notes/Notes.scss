@@ -4,7 +4,7 @@
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  max-width: 210px;
+  max-width: 170px;
 }
 
 .home-icon:hover svg {
@@ -47,15 +47,26 @@
   margin-top: 8px;
   align-items: center;
   .inputbox {
-    // padding: 4px;
     border-radius: 2px;
     border: 1px solid $chrome;
     resize: none;
     font-family: Cascadia-Regular;
-    width: 140px;
+    width: 150px;
+    margin-right: 4px;
   }
+
   .dropdown .dropdown-item {
     padding-left: 10px !important;
+  }
+  .select {
+    margin-right: 4px;
+    .select-text {
+      border-radius: 2px;
+    }
+  }
+  .button {
+    border-radius: 2px;
+    margin-right: 2px;
   }
 }
 
@@ -92,4 +103,10 @@
     color: white;
     display: inline-block;
   }
+}
+
+.total-done {
+  text-transform: lowercase;
+  font-size: 10px;
+  opacity: 0.8;
 }

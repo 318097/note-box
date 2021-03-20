@@ -67,6 +67,10 @@ section {
   }
 }
 
+.exact-match-container .item {
+  background: $bg;
+}
+
 @keyframes animate {
   to {
     opacity: 1;

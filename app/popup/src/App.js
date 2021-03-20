@@ -80,6 +80,7 @@ const App = () => {
       notes: [],
       exactNotes: [],
       totalCount: 0,
+      totalDone: 0,
     };
 
     forEach(
@@ -97,6 +98,7 @@ const App = () => {
         }
       ),
       (note) => {
+        if (note.done) result.totalDone++;
         if (note.absUrl && note.absUrl === absUrl) result.exactNotes.push(note);
         else result.notes.push(note);
       }
