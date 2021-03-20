@@ -83,9 +83,17 @@ section {
   margin-top: 12px;
 }
 
-.content {
+.content-wrapper {
   flex: 1;
   padding: 8px;
+  display: flex;
+  flex-direction: column;
+  .date {
+    padding-top: 2px;
+    font-size: 10px;
+    color: $steel;
+    font-style: italic;
+  }
 }
 
 .actions {

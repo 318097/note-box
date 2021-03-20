@@ -26,7 +26,7 @@
 - [x] Filters
   - [x] Search
   - [x] Sort (status, content, creation date)
-- [ ] Change card design to include creation date
+- [x] Change card design to include creation date
 - [x] View/Save notes based on paths
 - [ ] Show pending tasks badge
 - [ ] Add Google analytics

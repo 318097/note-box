@@ -44,9 +44,11 @@ const Home = ({
                 activeDomain === domain ? " active-domain" : ""
               }`}
             >
-              <div className="content domain-name">{`${
-                index + 1
-              }. ${domain}`}</div>
+              <div className="content-wrapper">
+                <div className="content domain-name">{`${
+                  index + 1
+                }. ${domain}`}</div>
+              </div>
               <div className="actions">
                 <span className="count">{count}</span>
               </div>

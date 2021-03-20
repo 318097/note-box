@@ -1,6 +1,7 @@
 import React, { useState, Fragment, memo } from "react";
 import { v4 as uuid } from "uuid";
 import { isEqual } from "lodash";
+import dayjs from "dayjs";
 import { ConfirmBox, Button, Icon, Input, Select } from "@codedrops/react-ui";
 import "./Notes.scss";
 import { INITIAL_FILTER_STATE, sortOptions } from "../../constants";
@@ -182,7 +183,7 @@ const Notes = ({
 };
 
 const CardItem = ({
-  item: { content, id, done },
+  item: { content, id, done, createdAt },
   index,
   editNote,
   clearNote,
@@ -197,10 +198,16 @@ const CardItem = ({
         done ? "done" : ""
       }`}
     >
-      <div className="content">
-        {`${index + 1}.`}
-        <span>{content}</span>
+      <div className="content-wrapper">
+        <div className="content">
+          {`${index + 1}.`}
+          <span>{content}</span>
+        </div>
+        <span className="date">{`- ${dayjs(createdAt).format(
+          "DD MMM, YY"
+        )}`}</span>
       </div>
+
       <div className="actions">
         {editNote && editNote.id === id ? (
           <Button
