@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import { orderBy, toLower, forEach, filter } from "lodash";
+import { orderBy, toLower, forEach, filter, get, split } from "lodash";
+import queryString from "query-string";
 import "./App.scss";
 import Home from "./components/Home";
 import About from "./components/About";
@@ -7,6 +8,7 @@ import Notes from "./components/Notes";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { messenger, getDataFromStorage, setDataInStorage } from "./utils";
 import { INITIAL_FILTER_STATE } from "./constants";
+import mappings from "../config";
 
 const App = () => {
   const originalDomain = useRef();
@@ -100,7 +102,29 @@ const App = () => {
       (note) => {
         if (note.done) result.totalDone++;
         if (note.absUrl && note.absUrl === absUrl) result.exactNotes.push(note);
-        else result.notes.push(note);
+        else if (mappings[note.url] && note.absUrl) {
+          try {
+            const requiredParams = get(mappings, [note.url, "queryParams"], []);
+            const notesParams = queryString.parse(
+              get(split(note.absUrl, "?"), "1")
+            );
+            const absUrlParams = queryString.parse(
+              get(split(absUrl, "?"), "1")
+            );
+
+            let matchCount = 0;
+
+            requiredParams.forEach((param) => {
+              if (notesParams[param] === absUrlParams[param]) matchCount++;
+            });
+
+            matchCount === requiredParams.length
+              ? result.exactNotes.push(note)
+              : result.notes.push(note);
+          } catch (e) {
+            result.notes.push(note);
+          }
+        } else result.notes.push(note);
       }
     );
 
