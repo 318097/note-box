@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { orderBy, toLower, forEach, filter, get, split } from "lodash";
-import { v4 as uuidv4 } from "uuid";
 import queryString from "query-string";
-import mixpanel from "mixpanel-browser";
 import "./App.scss";
 import Home from "./components/Home";
 import About from "./components/About";
@@ -11,16 +9,22 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { messenger, getDataFromStorage, setDataInStorage } from "./utils";
 import { INITIAL_FILTER_STATE } from "./constants";
 import mappings from "../config";
+import * as tracking from "./tracking";
 
 const App = () => {
   const originalDomain = useRef();
-  const [activePage, setActivePage] = useState("DOMAIN");
+  const [activePage, _setActivePage] = useState("DOMAIN");
   const [activeDomain, setActiveDomain] = useState("others");
   const [absUrl, setAbsUrl] = useState(null);
   const [notes, setNotes] = useState([]);
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState(INITIAL_FILTER_STATE);
+
+  const setActivePage = (page) => {
+    _setActivePage(page);
+    tracking.track("Viewed page", { page });
+  };
 
   useEffect(() => {
     messenger({ action: "getURL" }, ({ url = "others", absUrl } = {}) => {
@@ -30,20 +34,7 @@ const App = () => {
       getDataFromStorage("notes", ({ notes = [] }) => {
         setNotes(notes);
         setTimeout(() => setLoading(false), 500);
-        getDataFromStorage("userInfo", ({ userInfo }) => {
-          try {
-            if (!userInfo) {
-              userInfo = {
-                createdAt: new Date().toISOString(),
-                userId: uuidv4(),
-              };
-              setDataInStorage("userInfo", userInfo);
-            }
-            mixpanel.identify(userInfo.userId);
-            mixpanel.people.set(userInfo);
-            mixpanel.track("Load", { notes: notes.length });
-          } catch (e) {}
-        });
+        tracking.init({ totalNotes: notes.length });
       });
     });
   }, []);
@@ -88,6 +79,7 @@ const App = () => {
       element.click();
 
       document.body.removeChild(element);
+      tracking.track("Export");
     } catch (err) {
       console.log("Err:", err);
     }
@@ -170,7 +162,7 @@ const App = () => {
             activeDomain={originalDomain.current}
             setActiveDomain={setActiveDomain}
             setActivePage={setActivePage}
-            clearNotes={clearNotes}
+            // clearNotes={clearNotes}
           />
         )}
       </div>
