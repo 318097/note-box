@@ -1,6 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { orderBy, toLower, forEach, filter, get, split } from "lodash";
+import { v4 as uuidv4 } from "uuid";
 import queryString from "query-string";
+import mixpanel from "mixpanel-browser";
 import "./App.scss";
 import Home from "./components/Home";
 import About from "./components/About";
@@ -28,6 +30,20 @@ const App = () => {
       getDataFromStorage("notes", ({ notes = [] }) => {
         setNotes(notes);
         setTimeout(() => setLoading(false), 500);
+        getDataFromStorage("userInfo", ({ userInfo }) => {
+          try {
+            if (!userInfo) {
+              userInfo = {
+                createdAt: new Date().toISOString(),
+                userId: uuidv4(),
+              };
+              setDataInStorage("userInfo", userInfo);
+            }
+            mixpanel.identify(userInfo.userId);
+            mixpanel.people.set(userInfo);
+            mixpanel.track("Load", { notes: notes.length });
+          } catch (e) {}
+        });
       });
     });
   }, []);

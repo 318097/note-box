@@ -1,3 +1,4 @@
 /node_modules
 /app/build/*
 *.zip
+.env
