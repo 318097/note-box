@@ -1,6 +1,7 @@
 import React, { useState, Fragment, memo } from "react";
 import { v4 as uuid } from "uuid";
 import { isEqual } from "lodash";
+import mixpanel from "mixpanel-browser";
 import dayjs from "dayjs";
 import { ConfirmBox, Button, Icon, Input, Select } from "@codedrops/react-ui";
 import "./Notes.scss";
@@ -37,6 +38,9 @@ const Notes = ({
       createNewNote({ activeDomain, content, absUrl }),
     ]);
     setContent("");
+    try {
+      mixpanel.track("Add Note", { url: activeDomain, absUrl });
+    } catch (e) {}
   };
 
   const setNoteToEdit = (id) => {
