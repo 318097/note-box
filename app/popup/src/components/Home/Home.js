@@ -17,15 +17,12 @@ const Home = ({
   return (
     <section>
       <div className="header">
-        <span>NoteBox: Domains</span>
-        <span className="fcc">
-          <span
-            className="about pointer"
-            onClick={() => setActivePage("ABOUT")}
-          >
+        <span>Note Box: Domains</span>
+        <span className="fcc menu-items">
+          <span className="menu" onClick={() => setActivePage("ABOUT")}>
             About
           </span>
-          <span className="about pointer ml" onClick={exportNotes}>
+          <span className="menu ml" onClick={exportNotes}>
             Export
           </span>
         </span>

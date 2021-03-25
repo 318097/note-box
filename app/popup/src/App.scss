@@ -18,7 +18,7 @@ section {
 
 .header {
   font-size: 1.2rem;
-  font-family: Cascadia-Bold;
+  font-family: Poppins-Bold;
   padding: 4px 8px;
   background: $primary;
   color: $white;
@@ -38,7 +38,7 @@ section {
 }
 
 .item {
-  font-family: Cascadia-Regular;
+  font-family: Poppins-Regular;
   word-break: break-all;
   background: $featherDark;
   display: flex;
@@ -81,7 +81,7 @@ section {
   text-align: center;
   opacity: 0.4;
   font-size: 2.4rem;
-  font-family: Cascadia-Bold;
+  font-family: Poppins-Bold;
   font-weight: bold;
   text-transform: uppercase;
   margin-top: 12px;
@@ -114,7 +114,7 @@ section {
 }
 
 .btn {
-  font-family: Cascadia-Regular;
+  font-family: Poppins-Regular;
   margin-left: 4px;
   border-radius: 2px !important;
 }

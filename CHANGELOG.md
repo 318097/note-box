@@ -7,3 +7,5 @@
   - Sort by content, creation, & status
 - Show `creation date` in card
 - Highlight active domain in `home`
+- Changed font to `Poppins`
+- Mixpanel

@@ -1,22 +1,22 @@
 @font-face {
-  src: url("./src/assets/fonts/CascadiaCode/CascadiaMono-Regular.otf");
-  font-family: Cascadia-Regular;
+  src: url("./src/assets/fonts/Poppins/Poppins-Regular.ttf");
+  font-family: Poppins-Regular;
 }
 
 @font-face {
-  src: url("./src/assets/fonts/CascadiaCode/CascadiaMono-Bold.otf");
-  font-family: Cascadia-Bold;
+  src: url("./src/assets/fonts/Poppins/Poppins-Bold.ttf");
+  font-family: Poppins-Bold;
 }
 
 @font-face {
-  src: url("./src/assets/fonts/CascadiaCode/CascadiaMono-SemiBold.otf");
-  font-family: Cascadia-SemiBold;
+  src: url("./src/assets/fonts/Poppins/Poppins-SemiBold.ttf");
+  font-family: Poppins-SemiBold;
 }
 
 * {
   box-sizing: border-box;
   outline: none;
-  font-family: Cascadia-Regular;
+  font-family: Poppins-Regular;
 }
 
 html,

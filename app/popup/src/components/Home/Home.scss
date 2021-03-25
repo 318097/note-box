@@ -18,10 +18,21 @@
 
 .content.domain-name {
   max-width: 80%;
-  font-family: Cascadia-Bold;
+  font-family: Poppins-Bold;
 }
 
 .active-domain {
   background: $bg;
   border-color: $coffee;
+}
+
+.header {
+  .menu-items {
+    .menu {
+      cursor: pointer;
+      &:hover {
+        color: $steel;
+      }
+    }
+  }
 }
