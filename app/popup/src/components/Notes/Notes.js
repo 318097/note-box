@@ -46,8 +46,10 @@ const Notes = ({
       id,
       mode: "EDIT",
     });
-    const matchedNote = notes.find((item) => item.id === id);
-    setContent(matchedNote.content);
+    const matchedNote = [...notes, ...exactNotes].find(
+      (item) => item.id === id
+    );
+    if (matchedNote) setContent(matchedNote.content);
   };
 
   const updateNote = () => {
