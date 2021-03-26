@@ -15,19 +15,18 @@
 
 ![Alt](assets/Banner-600x400.png)
 
-### Features - v1 (Released)
+### Features
 
 - [x] View/Save notes based on domain
 - [x] Mark item as **done**
-
-### Upcoming Features - v2
-
 - [x] Export notes as JSON
 - [x] Filters
   - [x] Search
   - [x] Sort (status, content, creation date)
 - [x] Change card design to include creation date
 - [x] View/Save notes based on paths
+
+## Upcomming
+
 - [ ] Show pending tasks badge
-- [ ] Add Google analytics
 - [ ] Sentry

@@ -1,8 +1,12 @@
 {
   "name": "note-box",
-  "version": "1.0.0",
-  "description": "",
-  "keywords": [],
+  "version": "2.0.0",
+  "description": "A chrome extension to add notes/todos based on URL",
+  "keywords": [
+    "productivity",
+    "notes-app",
+    "notes"
+  ],
   "author": "",
   "license": "ISC",
   "scripts": {
