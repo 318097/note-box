@@ -208,7 +208,7 @@ const CardItem = ({
     >
       <div className="content-wrapper">
         <div className="content">
-          {`${index + 1}.`}
+          {`${index + 1}. `}
           <span>{content}</span>
         </div>
         <span className="date">{`- ${dayjs(createdAt).format(
