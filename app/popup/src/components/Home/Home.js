@@ -18,11 +18,11 @@ const Home = ({
     <section>
       <div className="header">
         <span>Note Box: Domains</span>
-        <span className="fcc menu-items">
-          <span className="menu" onClick={() => setActivePage("ABOUT")}>
+        <span className="fcc menu">
+          <span className="menu-item" onClick={() => setActivePage("ABOUT")}>
             About
           </span>
-          <span className="menu ml" onClick={exportNotes}>
+          <span className="menu-item ml" onClick={exportNotes}>
             Export
           </span>
         </span>

@@ -1,8 +1,9 @@
 @import "@codedrops/react-ui/dist/styles/colors.scss";
+@import "../../../color.scss";
 
 #about {
   .back-icon:hover svg {
-    fill: $yellow;
+    color: $orange;
   }
 
   h3 {
@@ -26,7 +27,7 @@
       transition: 0.4s;
       text-decoration: none;
       &:hover {
-        color: $coffee;
+        color: $pink;
         text-decoration: underline;
       }
     }

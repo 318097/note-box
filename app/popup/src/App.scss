@@ -1,5 +1,6 @@
 @import "@codedrops/react-ui/dist/styles/custom-styles.scss";
 @import "@codedrops/react-ui/dist/styles/colors.scss";
+@import "../color.scss";
 
 .container {
   display: flex;
@@ -54,10 +55,10 @@ section {
     margin-bottom: 0;
   }
   &:hover {
-    border-color: $coffee;
+    border-color: $pink;
   }
   &.highlight {
-    border-color: $orchid;
+    border-color: $primary;
   }
   &.done .content {
     color: $steel;

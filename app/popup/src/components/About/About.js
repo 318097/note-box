@@ -17,7 +17,7 @@ const About = ({ setActivePage }) => {
         </span>
       </div>
       <div className="about-content">
-        <img src="https://raw.githubusercontent.com/318097/note-box/master/app/icons/icon48.png" />
+        <img src="https://raw.githubusercontent.com/318097/note-box/master/app/icons/icon32.png" />
         <h3>NoteBox</h3>
         <span>Developer: Mehul Lakhanpal</span>
         <span>Email: mehullakhanpal@gmail.com</span>
