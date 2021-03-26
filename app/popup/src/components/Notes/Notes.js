@@ -212,7 +212,7 @@ const CardItem = ({
           <span>{content}</span>
         </div>
         <span className="date">{`- ${dayjs(createdAt).format(
-          "DD MMM, YY"
+          "hh:mm A / DD MMM, YY"
         )}`}</span>
       </div>
 

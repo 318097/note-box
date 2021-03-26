@@ -24,10 +24,10 @@
     }
     a {
       color: $bar;
-      transition: 0.4s;
+      transition: 0.2s;
       text-decoration: none;
       &:hover {
-        color: $pink;
+        color: $orange;
         text-decoration: underline;
       }
     }
