@@ -2,15 +2,16 @@
 @import "../../../color.scss";
 
 .count {
-  border-radius: 2px;
-  height: 24px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
   color: $white;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   background: $pink;
-  padding: 0 14px;
-  margin-right: 2px;
+  width: 36px;
 }
 
 .pointer {

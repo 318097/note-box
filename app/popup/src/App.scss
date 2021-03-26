@@ -44,13 +44,14 @@ section {
   background: $featherDark;
   display: flex;
   font-size: 12px;
-  border: 1px solid transparent;
+  border: 1px solid $featherDark;
   position: relative;
   border-radius: 2px;
   margin-bottom: 8px;
   transition: all 0.3s;
   opacity: 0;
   animation: animate 0.4s forwards;
+  overflow: hidden;
   &:last-child {
     margin-bottom: 0;
   }

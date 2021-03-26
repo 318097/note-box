@@ -46,9 +46,7 @@ const Home = ({
                   index + 1
                 }. ${domain}`}</div>
               </div>
-              <div className="actions">
-                <span className="count">{count}</span>
-              </div>
+              <div className="count">{count}</div>
             </div>
           ))}
       </div>
