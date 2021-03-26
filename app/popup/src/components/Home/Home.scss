@@ -1,22 +1,40 @@
 @import "@codedrops/react-ui/dist/styles/colors.scss";
+@import "../../../color.scss";
 
 .count {
-  border-radius: 2px;
-  height: 24px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
   color: $white;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: $coffee;
-  padding: 0 14px;
-  margin-right: 2px;
+  background: $pink;
+  width: 36px;
 }
 
 .pointer {
   cursor: pointer;
 }
 
-.content.active-domain {
+.content.domain-name {
   max-width: 80%;
-  font-family: Cascadia-Bold;
+  font-family: Poppins-Bold;
+}
+
+.active-domain {
+  background: $bg;
+  border-color: $pink;
+}
+
+.header {
+  .menu {
+    .menu-item {
+      cursor: pointer;
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
 }

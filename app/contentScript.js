@@ -2,7 +2,10 @@ chrome.runtime.onMessage.addListener(
   ({ action, data }, sender, senderResponse) => {
     switch (action) {
       case "getURL":
-        senderResponse(window.location.hostname);
+        senderResponse({
+          url: window.location.hostname,
+          absUrl: window.location.href,
+        });
         break;
       case "log":
         if (data) console.log("LOG", data);

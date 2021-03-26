@@ -1,6 +1,6 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./About.scss";
-import { Button, Icon } from "@codedrops/react-ui";
+import { Icon } from "@codedrops/react-ui";
 
 const About = ({ setActivePage }) => {
   return (
@@ -17,6 +17,7 @@ const About = ({ setActivePage }) => {
         </span>
       </div>
       <div className="about-content">
+        <img src="https://raw.githubusercontent.com/318097/note-box/master/app/icons/icon32.png" />
         <h3>NoteBox</h3>
         <span>Developer: Mehul Lakhanpal</span>
         <span>Email: mehullakhanpal@gmail.com</span>

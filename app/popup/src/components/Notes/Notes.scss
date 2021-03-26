@@ -1,18 +1,19 @@
 @import "@codedrops/react-ui/dist/styles/colors.scss";
+@import "../../../color.scss";
 
-.active-domain {
+.domain-name {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  max-width: 210px;
+  max-width: 170px;
 }
 
 .home-icon:hover svg {
-  fill: $yellow;
+  fill: $orange;
 }
 
 .tick-icon:hover svg {
-  fill: $orchid;
+  fill: $green;
 }
 
 .edit-icon:hover svg {
@@ -20,7 +21,7 @@
 }
 
 .delete-icon:hover svg {
-  fill: $watermelon;
+  fill: $pink;
 }
 
 .controls {
@@ -35,10 +36,38 @@
     border-radius: 2px;
     border: 1px solid $chrome;
     resize: none;
-    font-family: Cascadia-Regular;
+    font-family: Poppins-Regular;
     &:focus {
-      border: 1px solid $primary;
+      border: 1px solid $pink;
     }
+  }
+}
+
+.filters {
+  display: flex;
+  margin-top: 8px;
+  align-items: center;
+  .inputbox {
+    border-radius: 2px;
+    border: 1px solid $chrome;
+    resize: none;
+    font-family: Poppins-Regular;
+    width: 150px;
+    margin-right: 4px;
+  }
+
+  .dropdown .dropdown-item {
+    padding-left: 10px !important;
+  }
+  .select {
+    margin-right: 4px;
+    .select-text {
+      border-radius: 2px;
+    }
+  }
+  .button {
+    border-radius: 2px;
+    margin-right: 2px;
   }
 }
 
@@ -60,4 +89,25 @@
 .item:hover .action-buttons {
   opacity: 1;
   visibility: visible;
+}
+
+.exact-match-container {
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+  border-bottom: 1px solid $pink;
+  span.exact-match {
+    font-size: 10px;
+    border-radius: 2px;
+    padding: 2px 4px;
+    background: $pink;
+    margin-bottom: 8px;
+    color: white;
+    display: inline-block;
+  }
+}
+
+.total-done {
+  text-transform: lowercase;
+  font-size: 10px;
+  opacity: 0.8;
 }

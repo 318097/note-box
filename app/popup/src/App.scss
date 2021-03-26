@@ -1,5 +1,6 @@
 @import "@codedrops/react-ui/dist/styles/custom-styles.scss";
 @import "@codedrops/react-ui/dist/styles/colors.scss";
+@import "../color.scss";
 
 .container {
   display: flex;
@@ -18,7 +19,7 @@ section {
 
 .header {
   font-size: 1.2rem;
-  font-family: Cascadia-Bold;
+  font-family: Poppins-Bold;
   padding: 4px 8px;
   background: $primary;
   color: $white;
@@ -32,31 +33,33 @@ section {
 
 .list-container {
   flex: 1 1 auto;
-  overflow-y: auto;
+  overflow-y: scroll;
   margin: 8px 0;
+  padding-right: 4px;
 }
 
 .item {
-  font-family: Cascadia-Regular;
+  font-family: Poppins-Regular;
   word-break: break-all;
   background: $featherDark;
   display: flex;
   font-size: 12px;
-  border: 1px solid transparent;
+  border: 1px solid $featherDark;
   position: relative;
   border-radius: 2px;
   margin-bottom: 8px;
   transition: all 0.3s;
   opacity: 0;
   animation: animate 0.4s forwards;
+  overflow: hidden;
   &:last-child {
     margin-bottom: 0;
   }
   &:hover {
-    border-color: $coffee;
+    border-color: $pink;
   }
   &.highlight {
-    border-color: $orchid;
+    border-color: $primary;
   }
   &.done .content {
     color: $steel;
@@ -64,6 +67,10 @@ section {
       text-decoration: line-through;
     }
   }
+}
+
+.exact-match-container .item {
+  background: $bg;
 }
 
 @keyframes animate {
@@ -76,15 +83,23 @@ section {
   text-align: center;
   opacity: 0.4;
   font-size: 2.4rem;
-  font-family: Cascadia-Bold;
+  font-family: Poppins-Bold;
   font-weight: bold;
   text-transform: uppercase;
   margin-top: 12px;
 }
 
-.content {
+.content-wrapper {
   flex: 1;
   padding: 8px;
+  display: flex;
+  flex-direction: column;
+  .date {
+    padding-top: 2px;
+    font-size: 10px;
+    color: $steel;
+    font-style: italic;
+  }
 }
 
 .actions {
@@ -101,7 +116,7 @@ section {
 }
 
 .btn {
-  font-family: Cascadia-Regular;
+  font-family: Poppins-Regular;
   margin-left: 4px;
   border-radius: 2px !important;
 }
@@ -115,18 +130,16 @@ section {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: $strokeOne;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: $steel;
-  opacity: 0.3;
-  border-radius: 15px;
+  background: rgba($strokeTwo, 0.6);
+  border-radius: 2px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: $steel;
-  opacity: 0.1;
+  background: $strokeTwo;
 }

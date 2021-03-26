@@ -1,13 +1,14 @@
 @import "@codedrops/react-ui/dist/styles/colors.scss";
+@import "../../../color.scss";
 
 #about {
   .back-icon:hover svg {
-    fill: $yellow;
+    color: $orange;
   }
 
   h3 {
     color: $bar;
-    font-family: Cascadia-Bold;
+    font-family: Poppins-Bold;
   }
 
   .about-content {
@@ -19,14 +20,14 @@
     height: auto;
     margin-top: 20px;
     span {
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
     a {
       color: $bar;
-      transition: 0.4s;
+      transition: 0.2s;
       text-decoration: none;
       &:hover {
-        color: $coffee;
+        color: $orange;
         text-decoration: underline;
       }
     }

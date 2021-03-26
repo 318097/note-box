@@ -1,46 +1,52 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./Home.scss";
-import { messenger } from "../../utils";
-import { Button } from "@codedrops/react-ui";
 
-const Home = ({ data, setActiveDomain, clearNotes, setActivePage }) => {
+const Home = ({
+  data,
+  setActiveDomain,
+  clearNotes,
+  setActivePage,
+  exportNotes,
+  activeDomain,
+}) => {
   const openDomainNotes = (domain) => {
     setActiveDomain(domain);
-    setActivePage("DOMAIN");
+    setActivePage("DOMAIN", { url: domain });
   };
+
   return (
     <section>
       <div className="header">
-        <span>NoteBox: Domains</span>
-        <span className="about pointer" onClick={() => setActivePage("ABOUT")}>
-          About
-          {/* <Button
-            size="sm"
-            className="btn"
-            onClick={() => messenger({ action: "log" })}
-          >
-            Log
-          </Button> */}
-          {/* <Button size="sm" className="btn" onClick={clearNotes}>
+        <span>Note Box: Domains</span>
+        <span className="fcc menu">
+          <span className="menu-item" onClick={() => setActivePage("ABOUT")}>
+            About
+          </span>
+          <span className="menu-item ml" onClick={exportNotes}>
+            Export
+          </span>
+        </span>
+        {/* <Button size="sm" className="btn" onClick={clearNotes}>
             Clear
           </Button> */}
-        </span>
       </div>
       <div className="list-container">
         {Object.entries(data)
-          .filter(([, notes]) => notes.length)
-          .map(([domain, notes], index) => (
+          .filter(([, count]) => count)
+          .map(([domain, count], index) => (
             <div
               onClick={() => openDomainNotes(domain)}
               key={domain}
-              className="item pointer"
+              className={`item pointer${
+                activeDomain === domain ? " active-domain" : ""
+              }`}
             >
-              <div className="content active-domain">{`${
-                index + 1
-              }. ${domain}`}</div>
-              <div className="actions">
-                <span className="count">{notes.length}</span>
+              <div className="content-wrapper">
+                <div className="content domain-name">{`${
+                  index + 1
+                }. ${domain}`}</div>
               </div>
+              <div className="count">{count}</div>
             </div>
           ))}
       </div>
