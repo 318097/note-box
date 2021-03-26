@@ -20,7 +20,7 @@ const Notes = ({
   notesObj,
   setNotes,
   activeDomain,
-  showHomePage,
+  setActivePage,
   absUrl,
   filters,
   setFilters,
@@ -85,7 +85,7 @@ const Notes = ({
       <div className="header">
         <span className="flex center">
           <Icon
-            onClick={showHomePage}
+            onClick={() => setActivePage("HOME")}
             className="icon home-icon mr"
             type="home"
             fill={"#fff"}

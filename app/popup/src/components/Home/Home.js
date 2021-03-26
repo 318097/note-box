@@ -11,7 +11,7 @@ const Home = ({
 }) => {
   const openDomainNotes = (domain) => {
     setActiveDomain(domain);
-    setActivePage("DOMAIN");
+    setActivePage("DOMAIN", { url: domain });
   };
 
   return (

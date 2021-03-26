@@ -21,9 +21,11 @@ const App = () => {
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState(INITIAL_FILTER_STATE);
 
-  const setActivePage = (page) => {
+  const setActivePage = (page, params = {}) => {
     _setActivePage(page);
-    tracking.track("Viewed page", { page });
+    if (page === "HOME") setActiveDomain(null);
+
+    tracking.track("Viewed page", { page, ...params });
   };
 
   useEffect(() => {
@@ -34,7 +36,7 @@ const App = () => {
       getDataFromStorage("notes", ({ notes = [] }) => {
         setNotes(notes);
         setTimeout(() => setLoading(false), 500);
-        tracking.init({ totalNotes: notes.length });
+        tracking.init({ totalNotes: notes.length, url });
       });
     });
   }, []);
@@ -49,11 +51,6 @@ const App = () => {
     setData(_data);
     setDataInStorage("notes", notes);
   }, [notes]);
-
-  const showHomePage = () => {
-    setActivePage("HOME");
-    setActiveDomain(null);
-  };
 
   const clearNotes = () => {
     setNotes([]);
@@ -151,7 +148,7 @@ const App = () => {
             setNotes={setNotes}
             activeDomain={activeDomain}
             absUrl={absUrl}
-            showHomePage={showHomePage}
+            setActivePage={setActivePage}
             filters={filters}
             setFilters={setFilters}
           />
