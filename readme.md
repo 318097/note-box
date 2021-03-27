@@ -17,7 +17,7 @@
 
 ### Features
 
-- [x] View/Save notes based on domain
+- [x] View/Save notes based on domain & URL
 - [x] Mark item as **done**
 - [x] Export notes as JSON
 - [x] Filters
@@ -30,3 +30,9 @@
 
 - [ ] Show pending tasks badge
 - [ ] Sentry
+- [ ] Open note link
+
+## Credits
+
+- Font Family - [Poppins](https://fonts.google.com/specimen/Poppins?preview.text_type=custom)
+- View/Save notes based on URL - Karan Aiyappa for the idea
