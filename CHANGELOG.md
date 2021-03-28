@@ -11,6 +11,7 @@
 - Mixpanel
 - Change color scheme
 - Icon v2
+- Error tracking using Sentry
 
 # v1
 
