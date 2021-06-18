@@ -1,4 +1,4 @@
-## v2
+## v2 (Live on 28 March)
 
 - Exact URL match
 - Export notes
