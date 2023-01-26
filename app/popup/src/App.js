@@ -5,7 +5,7 @@ import "./App.scss";
 import Home from "./components/Home";
 import About from "./components/About";
 import Notes from "./components/Notes";
-import ErrorBoundary from "./components/ErrorBoundary";
+// import ErrorBoundary from "./components/ErrorBoundary";
 import { messenger, getDataFromStorage, setDataInStorage } from "./utils";
 import { INITIAL_FILTER_STATE } from "./constants";
 import mappings from "../config";
@@ -138,32 +138,32 @@ const App = () => {
   };
 
   return (
-    <ErrorBoundary>
-      <div className="container" id="react-ui">
-        {activePage === "ABOUT" ? (
-          <About setActivePage={setActivePage} />
-        ) : activePage === "DOMAIN" ? (
-          <Notes
-            notesObj={splitNotes()}
-            setNotes={setNotes}
-            activeDomain={activeDomain}
-            absUrl={absUrl}
-            setActivePage={setActivePage}
-            filters={filters}
-            setFilters={setFilters}
-          />
-        ) : (
-          <Home
-            exportNotes={exportNotes}
-            data={data}
-            activeDomain={originalDomain.current}
-            setActiveDomain={setActiveDomain}
-            setActivePage={setActivePage}
-            // clearNotes={clearNotes}
-          />
-        )}
-      </div>
-    </ErrorBoundary>
+    // <ErrorBoundary>
+    <div className="container" id="react-ui">
+      {activePage === "ABOUT" ? (
+        <About setActivePage={setActivePage} />
+      ) : activePage === "DOMAIN" ? (
+        <Notes
+          notesObj={splitNotes()}
+          setNotes={setNotes}
+          activeDomain={activeDomain}
+          absUrl={absUrl}
+          setActivePage={setActivePage}
+          filters={filters}
+          setFilters={setFilters}
+        />
+      ) : (
+        <Home
+          exportNotes={exportNotes}
+          data={data}
+          activeDomain={originalDomain.current}
+          setActiveDomain={setActiveDomain}
+          setActivePage={setActivePage}
+          // clearNotes={clearNotes}
+        />
+      )}
+    </div>
+    // </ErrorBoundary>
   );
 };
 
